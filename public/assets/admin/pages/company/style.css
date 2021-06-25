@@ -1,0 +1,13 @@
+.spinner-border{
+    display: none !important;
+}
+#carouselExampleFade{
+    width: 300px;
+}
+.company_edit, .company_save {
+    text-align: right;
+    margin-top: 22px;
+}
+.back {
+    display: none !important;
+}

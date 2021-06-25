@@ -1,0 +1,7 @@
+.spinner-border{
+    display: none !important;
+}
+.bulletin_edit, .bulletin_save {
+    text-align: right;
+    margin-top: 22px;
+}
