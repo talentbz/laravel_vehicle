@@ -20,27 +20,37 @@
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Company Name</th>
-                                <th>Location</th>
-                                <th>email</th>
+                                <th>PHOTO</th>
+                                <th>会社名</th>
+                                <th>担当者</th>
+                                <th>所在地</th>
+                                <th>ID(Email)</th>
                                 <th>phone</th>
-                                <th>description</th>
+                                <th>説明</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($companie_infos as $key=>$companie_info)
+                            @forelse ($company_infos as $key=>$company_info)
                             <tr>
-                                <td>{{$key+=1}}</td>
-                                <td><a href="{!! route('company.details', ['id' => $companie_info->id]) !!}">{{$companie_info->name}}</a></td>
-                                <td>{{$companie_info->location}}</td>
-                                <td>{{$companie_info->email}}</td>
-                                <td>{{$companie_info->phone}}</td>
-                                <td>{!!$companie_info->description!!}</td>
+                                <td align="center">
+                                    <a href="{!! route('company.details', ['id' => $company_info->id]) !!}">
+                                        @if($company_info)
+                                            <img class="img-thumbnail" src="{{$company_info->path}}" alt="" width="100">
+                                        @else
+                                            <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" width="100">
+                                        @endif
+                                    </a>
+                                </td>
+                                <td><a href="{!! route('company.details', ['id' => $company_info->id]) !!}">{{$company_info->name}}</a></td>
+                                <td>{{$company_info->member}}</td>
+                                <td>{{$company_info->location}}</td>
+                                <td>{{$company_info->email}}</td>
+                                <td>{{$company_info->phone}}</td>
+                                <td>{!!$company_info->description!!}</td>
                             </tr>
                             @empty
                             <tr>
-                                <td align="center" colspan="5">There is no data</p>
+                                <td align="center" colspan="5">データが存在しません</p>
                             </tr>
                             @endforelse
                         </tbody>

@@ -1,3 +1,6 @@
 .spinner-border{
     display: none !important;
 }
+.edit {
+    margin-right: 9px;
+}

@@ -27,11 +27,11 @@
         <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
-
     <!-- Right Sidebar -->
-    @include('layouts.right-sidebar')
+    <script>
+        var datatable_json = "{{URL::asset('/assets/js/pages/japanese.json')}}"
+    </script>
     <!-- END Right Sidebar -->
-
     @include('layouts.vendor-scripts')
 </body>
 

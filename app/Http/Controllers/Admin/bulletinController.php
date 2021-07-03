@@ -15,11 +15,16 @@ class bulletinController extends Controller
 {
     public function index(Request $request){
         $userId = Auth::user()->id;
-        $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        $bulletins = Bulletin::where('company_id', $companyId)->orderBy('updated_at', 'DESC')->get();
+        $company = Company::select('id')->where('user_id', $userId)->first();
+        if($company){
+            $bulletins = Bulletin::where('company_id', $company->id)->orderBy('updated_at', 'DESC')->get();
+            
+        } else {
+            $bulletins = [];
+        }  
         return view('admin.pages.bulletin.index', [
-           'bulletins' =>$bulletins,
-         ]);
+            'bulletins' =>$bulletins,
+        ]);  
     }
 
     public function details(Request $request, $id){
@@ -78,6 +83,7 @@ class bulletinController extends Controller
     }
     public function destroy(Request $request){
         $id = $request->id;
+        dd($id);
         if($id){
             $result = Bulletin::where('id', $id)->delete();
             return response()->json($result);

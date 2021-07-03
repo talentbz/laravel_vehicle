@@ -21,51 +21,61 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">掲示板情報</h4>
-                @if(!empty($vehicle_infos || $company))
-                <div class="lnb-new-schedule float-sm-end ms-sm-3 mt-4 mt-sm-0">
-                    <a href="{{route('vehicle.create')}}" class="btn btn-outline-primary waves-effect waves-light" >Add New</a>
+                <div class="cart-header">
+                    <h4 class="card-title">在庫車両</h4>
+                    @if(!empty($vehicle_infos || $company))
+                        <a href="{{route('vehicle.create')}}" class="btn btn-outline-primary waves-effect waves-light" ><i class="fas fa-plus"></i> 追加</a>
+                    @endif
                 </div>
-                @endif
                 <div class="table-responsive">
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>image</th>
-                                <th>ID</th>
+                                <th>PHOTO</th>
+                                <th>登録NO</th>
                                 <th>メーカー</th>
                                 <th>車名</th>
                                 <th>型式</th>
-                                <th>排気量</th>
+                                <!-- <th>排気量</th> -->
                                 <th>年式</th>
-                                <th>車検</th>
-                                <th>車体番号</th>
+                                <th>車検有効期限</th>
+                                <!-- <th>車体番号</th> -->
                                 <th>走行距離</th>
-                                <th>価格(抜き)</th>
-                                <th>価格(税込）</th>
-                                <th>特記</th>
+                                <th>販売価格(税抜)</th>
+                                <th>販売価格(税込）</th>
+                                <!-- <th width="5%">特記</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($vehicle_infos as $vehicle_info)
                             <tr>
-                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->vehicle_id]) !!}"><img class="img-thumbnail" src="{{$vehicle_info->car_path}}" alt="" width="100"></a></td>
-                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->vehicle_id]) !!}">ID:{{$vehicle_info->vehicle_id}}</a></td>
+                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">
+                                    @if($vehicle_info->car_path)
+                                        <img class="img-thumbnail" src="{{$vehicle_info->car_path}}" alt="" width="100">
+                                    @else
+                                        <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" width="100">
+                                    @endif
+                                </a></td>
+                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">ID: {{'00'.$vehicle_info->id}}</a></td>
                                 <td>{{$vehicle_info->car_category}}</td>
                                 <td>{{$vehicle_info->car_name}}</td>
                                 <td>{{$vehicle_info->model}}</td>
-                                <td>{{$vehicle_info->displacement.' L'}}</td>
+                                <!-- <td>{{number_format($vehicle_info->displacement).' L'}}</td> -->
                                 <td>{{$vehicle_info->start_year.$vehicle_info->start_month}}</td>
                                 <td>{{$vehicle_info->end_year.$vehicle_info->end_month}}</td>
-                                <td>{{$vehicle_info->body_number}}</td>
-                                <td>{{$vehicle_info->displacement.' Km'}}</td>
-                                <td>{{$vehicle_info->taxExc_price.' 円'}}</td>
-                                <td class="tax-inc">{{$vehicle_info->taxInc_price.' 円'}}</td>
-                                <td>{{$vehicle_info->note}}</td>
+                                <!-- <td>{{$vehicle_info->body_number}}</td> -->
+                                <td>{{number_format($vehicle_info->mileage).' Km'}}</td>
+                                <td>{{$vehicle_info->taxExc_price.' 万円'}}</td>
+                                <td class="tax-inc">{{number_format($vehicle_info->taxInc_price).' 万円'}}</td>
+                                <!-- <td>{{$vehicle_info->note}}</td> -->
                             </tr>
                             @empty
                             <tr>
-                                <td align="center" colspan="13">Please create company.</p>
+                                @if(empty($vehicle_infos))
+                                    <td align="center" colspan="13">会社を作ってください。</p>
+                                @else
+                                    <td align="center" colspan="13">データはありません。</p>
+                                @endif
                             </tr>
                             @endforelse
                         </tbody>
@@ -84,5 +94,6 @@
         <!-- toastr init -->
     <script src="{{ URL::asset('/assets/js/pages/toastr.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/pages/vehicle/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/admin/pages/vehicle/list.js') }}"></script>
     @endsection
 @endsection

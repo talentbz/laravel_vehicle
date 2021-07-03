@@ -73,7 +73,7 @@
                         </table>
                     </div>
                     <div class="company_save">
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="セーブ" />
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light" ><i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
             </div>
@@ -89,11 +89,13 @@
     <script src="https://plugins.krajee.com/assets/prod/all-krajee.min.js"></script>
     <script src="https://plugins.krajee.com/assets/7cdef544/js/plugins/piexif.min.js" type="text/javascript"></script>
     <script src="https://plugins.krajee.com/assets/7cdef544/js/plugins/sortable.min.js" type="text/javascript"></script>
+    
 
     <script src="{{ URL::asset('assets/js/pages/file-input.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
     <script src="{{ URL::asset('/assets/libs/dropzone/dropzone.min.js') }}"></script>
     <!--tinymce js-->
+    <script src="{{ URL::asset('assets/libs/tinymce/tinymce.init.js') }}"></script>
     <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
     <!-- init js -->
     <script src="{{ URL::asset('assets/js/pages/form-editor.init.js') }}"></script>

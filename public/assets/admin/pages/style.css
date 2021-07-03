@@ -1,4 +1,32 @@
+/* custom header data table */
+.cart-header {
+    display: flow-root;
+    margin-bottom: 21px;
+}
+.cart-header .card-title {
+    float: left;
+}
+.cart-header a, .cart-header button {
+    float: right;
+}
 /* vehicle page */
 .tax-inc {
     color: red;
+}
+.admin-info {
+    color: #fff;
+    width: 311px;
+}
+.admin-info p {
+    float: left;
+    margin: 0;
+    margin-top: 10px;
+}
+
+/* file input modal  */
+.kv-zoom-actions {
+    display: none;
+}
+table th{
+    text-align: center;
 }

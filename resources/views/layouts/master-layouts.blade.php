@@ -14,7 +14,7 @@
             <div class="page-content">
                 <!-- Start content -->
                 <div class="container-fluid">
-                    @include('admin.pages.dashboard')
+                    
                 </div> <!-- content -->
             </div>
             @include('layouts.footer')

@@ -1,0 +1,17 @@
+.custom-logo {
+    margin: 60px 0 2px 0 !important;
+}
+.custom-logo h1{
+    text-align: center;
+    font-style: italic;
+}
+.custom-logo .title-1{
+    color:rgb(255, 192, 0);
+}
+.custom-logo .title-2{
+    color: rgb(127, 127, 127);
+}
+.custom-border {
+    border-top: 1px solid rgb(165, 165, 165);
+    margin-bottom: 30px;
+}

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 use Auth;
-use DB, Validator, Exception;
+use DB, Validator, Exception, Image;
 use Illuminate\Support\Facades\URL;
 use App\Models\User;
 use App\Models\Company;
@@ -23,8 +24,10 @@ class vehicleController extends Controller
             if($vehicle){
                 $vehicle_infos = Vehicle::leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                         ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
-                                        ->groupBy('vehicle_media.vehicle_id')
-                                        ->get();                                        
+                                        ->groupBy('vehicle.id')
+                                        ->select('vehicle.*', 'vehicle_media.car_path', 'vehicle_fee.taxExc_price', 'vehicle_fee.taxInc_price')
+                                        ->orderBy('vehicle.updated_at', 'asc')
+                                        ->get();                    
             } else {
                 $vehicle_infos =[];
             }
@@ -297,14 +300,10 @@ class vehicleController extends Controller
 
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
+      
+        $vehicel_id = Vehicle::latest()->first()->id;
+        $vehicel_id ++;
         
-        if($vehicle_exist>0){
-            $vehicel_id =Vehicle::where('company_id', $companyId)->first()->id;
-        } else {
-            $vehicel_id = Vehicle::latest('id')->first();
-            $vehicel_id ++;
-        }
         $car_paths = VehicleMedia::where('vehicle_id', $vehicel_id)->get();
         $path_array = [];
         $id_array = [];
@@ -328,6 +327,7 @@ class vehicleController extends Controller
             'expiration_years' => $expiration_years,
             'car_paths' => $path_array,
             'id_array'   => $id_array,
+            'vehicel_id' => $vehicel_id,
         ]);
     }
     public function details(Request $request, $vehicel_id){
@@ -657,8 +657,8 @@ class vehicleController extends Controller
         if($vehicle_exist>0){
             $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first()->id;
         } else {
-            $vehicleId = Vehicle::latest('id')->first()->id;
-            $vehicleId ++;
+            // $vehicleId = Vehicle::latest('id')->first()->id;
+            // $vehicleId ++;
         }
         if ($request->has('file')) { 
             $extension = $request->file->extension();
@@ -901,20 +901,29 @@ class vehicleController extends Controller
     public function photoDestroy(Request $request){
         $userId = Auth::user()->id;
         $id = $request->key;
+        $fileName = vehicleMedia::where('id', $id)->first()->car_path;
+        if(File::exists(public_path($fileName))){
+            File::delete(public_path($fileName));
+            dd($fileName);
+        }
         $result = vehicleMedia::where('id', $id)->delete();
         return response()->json(['result' => true, 'deleted' => $result]);
     }
-    public function phtotoStore(Request $request){
+    public function photoStore(Request $request, $vehicleId){
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
-        $vehicleId = Vehicle::latest('id')->first()->id;
-        
+        //$vehicleId = Vehicle::where('company_id', $companyId)->first()->id;
+        //$vehicleId = Vehicle::latest('id')->first()->id;
         //$image_count = CompanyMedia::where('user_id', $userId)->count();
         if ($request->has('file')) { 
             $extension = $request->file->extension();
             $imageName = round(microtime(true) * 1000) . '.' . $extension;
-            $request->file->move(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'), $imageName);
+            $imgx = Image::make($request->file->getRealPath());
+            //image resize and crop
+            $imgx->resize(700, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/') . $imageName);
         }
         
         $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);

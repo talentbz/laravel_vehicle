@@ -121,6 +121,10 @@ $(document).ready(function () {
         initialPreviewAsData: true,
         deleteUrl: remove_photo,
         initialPreviewConfig: id_array,
+        //minImageWidth:640,
+        //maxImageHeight: 480,
+        //maxImageWidth: 640,
+        //maxImageHeight: 480,
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
@@ -134,7 +138,7 @@ $(document).ready(function () {
         
         uploadUrl: add_photo_url,
         overwriteInitial: false,
-        maxFileCount: 5,
+        maxFileCount: 50,
         showBrowse: false,
         browseOnZoneClick: true
     });

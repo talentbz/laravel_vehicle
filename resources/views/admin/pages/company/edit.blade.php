@@ -25,9 +25,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="text-nowrap" scope="row">所在地</th>
+                                    <th class="text-nowrap" scope="row">担当者</th>
                                     <td colspan="6">
-                                        <input parsley-type="location" type="text" name="name" class="form-control" required value="{{$company->name}}" placeholder="Enter name" id="name"/>
+                                        <input parsley-type="member" type="text" name="member" class="form-control" required value="{{$company->member}}" placeholder="Enter member name" id="member"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -51,15 +51,20 @@
                                 <tr>
                                     <th class="text-nowrap" scope="row">会社説明</th>
                                     <td colspan="6">
-                                         <textarea id="elm1" name="description">{{$company->description}}</textarea>
+                                         <textarea id="textarea" name="description" class="form-control" maxlength="1000" rows="3"
+                                        placeholder="This textarea has a limit of 1000 chars.">{{$company->description}}</textarea>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="company_save">
-                        <input type="button" class="btn btn-outline-primary waves-effect waves-light back" value="Back" />
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="セーブ" />
+                        <button class="btn btn-outline-primary waves-effect waves-light back">
+                            <i class="fas fa-long-arrow-alt-left"></i>back
+                        </button>
+
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light">
+                        <i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
                 <table class="table table-bordered table-striped table-nowrap mb-0">
@@ -96,14 +101,19 @@
 
     <script src="{{ URL::asset('assets/js/pages/file-input.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
-    <script src="{{ URL::asset('/assets/libs/dropzone/dropzone.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <!--tinymce js-->
     <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
     <!-- init js -->
     <script src="{{ URL::asset('assets/js/pages/form-editor.init.js') }}"></script>
      <!-- toastr plugin -->
      <script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>
-        <!-- toastr init -->
+    <!-- toastr init -->
     <script src="{{ URL::asset('/assets/js/pages/toastr.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/admin/pages/company/index.js') }}"></script>
     @endsection

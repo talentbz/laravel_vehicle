@@ -15,7 +15,7 @@
         <div class="card">
             <div class="card-body">
                 <!-- vehicle slider section -->
-                <h4 class="card-title">With controls</h4>
+                <!-- <h4 class="card-title">削除</h4> -->
                 <div class="slick-wrapper">
                     <div class="product">
                         <div class="product-images">
@@ -37,90 +37,101 @@
                     </div>
                 </div>
                 <!-- details section -->
-                <h4 class="card-title vehicle-list">Vehicle Details</h4>
+                <h4 class="card-title vehicle-list">詳細情報</h4>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-nowrap mb-0">
+                    <table class="table table-bordered">
                         <thead>
-                            
                         </thead>
                         <tbody>
                             <tr>
-                                <th class="table-light" scope="row">登録番号</th>
+                                <td class="table-light" scope="row">登録番号</th>
                                 <td >{{$vehilce_details->id}}</td>
-                                <th class="table-light" scope="row">地域(保管場所)</th>
+                                <td class="table-light" scope="row">地域(保管場所)</th>
                                 <td >{{$vehilce_details->area}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">メーカー</th>
+                                <td class="table-light" scope="row">メーカー</th>
                                 <td >{{$vehilce_details->car_category}}</td>
-                                <th class="table-light" scope="row">車名</th>
+                                <td class="table-light" scope="row">車名</th>
                                 <td >{{$vehilce_details->car_name}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">年式</th>
+                                <td class="table-light" scope="row">年式</th>
                                 <td >{{$vehilce_details->start_year.$vehilce_details->start_month}}</td>
-                                <th class="table-light" scope="row">乗車定員</th>
+                                <td class="table-light" scope="row">乗車定員</th>
                                 <td >{{$vehilce_details->max_capacity}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">型式</th>
+                                <td class="table-light" scope="row">型式</th>
                                 <td >{{$vehilce_details->model}}</td>
-                                <th class="table-light" scope="row">車体番号</th>
+                                <td class="table-light" scope="row">車体番号</th>
                                 <td >{{$vehilce_details->body_number}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">エンジン型式</th>
+                                <td class="table-light" scope="row">エンジン型式</th>
                                 <td >{{$vehilce_details->engine_model}}</td>
-                                <th class="table-light" scope="row">排気量</th>
+                                <td class="table-light" scope="row">排気量</th>
                                 <td >{{$vehilce_details->displacement."L"}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">燃料</th>
+                                <td class="table-light" scope="row">燃料</th>
                                 <td >{{$vehilce_details->fule}}</td>
-                                <th class="table-light" scope="row">ミッション</th>
+                                <td class="table-light" scope="row">ミッション</th>
                                 <td >{{$vehilce_details->mission}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">形状</th>
+                                <td class="table-light" scope="row">形状</th>
                                 <td >{{$vehilce_details->shape}}</td>
-                                <th class="table-light" scope="row">クラス</th>
+                                <td class="table-light" scope="row">クラス</th>
                                 <td >{{$vehilce_details->class}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">最大積載量</th>
+                                <td class="table-light" scope="row">最大積載量</th>
                                 <td >{{$vehilce_details->loading_capacity." Kg"}}</td>
-                                <th class="table-light" scope="row">走行距離</th>
+                                <td class="table-light" scope="row">走行距離</th>
                                 <td >{{$vehilce_details->mileage." Km"}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">車検有効期限</th>
+                                <td class="table-light" scope="row">車検有効期限</th>
                                 @if(is_null($vehilce_details->end_year))
                                     <td >無し</td>
                                 @else
                                     <td >有り</td>
                                 @endif
-                                <th class="table-light" scope="row">車検有効期限有りの場合</th>
+                                <td class="table-light" scope="row">車検有効期限有り</th>
                                 <td >{{$vehilce_details->end_year.$vehilce_details->end_month}}</td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">リサイクル料金</th>
-                                <td >{{$vehilce_fee->fee.' 円'}}</td>
-                                <th class="table-light" scope="row">販売価格(税抜)</th>
-                                <td >{{$vehilce_fee->taxExc_price.' 円'}}</td>
+                                <td class="table-light" scope="row">リサイクル料金</th>
+                                <td >{{number_format($vehilce_fee->fee).' 円'}}</td>
+                                <td class="table-light"></th>
+                                <td></td>
                             </tr>
                             <tr>
-                                <th class="table-light" scope="row">販売価格(税込)</th>
-                                <td >{{$vehilce_fee->taxInc_price.' 円'}}</td>
-                                <th class="table-light" scope="row">特記</th>
-                                <td >{{$vehilce_fee->note}}</td>
+                                <td class="table-light" scope="row">販売価格(税抜)</th>
+                                <td >{{$vehilce_fee->taxExc_price.' 万円'}}</td>
+                                <td class="table-light" scope="row">販売価格(税込)</th>
+                                <td >{{number_format($vehilce_fee->taxInc_price).' 万円'}}</td>
+                                <!-- <td class="table-light" scope="row">特記</th>
+                                <td >{{$vehilce_fee->note}}</td> -->
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
-                <h4 class="card-title vehicle-list">Vehicle Equipement</h4>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-nowrap mb-0">
+                    <table class="table table-bordered">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                            <td class="table-light"></td>
+                            <td>{{$vehilce_fee->note}}</td>
+                        </tbody>
+                    </table>
+                </div>
+                <h4 class="card-title vehicle-list">装備</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
                         <thead>
                             
                         </thead>
@@ -278,9 +289,14 @@
                     </table>
                 </div>
                 <div class="vehicle_edit">
-                    <a href="{!! route('vehicle.edit', ['id' => $vehilce_details->id]) !!}">
-                        <button type="button" class="btn btn-outline-primary waves-effect waves-light">修正する</button>
+                    <a href="{{URL::previous()}}">
+                        <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-long-arrow-alt-left"></i> 戻る</button>
                     </a>
+                    @if(Auth::user()->role == 2)
+                    <a href="{!! route('vehicle.edit', ['id' => $vehilce_details->id]) !!}">
+                        <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i class="far fa-edit"></i> 修正</button>
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>

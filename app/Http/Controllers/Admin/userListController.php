@@ -22,47 +22,48 @@ class userListController extends Controller
     {
         $data = $request->all();
         $id = $request->id;
-        //file upload
-        if (request()->has('avatar')) { 
-            $extension = $request->avatar->extension();
-            $fileName = round(microtime(true) * 1000) . '.' . $extension;
-            $request->avatar->move(public_path('uploads/avatar'), $fileName);
-        }
         //check exist email
         $rules = array('email' => 'unique:users,email');
         $validator = Validator::make($data, $rules);
         if ($validator->fails()) {
             echo 'exist';
         } else {
-            if($id){
-                //edit user
-                $result = User::where('id', $id)->first();
-                $result->email = $request->email;
-                $result->password = Hash::make($request->password);
-                $result->company_name = $request->company_name;
-                $result->phone = $request->phone;
-                $result->location = $request->location;
+            $result = new User;  //create new user
+            $result->email = $request->email;
+            $result->password = Hash::make($request->password);
+            $result->company_name = $request->company_name;
+            $result->phone = $request->phone;
+            $result->location = $request->location;
+            //file upload
+            if ($request->hasFile('file')) { 
+                $extension = $request->file->extension();
+                $fileName = round(microtime(true) * 1000) . '.' . $extension;
+                $request->file->move(public_path('uploads/avatar'), $fileName);
                 $result->avatar =  URL::asset('uploads/avatar/'.$fileName);
-                $result->save();
-            } else {
-                //add user
-                $result = new User;
-                $result->email = $request->email;
-                $result->password = Hash::make($request->password);
-                $result->company_name = $request->company_name;
-                $result->phone = $request->phone;
-                $result->location = $request->location;
-                $result->avatar =  URL::asset('uploads/avatar/'.$fileName);
-                $result->save();
             }
+            $result->save();
         }
     }
 
     public function userEdit(Request $request)
     {
-        // $id = $request->id;
-        // $result = User::where('id', $id)->first();
-        // return response()->json($result);
+        $id = $request->id;
+        $result = User::where('id', $id)->first();
+        if ($request->hasFile('file')) { 
+            $extension = $request->file->extension();
+            $fileName = round(microtime(true) * 1000) . '.' . $extension;
+            $request->avatar->move(public_path('uploads/avatar'), $fileName);
+            $result->avatar =  URL::asset('uploads/avatar/'.$fileName);
+        } 
+        
+        //edit user
+        $result->email = $request->email;
+        $result->password = Hash::make($request->password);
+        $result->company_name = $request->company_name;
+        $result->phone = $request->phone;
+        $result->location = $request->location;
+        $result->save();
+        return response()->json($result);
     }
 
     public function userDelete(Request $request)

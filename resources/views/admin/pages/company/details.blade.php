@@ -23,7 +23,11 @@
                         <tbody>
                             <tr>
                                 <th class="text-nowrap" scope="row">会社名</th>
-                                <td colspan="6">{{$company->name}}</td>
+                                <td colspan="6">{{$users->company_name}}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">担当者</th>
+                                <td colspan="6">{{$company->member}}</td>
                             </tr>
                             <tr>
                                 <th class="text-nowrap" scope="row">所在地</th>
@@ -81,7 +85,7 @@
                 @if(Auth::user()->role == 2)
                 <div class="company_edit">
                     <a href="{!! route('company.edit', ['id' => $company->id]) !!}"> 
-                        <button type="button" class="btn btn-outline-primary waves-effect waves-light">修正する</button>
+                        <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i class="far fa-edit"></i> 修正</button>
                     </a>
                 </div>
                 @endif

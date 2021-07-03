@@ -11,3 +11,9 @@
 .back {
     display: none !important;
 }
+table td{
+    vertical-align: middle;
+}
+.company_save {
+    margin-bottom: 30px;
+}

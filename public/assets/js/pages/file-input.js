@@ -636,7 +636,7 @@
                 '  <span class="file-caption-icon"></span>\n' +
                 '  <input class="file-caption-name" onkeydown="return false;" onpaste="return false;">\n' +
                 '</div>';
-            //noinspection HtmlUnknownAttribute
+            //noinspection HtmlUnknownAttribute 
             tBtnDefault = '<button type="{type}" tabindex="500" title="{title}" class="{css}" ' +
                 '{status}>{icon} {label}</button>';
             //noinspection HtmlUnknownAttribute
@@ -4139,9 +4139,9 @@
             prev: '<i class="glyphicon glyphicon-triangle-left"></i>',
             next: '<i class="glyphicon glyphicon-triangle-right"></i>',
             toggleheader: '<i class="glyphicon glyphicon-resize-vertical"></i>',
-            fullscreen: '<i class="glyphicon glyphicon-fullscreen"></i>',
-            borderless: '<i class="glyphicon glyphicon-resize-full"></i>',
-            close: '<i class="mdi-close"></i>'
+            fullscreen: '<i class="fas fa-expand-arrows-alt"></i>',
+            borderless: '<i class="fas fa-expand-alt"></i>',
+            close: '<i class="fas fa-times"></i>'
         },
         previewZoomButtonClasses: {
             prev: 'btn btn-navigate',
@@ -4237,7 +4237,7 @@
         msgNoFilesSelected: 'No files selected',
         msgCancelled: 'Cancelled',
         msgPlaceholder: 'Select {files}...',
-        msgZoomModalHeading: 'Detailed Preview',
+        msgZoomModalHeading: 'プレビュー',
         msgFileRequired: 'You must select a file to upload.',
         msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
         msgSizeTooLarge: 'File "{name}" (<b>{size} KB</b>) exceeds maximum allowed upload size of <b>{maxSize} KB</b>.',
@@ -4272,9 +4272,9 @@
         msgProgress: 'Loading file {index} of {files} - {name} - {percent}% completed.',
         msgSelected: '{n} {files} selected',
         msgFoldersNotAllowed: 'Drag & drop files only! {n} folder(s) dropped were skipped.',
-        msgImageWidthSmall: 'Width of image file "{name}" must be at least {size} px.',
+        msgImageWidthSmall: '画像ファイル "{name}" 幅は {size}px ピクセルを超えることはできません。',
         msgImageHeightSmall: 'Height of image file "{name}" must be at least {size} px.',
-        msgImageWidthLarge: 'Width of image file "{name}" cannot exceed {size} px.',
+        msgImageWidthLarge: '画像ファイル "{name}" の幅は{size} pxを超えることはできません。',
         msgImageHeightLarge: 'Height of image file "{name}" cannot exceed {size} px.',
         msgImageResizeError: 'Could not get the image dimensions to resize.',
         msgImageResizeException: 'Error while resizing the image.<pre>{errors}</pre>',
@@ -4286,8 +4286,8 @@
             uploadBatch: 'batch file upload',
             uploadExtra: 'form data upload'
         },
-        dropZoneTitle: 'Drag & drop files here &hellip;',
-        dropZoneClickTitle: '<br>(or click to select {files})',
+        dropZoneTitle: 'ここにファイルをドラッグアンドドロップします &hellip; <br>画像サイズは640x480である必要があります。',
+        dropZoneClickTitle: '<br>(または、クリックしてファイルを選択します。)',
         previewZoomButtonTitles: {
             prev: 'View previous file',
             next: 'View next file',

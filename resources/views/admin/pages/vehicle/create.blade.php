@@ -433,7 +433,7 @@
 <script>
     var manufactures = @json($manufactures);
     var create_url = "{{ route('vehicle.create_store') }}";
-    var add_photo_url = "{{ route('vehicle.Photo_store') }}";
+    var add_photo_url = "{!! route('vehicle.photo_store', ['id' => $vehicel_id]) !!}";
     var remove_photo = "{{ route('vehicle.photo_destroy') }}";
 </script>
     @section('script')

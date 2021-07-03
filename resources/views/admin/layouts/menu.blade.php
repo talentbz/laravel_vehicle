@@ -3,7 +3,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index" class="logo logo-dark">
+                <!-- <a href="index" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ URL::asset ('/assets/images/logo.svg') }}" alt="" height="22">
                     </span>
@@ -19,7 +19,7 @@
                     <span class="logo-lg">
                         <img src="{{ URL::asset ('/assets/images/logo-light.png') }}" alt="" height="19">
                     </span>
-                </a>
+                </a> -->
             </div>
 
             <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
@@ -30,11 +30,16 @@
 
         <div class="d-flex">
 
+            <div class="admin-info">
+                <p>サポートディスク：0120-932-982</p>
+                <p>対応時間：10:00-19:00 (年末年始、長期休暇を除く)</p>
+            </div>
+
             <div class="dropdown d-inline-block d-lg-none ml-2">
-                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                <!-- <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="mdi mdi-magnify"></i>
-                </button>
+                </button> -->
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                     aria-labelledby="page-header-search-dropdown">
                     
@@ -60,9 +65,9 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/images/default.jpg') }}"
+                    <img class="header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/images/default.jpg') }}"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->name)}}</span>
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->company_name)}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
@@ -91,29 +96,31 @@
                 <ul class="navbar-nav">
                     @if(Auth::user()->role == 1)
                     <li class="nav-item">
-                        <a class="nav-link dropdown-toggle arrow-none" href="{{ route('root') }}" role="button"
+                        <a class="nav-link dropdown-toggle arrow-none" href="{{ route('dashboard') }}" role="button"
                             >
-                            <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Dashboard</span>
+                            <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">ダッシュボード</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{ route('userlists') }}" role="button"
                             >
-                            <i class="fas fa-user me-2"></i><span key="t-dashboards">User List</span>
+                            <i class="fas fa-user me-2"></i><span key="t-dashboards">ユーザーリスト</span>
                         </a>
                     </li>
                     @endif
+                    @if(Auth::user()->role == 2)
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{ route('vehicle.index') }}" role="button"
                             >
-                            <i class="fas fa-car-side me-2"></i><span key="t-dashboards">Vehicle Details</span>
+                            <i class="fas fa-car-side me-2"></i><span key="t-dashboards">在庫車両</span>
                         </a>
                     </li>
+                    @endif
                     @if(Auth::user()->role == 1)
                         <li class="nav-item">
                             <a class="nav-link dropdown-toggle arrow-none" href="{{route('company.index')}}" role="button"
                                 >
-                                <i class="fas fa-building me-2"></i><span key="t-dashboards">Company List</span>
+                                <i class="fas fa-building me-2"></i><span key="t-dashboards">会社情報</span>
                             </a>
                         </li>
                     @else
@@ -121,24 +128,26 @@
                         <li class="nav-item">
                             <a class="nav-link dropdown-toggle arrow-none" href="{{route('company.create')}}" role="button"
                                 >
-                                <i class="fas fa-building me-2"></i><span key="t-dashboards">Company Create</span>
+                                <i class="fas fa-building me-2"></i><span key="t-dashboards">会社情報</span>
                             </a>
                         </li>
                         @else
                         <li class="nav-item">
                             <a class="nav-link dropdown-toggle arrow-none" href="{!! route('company.details', ['id' => App\Http\Controllers\Admin\companyController::userCheck(Auth::user()->id)]) !!}" role="button"
                                 >
-                                <i class="fas fa-building me-2"></i><span key="t-dashboards">Company details</span>
+                                <i class="fas fa-building me-2"></i><span key="t-dashboards">会社情報</span>
                             </a>
                         </li>
                         @endif
                     @endif
+                    @if(Auth::user()->role == 2)
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('bulletin.index')}}" role="button"
                             >
-                            <i class="fas fa-mail-bulk me-2"></i><span key="t-dashboards">Bulletin board</span>
+                            <i class="fas fa-mail-bulk me-2"></i><span key="t-dashboards">掲示板</span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </nav>

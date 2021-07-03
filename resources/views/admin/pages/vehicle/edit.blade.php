@@ -23,7 +23,7 @@
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <!-- vehicle details -->
-                    <h4 class="card-title">vehicle edit</h4>
+                    <h4 class="card-title">詳細情報</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-nowrap mb-0">
                             <thead>
@@ -223,12 +223,12 @@
                                 <td class="table-light" >販売価格(税抜)</td>
                                 <td >
                                     <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" requireds value="{{$vehilce_fee->taxExc_price}}" placeholder="Enter excluding tax" id="excluding-tax">
-                                    <p class="details-list">円</p>
+                                    <p class="details-list">万円</p>
                                     </td>
                                 <td class="table-light" >販売価格(税込)</td>
                                 <td >
                                     <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" requireds value="{{$vehilce_fee->taxInc_price}}" placeholder="Enter including tax" id="including-tax">
-                                    <p class="details-list">円</p>
+                                    <p class="details-list">万円</p>
                                 </td>
                             </tr>
                             <tr>
@@ -244,9 +244,9 @@
                     <h4 class="card-title vehicle-list">必須画像</h4>
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"><!-- Upload image input-->
                         <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file" required>
-                        <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted">画像選択</label>
                         <div class="input-group-append">
-                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">画像選択</small></label>
                         </div>
                     </div>
                     <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p><!-- Uploaded image area-->
@@ -413,8 +413,14 @@
                         </table>
                     </div>
                     <div class="vehicle_save">
-                        <input type="button" class="btn btn-outline-primary waves-effect waves-light back" value="Back" />
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="セーブ" />
+                        <a href="{{URL::previous()}}">
+                            <button type="button" class="btn btn-outline-primary waves-effect waves-light back">
+                                <i class="fas fa-long-arrow-alt-left"></i> 戻る
+                            </button>    
+                        </a>
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light">
+                            <i class="fas far fa-save"></i> 修正
+                        </button>
                     </div>
                 </form>
 
@@ -432,10 +438,11 @@
     </div> <!-- end col -->
 
 </div> <!-- end row -->
+
 <script>
     var manufactures = @json($manufactures);
     var edit_url = "{{ route('vehicle.edit_store') }}";
-    var add_photo_url = "{{ route('vehicle.Photo_store') }}";
+    var add_photo_url = "{!! route('vehicle.photo_store', ['id' => $vehilce_details->id]) !!}" ;
     var remove_photo = "{{ route('vehicle.photo_destroy') }}";
     var car_paths = @json($car_paths);
     var id_array = @json($id_array);

@@ -4,6 +4,7 @@
     <!-- DataTables -->
     <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/libs/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/admin/pages/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/admin/pages/user/style.css') }}">
 @endsection
 @section('title')
@@ -15,9 +16,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Default Datatable</h4>
-                    <div class="lnb-new-schedule float-sm-end ms-sm-3 mt-4 mt-sm-0">
-                        <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal">Add New</button>
+                    <div class="cart-header">
+                        <h4 class="card-title">ユーザーリスト</h4>
+                        <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fas fa-plus"></i> 追加
+                        </button>
                     </div>
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
@@ -28,50 +31,45 @@
                                         <label class="form-check-label" for="checkAll"></label>
                                     </div>
                                 </th> -->
-                                <th>No</th>
-                                <th>Avatar</th>
-                                <th>email</th>
-                                <th>password</th>
-                                <th>compamy name</th>
-                                <th>phone</th>
-                                <th>location</th>
-                                <th>status</th>
-                                <th>created at</th>
+                                <th>会員NO</th>
+                                <th>写真</th>
+                                <th>ID(Email)</th>
+                                <th>会社名</th>
+                                <th>電話番号</th>
+                                <th>所在地</th>
+                                <th>状態</th>
+                                <th>更新日</th>
                                 <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i=1;?>
-                            @forelse ($users as $user)
-                            <tr>
+                            @forelse ($users as $key=>$user)
+                            <tr class="data-row">
                                 <!-- <td>
                                     <div class="form-check font-size-16">
                                         <input class="form-check-input" type="checkbox" id="orderidcheck01">
                                         <label class="form-check-label" for="orderidcheck01"></label>
                                     </div>
                                 </td> -->
-                                <td>{{$i++}}</td>
-                                <td>
+                                <td align="center">{{$key+=1}}</td>
+                                <td align="center">
                                     @if($user->avatar)
                                         <img class="rounded-circle avatar-xs" src="{{$user->avatar}}" alt="">
                                     @else
                                         <img class="rounded-circle avatar-xs" src="{{URL::asset('images/default.jpg')}}">    
                                     @endif
                                 </td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->password}}</td>
-                                <td>{{$user->company_name}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->location}}</td>
+                                <td class="email">{{$user->email}}</td>
+                                <td class="company_name">{{$user->company_name}}</td>
+                                <td class="phone">{{$user->phone}}</td>
+                                <td class="location">{{$user->location}}</td>
                                 <td>{{$user->status}}</td>
                                 <td>{{$user->updated_at}}</td>
-                                <td>
-                                    <div class="d-flex gap-3">
+                                <td align="center">
                                         <a href="javascript:void(0);" class="text-success edit" data-id="{{ $user->id }}"><i
                                                 class="mdi mdi-pencil font-size-18"></i></a>
-                                        <a href="javascript:void(0);" class="text-danger delete" data-id="{{ $user->id }}"><i
-                                                class="mdi mdi-delete font-size-18"></i></a>
-                                    </div>
+                                        <a href="javascript:void(0);" class="text-danger confirm_delete" data-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal"><i
+                                           class="mdi mdi-delete font-size-18"></i></a>
                                 </td>
                             </tr>
                             @empty
@@ -87,6 +85,27 @@
     </div> <!-- end row -->
     <div>
     @include('admin.pages.users.create')
+    @include('admin.pages.users.edit')
+    <!-- delete modal content -->
+    <div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myModalLabel">本気ですか？</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>これらのレコードを本当に削除しますか？ このプロセスは元に戻せません。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary waves-effect"
+                        data-bs-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light delete">削除</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <script>
         var add_url = "{{ route('userlists.create') }}";
         var edit_url = "{{ route('userlists.edit') }}";
@@ -95,9 +114,6 @@
     @section('script')
         <!-- Required datatable js -->
         <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
-        <script src="{{ URL::asset('/assets/libs/jszip/jszip.min.js') }}"></script>
-        <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
-        <!-- Datatable init js -->
         <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
         <!-- toastr plugin -->
         <script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>

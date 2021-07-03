@@ -49,4 +49,5 @@ $(document).ready(function(){
         });
         
     })
+     // change width data table
 })

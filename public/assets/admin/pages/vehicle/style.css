@@ -1,6 +1,9 @@
 .table {
     --bs-table-striped-bg:transparent !important;
 }
+.product-images {
+    margin: auto;
+}
 .spinner-border{
     display: none !important;
 }
@@ -9,8 +12,12 @@
 }
 
 .vehicle_edit, .vehicle_save {
-    text-align: right;
-    margin-top: 22px;
+    text-align: center;
+    margin-top: 41px;
+    margin-bottom: 29px;
+}
+.vehicle_edit i {
+    margin-right: 7px;
 }
 .equip-check {
     float: left;
@@ -41,6 +48,9 @@
     margin-top: 10px;
     float: left;
     margin-bottom: 0;
+}
+.table-light {
+    vertical-align: middle;
 }
 /* require upload image */
 #upload {
@@ -116,7 +126,12 @@ h1 {
         margin-left: 36px;
     }
 }
-
+@media only screen and (max-width: 468px) {
+    .product-images {
+        width: 100%;
+    }
+   
+}
 /* Thumbnails Slider */
 .slider-thumbnails {
     margin-left: -15px;
@@ -124,7 +139,7 @@ h1 {
 }
 
 .slider-thumbnails .slick-slide {
-    padding: 15px;
+    padding: 7px;
     transition: transform 0.3s ease-out;
 }
 
@@ -136,14 +151,14 @@ h1 {
     max-width: 100%;
     border: solid 5px #fff;
     box-sizing: border-box;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    /* box-shadow: 0 0 5px rgba(0,0,0,0.3); */
     transition: box-shadow 0.3s ease-out;
     border-radius: 3px;
 }
 
 /* Main Slider */
 .slider {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
     border: solid 9px #fff;
     box-sizing: border-box;
     margin-bottom: 15px;

@@ -23,7 +23,7 @@
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-nowrap mb-0">
+                        <table class="table table-bordered dt-responsive  nowrap w-100">
                             <thead>
                                 
                             </thead>

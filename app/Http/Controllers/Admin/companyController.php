@@ -18,10 +18,13 @@ class companyController extends Controller
         // $users = User::where('id', $userId)->first();
         // $company = Company::where('user_id', $userId)->first();
         // $companyPhotos = CompanyMedia::where('user_id', $userId)->get();
-        $companie_infos = Company::select('company_details.*', 'users.location', 'users.email', 'users.phone', 'users.location')
-                                 ->join('users', 'company_details.user_id', '=', 'users.id')->get();
+        $company_infos = Company::select('company_details.*', 'users.location', 'users.email', 'users.phone', 'users.location', 'company_media.path')
+                                 ->join('users', 'company_details.user_id', '=', 'users.id')
+                                 ->join('company_media', 'company_details.id', '=', 'company_media.company_id')
+                                 ->groupBy('company_details.id')
+                                 ->get();
         return view('admin.pages.company.index', [
-            'companie_infos' => $companie_infos,
+            'company_infos' => $company_infos,
         ]);
     }
     public function create(Request $request){
@@ -93,14 +96,16 @@ class companyController extends Controller
             $company = Company::where('id', $company_id)->first();
             $company->user_id = $userId;
             $company->site_url = $site_url;
-            $company->name = $request->name;
+            //$company->name = $request->name;
+            $company->member = $request->member;
             $company->description = $description;
             $company->save();    
         } else {
             $company = new Company;
             $company->user_id = $userId;
             $company->site_url = $site_url;
-            $company->name = $request->name;
+            //$company->name = $request->name;
+            $company->member = $request->member;
             $company->description = $description;
             $company->save();
         }
@@ -116,7 +121,7 @@ class companyController extends Controller
         $userId = Auth::user()->id;
         $company = Company::where('user_id', $userId)->first();
         if(is_null($company)){
-            $companyId = Company::latest('id')->first()->id;
+            $companyId = Company::latest()->first()->id;
             $companyId ++;
             if ($request->has('file')) { 
                 $extension = $request->file->extension();

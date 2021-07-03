@@ -50,14 +50,14 @@
                                 <tr>
                                     <td class="table-light" >タイトル</td>
                                     <td >
-                                        <input parsley-type="title" type="text" name="title" value="{{$bulletin->title}}" class="form-control" required  placeholder="Enter title" id="title"/>
+                                        <input parsley-type="title" type="text" name="title" value="{{$bulletin->title}}" maxlength="20" class="form-control" required  placeholder="Enter title" id="title"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >内容</td>
                                     <td >
-                                        <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                        placeholder="This textarea has a limit of 225 chars." name="content" required>{{$bulletin->content}}</textarea>
+                                        <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
+                                        placeholder="This textarea has a limit of 1000 chars." name="content" required>{{$bulletin->content}}</textarea>
                                     </td>
                                 </tr>
                             </tbody>

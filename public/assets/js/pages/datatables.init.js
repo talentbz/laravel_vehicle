@@ -10,8 +10,21 @@ Contact: themesbrand@gmail.com
 File: Datatables Js File
 */
 $(document).ready(function () {
-  $('#datatable').DataTable(); //Buttons examples
-
+  //$('#datatable').DataTable(); //Buttons examples
+  var custom_table = $('#datatable').DataTable({
+    "ordering": false,
+    "language": {
+        "url": datatable_json
+    }
+  });
+  $('#datatable-bullettin').DataTable({
+    "ordering": false,
+    "language": {
+        "url": datatable_json
+    }
+  })
+  $('#datatable').css( 'display', 'table' );
+  custom_table.responsive.recalc();
   var table = $('#datatable-buttons').DataTable({
     lengthChange: false,
     buttons: ['copy', 'excel', 'pdf', 'colvis']

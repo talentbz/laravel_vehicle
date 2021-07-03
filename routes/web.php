@@ -26,6 +26,8 @@ Route::group(['middleware' => 'guest'], function(){
 //admin
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root')->middleware('checkRole');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\dashboardController::class, 'index'])->name('dashboard')->middleware('checkRole');
+    
     //user lists
     Route::get('/userlists', [App\Http\Controllers\Admin\userListController::class, 'index'])->name('userlists')->middleware('checkRole');
     Route::post('/userlists/create', [App\Http\Controllers\Admin\userListController::class, 'userCreate'])->name('userlists.create')->middleware('checkRole');
@@ -44,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/vehicle/create', [App\Http\Controllers\Admin\vehicleController::class, 'create'])->name('vehicle.create');
     Route::get('/vehicle/details/{id}', [App\Http\Controllers\Admin\vehicleController::class, 'details'])->name('vehicle.details');
     Route::get('/vehicle/edit/{id}', [App\Http\Controllers\Admin\vehicleController::class, 'edit'])->name('vehicle.edit');
-    Route::post('/vehicle/photo_store', [App\Http\Controllers\Admin\vehicleController::class, 'phtotoStore'])->name('vehicle.Photo_store');
+    Route::post('/vehicle/photo_store/{id}', [App\Http\Controllers\Admin\vehicleController::class, 'photoStore'])->name('vehicle.photo_store');
     Route::post('/vehicle/photo_destroy', [App\Http\Controllers\Admin\vehicleController::class, 'photoDestroy'])->name('vehicle.photo_destroy'); 
     Route::post('/vehicle/create_store', [App\Http\Controllers\Admin\vehicleController::class, 'create_store'])->name('vehicle.create_store'); 
     Route::post('/vehicle/edit_store', [App\Http\Controllers\Admin\vehicleController::class, 'edit_store'])->name('vehicle.edit_store'); 
