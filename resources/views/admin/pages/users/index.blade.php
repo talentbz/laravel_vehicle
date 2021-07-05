@@ -22,7 +22,8 @@
                             <i class="fas fa-plus"></i> 追加
                         </button>
                     </div>
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <div class="table-responsive">
+                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
                                 <!-- <th style="width: 20px;" class="align-middle">
@@ -31,15 +32,15 @@
                                         <label class="form-check-label" for="checkAll"></label>
                                     </div>
                                 </th> -->
-                                <th>会員NO</th>
-                                <th>写真</th>
-                                <th>ID(Email)</th>
-                                <th>会社名</th>
-                                <th>電話番号</th>
-                                <th>所在地</th>
-                                <th>状態</th>
-                                <th>更新日</th>
-                                <th>action</th>
+                                <th width="5%">会員NO</th>
+                                <th width="5%">写真</th>
+                                <th width="10%">ID(Email)</th>
+                                <th width="20%">会社名</th>
+                                <th width="10%">電話番号</th>
+                                <th width="20%">所在地</th>
+                                <th width="10%">状態</th>
+                                <th width="10%">更新日</th>
+                                <th width="10%">action</th>
                             </tr>
                         </thead>
                         <tbody>

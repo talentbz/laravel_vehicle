@@ -2,6 +2,8 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/admin/pages/company/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/admin/pages/style.css') }}">
+    <link href="{{ URL::asset('/assets/libs/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('title')
     company details
@@ -47,31 +49,15 @@
                             </tr>
                             <tr>
                                 <th class="text-nowrap" scope="row">会社写真</th>
-                                <td colspan="6">
-                                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                                        
-                                        <ol class="carousel-indicators">
-                                            @foreach ($companyPhotos as $key=>$companyPhoto)
-                                                <li data-bs-target="#carouselExampleFade" data-bs-slide-to="{{$key}}" class="{{$key==0?'active':''}}"></li>
-                                            @endforeach
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            @foreach ($companyPhotos as $key=>$companyPhoto)
-                                                <div class="carousel-item {{$key==0?'active':''}}">
-                                                    <img class="d-block img-fluid" src="{{ $companyPhoto->path }}"
-                                                        alt="First slide">
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                        
-                                        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
+                                <td colspan="6">       
+                                    <div class="popup-gallery d-flex flex-wrap">
+                                    @foreach ($companyPhotos as $key=>$companyPhoto)
+                                        <a href="{{ $companyPhoto->path }}">
+                                            <div class="img-fluid">
+                                                <img src="{{ $companyPhoto->path }}" alt="" width="120">
+                                            </div>
                                         </a>
-                                        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
+                                        @endforeach
                                     </div>
                                 </td>
                             </tr>
@@ -95,6 +81,10 @@
 
 </div> <!-- end row -->
     @section('script')
-        
+        <!-- Magnific Popup-->
+        <script src="{{ URL::asset('/assets/libs/magnific-popup/magnific-popup.min.js') }}"></script>
+
+        <!-- lightbox init js-->
+        <script src="{{ URL::asset('/assets/js/pages/lightbox.init.js') }}"></script>
     @endsection
 @endsection

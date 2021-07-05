@@ -30,3 +30,6 @@
 table th{
     text-align: center;
 }
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+    white-space:initial !important;
+}

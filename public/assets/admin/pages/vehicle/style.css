@@ -86,6 +86,7 @@
 .image-area img {
     z-index: 2;
     position: relative;
+    max-width: 300px;
 }
 
 /* slick slider */
@@ -126,12 +127,7 @@ h1 {
         margin-left: 36px;
     }
 }
-@media only screen and (max-width: 468px) {
-    .product-images {
-        width: 100%;
-    }
-   
-}
+
 /* Thumbnails Slider */
 .slider-thumbnails {
     margin-left: -15px;
@@ -224,4 +220,20 @@ h1 {
     justify-content: center;
   }
   
-  
+.table-light {
+    width: 20%;
+}
+.table-value {
+    width: 30%;
+} 
+table th, table td {
+    white-space:initial !important;
+}
+@media only screen and (max-width: 468px) {
+    .product-images {
+        width: 100%;
+    }
+    table {
+        width: 100%;
+    }
+}

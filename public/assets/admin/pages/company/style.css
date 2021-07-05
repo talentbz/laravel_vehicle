@@ -17,3 +17,6 @@ table td{
 .company_save {
     margin-bottom: 30px;
 }
+.text-nowrap {
+    width:20% !important;
+}

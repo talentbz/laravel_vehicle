@@ -250,7 +250,7 @@
                         </div>
                     </div>
                     <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p><!-- Uploaded image area-->
-                    <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                    <div class="image-area mt-4"><img id="imageResult" src="{{$vehilce_details->require_path ? $vehilce_details->require_path: '#'}}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 
                     <!-- vehicle equipement -->
                     <h4 class="card-title vehicle-list">装備</h4>

@@ -15,13 +15,19 @@ $(document).ready(function () {
     "ordering": false,
     "language": {
         "url": datatable_json
-    }
+    },
+    responsive: false,
+    "autoWidth": false,
+    "scrollX": true,
   });
   $('#datatable-bullettin').DataTable({
     "ordering": false,
     "language": {
         "url": datatable_json
-    }
+    },
+    responsive: flase,
+    "autoWidth": false,
+    "scrollX": true,
   })
   $('#datatable').css( 'display', 'table' );
   custom_table.responsive.recalc();

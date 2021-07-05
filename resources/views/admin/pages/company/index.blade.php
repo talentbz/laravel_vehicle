@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/libs/toastr/toastr.min.css') }}">
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/admin/pages/style.css') }}">
 @endsection
 @section('title')
     index bulletin
@@ -20,13 +21,13 @@
                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>PHOTO</th>
-                                <th>会社名</th>
-                                <th>担当者</th>
-                                <th>所在地</th>
-                                <th>ID(Email)</th>
-                                <th>phone</th>
-                                <th>説明</th>
+                                <th width="5%">PHOTO</th>
+                                <th width="10%">会社名</th>
+                                <th width="10%">担当者</th>
+                                <th width="10%">所在地</th>
+                                <th width="10%">ID(Email)</th>
+                                <th width="10%">phone</th>
+                                <th width="10%">説明</th>
                             </tr>
                         </thead>
                         <tbody>
