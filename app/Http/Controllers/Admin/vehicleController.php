@@ -301,8 +301,13 @@ class vehicleController extends Controller
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
       
-        $vehicel_id = Vehicle::latest()->first()->id;
-        $vehicel_id ++;
+        $vehicel = Vehicle::latest()->first();
+        if($vehicel){
+            $vehicel_id = $vehicel->id;
+            $vehicel_id++;
+        } else {
+            $vehicel_id = 1;
+        }
         
         $car_paths = VehicleMedia::where('vehicle_id', $vehicel_id)->get();
         $path_array = [];
@@ -657,9 +662,14 @@ class vehicleController extends Controller
         if($vehicle_exist>0){
             $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first()->id;
         } else {
-            // $vehicleId = Vehicle::latest('id')->first()->id;
-            // $vehicleId ++;
+            if(Vehicle::latest('id')->first()){
+                $vehicleId = Vehicle::latest('id')->first()->id;
+                $vehicleId ++;
+            } else {
+                $vehicleId = 1;
+            }
         }
+        
         if ($request->has('file')) { 
             $extension = $request->file->extension();
             $imageName = round(microtime(true) * 1000) . '.' . $extension;
@@ -764,9 +774,9 @@ class vehicleController extends Controller
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
                 $request->file->move(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'), $imageName);
+                $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
+                $vehicle->require_path = $filePath;
             }
-            $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
-            $vehicle->require_path = $filePath;
             $vehicle->class = $request->class;
             $vehicle->save();
 
@@ -810,7 +820,6 @@ class vehicleController extends Controller
             $vehicle_equip->owner_set = $request->has('owner');
             $vehicle_equip->unused_set = $request->has('unused_car');
             $vehicle_equip->save();
-            
         } else {
             //save vehicle details data in vehicel table
             $vehicle = new Vehicle;
@@ -923,10 +932,10 @@ class vehicleController extends Controller
             $imgx->resize(700, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
-                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/') . $imageName);
+                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$userId.'/') . $imageName);
         }
         
-        $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
+        $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$imageName);
         $result = new VehicleMedia;
         $result->vehicle_id = $vehicleId;
         $result->car_path = $filePath;

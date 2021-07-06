@@ -116,4 +116,15 @@ $(document).ready(function(){
 
         });
     })
+
+    //password show & hide
+    $('.password_show').on('click', function(){
+        var $pwd = $(".password");
+        if ($pwd.attr('type') === 'password') {
+            $pwd.attr('type', 'text');
+        } else {
+            $pwd.attr('type', 'password');
+        }
+    })
+    //change lauguage of input file.
 })

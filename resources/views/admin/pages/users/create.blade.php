@@ -24,17 +24,17 @@
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
                                         <div>
-                                            <input parsley-type="email" type="email" name="email" class="form-control" required placeholder="Email"/>
+                                            <input parsley-type="email" type="email" name="email" class="form-control"  required placeholder="Email"/>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">パスワード</label>
                                         <div class="input-group auth-pass-inputgroup">
                                             <input type="password" name="password"
-                                                class="form-control " name="password"
+                                                class="form-control password" name="password"
                                                 required placeholder="パスワード"
                                                 aria-label="Password" aria-describedby="password-addon">
-                                            <button class="btn btn-light " type="button" ><i
+                                            <button class="btn btn-light password_show" type="button" ><i
                                                     class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
@@ -60,14 +60,14 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label" for="customFile">ユーザー画像</label>
-                                        <input type="file" class="form-control" name="file" />  
+                                        <input type="file" class="form-control custom-file-input" name="file" />  
                                     </div>
                                     <div class="modal-footer">
                                         <div class="d-flex flex-wrap gap-2">
+                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">閉じる</button>
                                             <button type="submit" class="btn btn-primary waves-effect waves-light">
                                                 保存
                                             </button>
-                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">閉じる</button>
                                         </div>
                                     </div>
                                 </form>

@@ -45,7 +45,7 @@
                         <tbody>
                             <tr>
                                 <td class="table-light" scope="row">登録番号</th>
-                                <td >{{$vehilce_details->id}}</td>
+                                <td >{{'00'.$vehilce_details->id}}</td>
                                 <td class="table-light" scope="row">地域(保管場所)</th>
                                 <td >{{$vehilce_details->area}}</td>
                             </tr>
@@ -124,7 +124,7 @@
                             
                         </thead>
                         <tbody>
-                            <td class="table-light"></td>
+                            <td class="table-light">説明</td>
                             <td>{{$vehilce_fee->note}}</td>
                         </tbody>
                     </table>

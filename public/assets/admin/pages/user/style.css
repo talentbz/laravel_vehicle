@@ -4,3 +4,6 @@
 .edit {
     margin-right: 9px;
 }
+.custom-file-input ~ .custom-file-label::after {
+    content: "ファイルを選ぶ";
+}

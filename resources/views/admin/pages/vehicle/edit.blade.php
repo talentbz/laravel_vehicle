@@ -243,7 +243,11 @@
                     <!-- requirement image -->
                     <h4 class="card-title vehicle-list">必須画像</h4>
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"><!-- Upload image input-->
-                        <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file" required>
+                        @if($vehilce_details->require_path)
+                            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file"> 
+                        @else
+                            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file" required>
+                        @endif
                         <label id="upload-label" for="upload" class="font-weight-light text-muted">画像選択</label>
                         <div class="input-group-append">
                             <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">画像選択</small></label>

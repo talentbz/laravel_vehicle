@@ -29,10 +29,11 @@
                             <thead>
                                 
                             </thead>
+                            
                             <tbody>
                                 <tr>
                                     <td class="table-light" >登録番号</td>
-                                    <td >119</td>
+                                    <td >{{'00'.$vehicel_id}}</td>
                                     <td class="table-light" >地域(保管場所)</td>
                                     <td >
                                         <div class="templating-select">
@@ -103,15 +104,15 @@
                                 </tr>
                                 <tr>
                                     <td class="table-light" >型式</td>
-                                    <td ><input parsley-type="model" type="text" name="model" class="form-control" required placeholder="Enter model" id="model"></td>
+                                    <td ><input parsley-type="model" type="text" name="model" class="form-control" required placeholder="モデルを入力してください" id="model"></td>
                                     <td class="table-light" >車体番号</td>
-                                    <td ><input parsley-type="body-number" type="text" name="body_number" class="form-control" required placeholder="Enter body number" id="body_number"></td>
+                                    <td ><input parsley-type="body-number" type="text" name="body_number" class="form-control" required placeholder="体番号を入力してください" id="body_number"></td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >エンジン型式</td>
-                                    <td ><input parsley-type="engine-model" type="text" name="engine_model" class="form-control" required placeholder="Enter engine model" id="engine-model"></td>
+                                    <td ><input parsley-type="engine-model" type="text" name="engine_model" class="form-control" required placeholder="エンジンモデルを入力してください" id="engine-model"></td>
                                     <td class="table-light" >排気量</td>
-                                    <td ><input parsley-type="displacement" type="text" name="displacement" class="form-control" required placeholder="Enter displacement " id="displacement"></td>
+                                    <td ><input parsley-type="displacement" type="text" name="displacement" class="form-control" required placeholder="変位を入力してください " id="displacement"></td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >燃料</td>
@@ -156,12 +157,12 @@
                                 <tr>
                                     <td class="table-light" >最大積載量</td>
                                     <td >
-                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" requireds placeholder="Enter max capacity" id="max-capacity">
+                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" requireds placeholder="最大容量を入力してください" id="max-capacity">
                                         <p class="details-list">kg</p>
                                     </td>
                                     <td class="table-light" >走行距離</td>
                                     <td >
-                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" requireds placeholder="Enter mileage " id="mileage">
+                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" requireds placeholder="マイレージを入力してください " id="mileage">
                                         <p class="details-list">km</p>
                                     </td>
                                 </tr>
@@ -209,7 +210,7 @@
                             <tr>
                                 <td class="table-light" >リサイクル料金</td>
                                 <td >
-                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" requireds placeholder="Enter recycling fee" id="recycling-fee">
+                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" requireds placeholder="リサイクル料金を入力してください" id="recycling-fee">
                                     <p class="details-list">円</p>
                                     </td>
                                 <td class="table-light" ></td>
@@ -220,20 +221,20 @@
                             <tr>
                                 <td class="table-light" >販売価格(税抜)</td>
                                 <td >
-                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" requireds  placeholder="Enter excluding tax" id="excluding-tax">
-                                    <p class="details-list">円</p>
+                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" requireds  placeholder="税抜きで入力" id="excluding-tax">
+                                    <p class="details-list">万円</p>
                                     </td>
                                 <td class="table-light" >販売価格(税込)</td>
                                 <td >
-                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" requireds placeholder="Enter including tax" id="including-tax">
-                                    <p class="details-list">円</p>
+                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" requireds placeholder="税込入力" id="including-tax">
+                                    <p class="details-list">万円</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="table-light" >特記</td>
                                 <td colspan="3">
-                                    <textarea id="textarea" class="form-control" maxlength="225" rows="3"
-                                    placeholder="This textarea has a limit of 225 chars." name="specail_note"></textarea>
+                                    <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
+                                    placeholder="このtextareaには1000文字の制限があります。" name="specail_note"></textarea>
                                 </td>
                             </tr>
                         </tbody>
@@ -242,9 +243,9 @@
                     <h4 class="card-title vehicle-list">必須画像</h4>
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"><!-- Upload image input-->
                         <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file" required>
-                        <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted">画像選択</label>
                         <div class="input-group-append">
-                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                            <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">画像選択</small></label>
                         </div>
                     </div>
                     <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p><!-- Uploaded image area-->
@@ -412,7 +413,7 @@
                     </div>
                     <div class="vehicle_save">
                         <input type="button" class="btn btn-outline-primary waves-effect waves-light back" value="Back" />
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="セーブ" />
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
 

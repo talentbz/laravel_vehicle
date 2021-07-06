@@ -7,8 +7,29 @@ File: Datatables Js File
 */
 
 $(document).ready(function() {
-    $('#datatable').DataTable();
-
+    var custom_table = $('#datatable').DataTable({
+        "ordering": false,
+        "language": {
+            "url": datatable_json
+        },
+        responsive: false,
+        "autoWidth": false,
+        "scrollX": true,
+      });
+    
+      $('#datatable-bullettin').DataTable({
+        "ordering": false,
+        "language": {
+            "url": datatable_json
+        },
+        responsive: flase,
+        "autoWidth": false,
+        "scrollX": true,
+        "searching": true,
+      })
+      $('#datatable').css( 'display', 'table' );
+      $('#datatable-bullettin').css( 'display', 'table' );
+    custom_table.responsive.recalc();
     //Buttons examples
     var table = $('#datatable-buttons').DataTable({
         lengthChange: false,

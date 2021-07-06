@@ -9,6 +9,7 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Datatables Js File
 */
+
 $(document).ready(function () {
   //$('#datatable').DataTable(); //Buttons examples
   var custom_table = $('#datatable').DataTable({
@@ -20,15 +21,15 @@ $(document).ready(function () {
     "autoWidth": false,
     "scrollX": true,
   });
-  $('#datatable-bullettin').DataTable({
+  $('table.display').DataTable({
     "ordering": false,
     "language": {
         "url": datatable_json
     },
-    responsive: flase,
+    responsive: false,
     "autoWidth": false,
     "scrollX": true,
-  })
+});
   $('#datatable').css( 'display', 'table' );
   custom_table.responsive.recalc();
   var table = $('#datatable-buttons').DataTable({

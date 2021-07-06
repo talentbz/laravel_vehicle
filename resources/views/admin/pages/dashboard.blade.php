@@ -22,7 +22,7 @@
                     <h4 class="card-title">在庫車両</h4>
                 </div>
                 <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <table class="display table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
                                 <th>PHOTO</th>
@@ -44,7 +44,7 @@
                         <tbody>
                             @forelse($vehicles as $vehicle)
                             <tr>
-                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle->id]) !!}">
+                                <td align="center"><a href="{!! route('vehicle.details', ['id' => $vehicle->id]) !!}">
                                     @if($vehicle->car_path)
                                         <img class="img-thumbnail" src="{{$vehicle->car_path}}" alt="" width="100">
                                     @else
@@ -67,7 +67,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td align="center" colspan="13">Please create company.</p>
+                                <td align="center" colspan="13">データが存在しません</p>
                             </tr>
                             @endforelse
                         </tbody>
@@ -88,15 +88,15 @@
                 <h4 class="card-title">掲示板</h4>
             </div>
             <div class="table-responsive">
-                <table id="datatable-bullettin" class="table table-bordered dt-responsive  nowrap w-100">
+                <table class="display table table-bordered dt-responsive  nowrap w-100">
                     <thead>
                         <tr>
-                            <th>NO</th>
-                            <th>日付</th>
-                            <th>カテゴリー</th>
-                            <th>タイトル</th>
-                            <th>内容</th>
-                            <th>削除</th>
+                            <th width="10%">NO</th>
+                            <th width="10%">日付</th>
+                            <th width="10%">カテゴリー</th>
+                            <th width="10%">タイトル</th>
+                            <th width="50%">内容</th>
+                            <th width="10%">削除</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -116,7 +116,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td align="center" colspan="5">There is no data</p>
+                            <td align="center" colspan="6">データが存在しません</p>
                         </tr>
                         @endforelse
                     </tbody>

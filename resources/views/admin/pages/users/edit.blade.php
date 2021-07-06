@@ -65,10 +65,10 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="d-flex flex-wrap gap-2">
+                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">閉じる</button>
                                             <button type="submit" class="btn btn-primary waves-effect waves-light" id="creaete_user">
                                                 保存
                                             </button>
-                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">閉じる</button>
                                         </div>
                                     </div>
                                 </form>

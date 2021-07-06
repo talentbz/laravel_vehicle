@@ -16,21 +16,6 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">会社情報</h4>
-                <table class="table table-bordered table-striped table-nowrap mb-0">
-                    <tr>
-                        <th class="text-nowrap" scope="row">会社写真</th>
-                        <td colspan="6">
-                            <form id="imageForm" class="custom-validation" method="post" enctype="multipart/form-data">
-                                {!! csrf_field() !!}
-                                <div class="form-group">
-                                    <div class="file-loading">
-                                        <input id="input-711" name="file" type="file" multiple>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="table-responsive">
@@ -40,9 +25,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="text-nowrap" scope="row">所在地</th>
+                                    <th class="text-nowrap" scope="row">担当者</th>
                                     <td colspan="6">
-                                        <input parsley-type="location" type="text" name="name" class="form-control" required placeholder="Enter name" id="name"/>
+                                        <input parsley-type="member" type="text" name="member" class="form-control" required placeholder="Enter member" id="member"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -66,7 +51,7 @@
                                 <tr>
                                     <th class="text-nowrap" scope="row">会社説明</th>
                                     <td colspan="6">
-                                         <textarea id="elm1" name="description"></textarea>
+                                         <textarea id="textarea" name="description"></textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -76,6 +61,21 @@
                         <button type="submit" class="btn btn-outline-primary waves-effect waves-light" ><i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
+                <table class="table table-bordered table-striped table-nowrap mb-0">
+                    <tr>
+                        <th class="text-nowrap" scope="row">会社写真</th>
+                        <td colspan="6">
+                            <form id="imageForm" class="custom-validation" method="post" enctype="multipart/form-data">
+                                {!! csrf_field() !!}
+                                <div class="form-group">
+                                    <div class="file-loading">
+                                        <input id="input-711" name="file" type="file" multiple>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div> <!-- end col -->

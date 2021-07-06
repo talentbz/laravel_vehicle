@@ -49,7 +49,7 @@
                         <tbody>
                             @forelse($vehicle_infos as $vehicle_info)
                             <tr>
-                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">
+                                <td align="center"><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">
                                     @if($vehicle_info->car_path)
                                         <img class="img-thumbnail" src="{{$vehicle_info->car_path}}" alt="" width="100">
                                     @else
