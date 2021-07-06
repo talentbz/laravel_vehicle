@@ -20,3 +20,6 @@ table td{
 .text-nowrap {
     width:20% !important;
 }
+.table-nowrap td, .table-nowrap th {
+    white-space:initial !important;
+}

@@ -27,7 +27,7 @@ class dashboardController extends Controller
                             ->select('vehicle.*', 'vehicle_media.car_path', 'vehicle_fee.taxExc_price', 'vehicle_fee.taxInc_price', 'company_details.member', 'users.company_name')
                             ->orderBy('vehicle.updated_at', 'asc')
                             ->get();    
-                            
+              
         $bulletins = Bulletin::orderBy('updated_at', 'DESC')->get();           
         
         return view('admin.pages.dashboard', [

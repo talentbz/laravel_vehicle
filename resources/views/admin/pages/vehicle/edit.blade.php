@@ -423,7 +423,7 @@
                             </button>    
                         </a>
                         <button type="submit" class="btn btn-outline-primary waves-effect waves-light">
-                            <i class="fas far fa-save"></i> 修正
+                            <i class="fas far fa-save"></i> 保存
                         </button>
                     </div>
                 </form>

@@ -1,4 +1,20 @@
+/*
+SQLyog Community v13.1.6 (64 bit)
+MySQL - 10.4.8-MariaDB : Database - vehicle_ad
+*********************************************************************
+*/
 
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`vehicle_ad` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `vehicle_ad`;
 
 /*Table structure for table `bulletin` */
 
@@ -18,10 +34,6 @@ CREATE TABLE `bulletin` (
 
 /*Data for the table `bulletin` */
 
-insert  into `bulletin`(`id`,`company_id`,`category`,`title`,`deadline_date`,`content`,`created_at`,`updated_at`) values 
-(2,3,'求人','5月10日東京方面配達','2021-06-24T11:45','5月10日名古屋から東京方面への配達できる方を募集します。荷物は冷凍食品です。詳細は052-945-7788　小林まで\r\n5月10日名古屋から東京方面への配達できる方を募集します。荷物は冷凍食品です。詳細は052-945-7788　小林まで\r\n5月10日名古屋から東京方面への配達できる方を募集します。荷物は冷凍食品です。詳細は052-945-7788　小林まで','2021-06-23 00:44:12','2021-07-05 08:44:19'),
-(3,3,'仕事求む','5月2日名古屋ー大阪配達仕事求む','2021-06-18T00:51','5月2日名古屋から大阪方面へ4トントラックにての配達予定。','2021-06-23 00:47:31','2021-06-23 00:56:12');
-
 /*Table structure for table `company_details` */
 
 DROP TABLE IF EXISTS `company_details`;
@@ -30,20 +42,18 @@ CREATE TABLE `company_details` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `company_member` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `site_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `site_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `member` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `company_details` */
 
 insert  into `company_details`(`id`,`user_id`,`company_member`,`site_url`,`description`,`created_at`,`updated_at`,`member`) values 
-(3,13,'','http://truckerjapan.com/','company3','2021-06-19 07:01:45','2021-07-02 15:01:42','member3'),
-(4,8,NULL,'http://truckerjapan.com/company','<p>compan5 content</p>','2021-06-23 13:50:05','2021-06-23 13:50:05','company5'),
-(5,11,NULL,'http://truckerjapan.com/company','678','2021-06-23 16:58:44','2021-07-03 00:21:42','member6');
+(7,16,NULL,NULL,'company1 description.\r\ncompany1 description.\r\ncompany1 description.\r\ncompany1 description.','2021-07-05 16:33:09','2021-07-05 16:33:09','member1');
 
 /*Table structure for table `company_media` */
 
@@ -56,16 +66,13 @@ CREATE TABLE `company_media` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `company_media` */
 
 insert  into `company_media`(`id`,`company_id`,`path`,`created_at`,`updated_at`) values 
-(55,3,'http://truckerjapan.com/uploads/company/2/1624365747291.png','2021-06-22 12:42:27','2021-06-22 12:42:27'),
-(56,3,'http://truckerjapan.com/uploads/company/2/1624365747478.png','2021-06-22 12:42:27','2021-06-22 12:42:27'),
-(57,4,'http://truckerjapan.com/uploads/company/8/1624460050514.png','2021-06-23 14:54:10','2021-06-23 14:54:10'),
-(58,4,'http://truckerjapan.com/uploads/company/8/1624460050759.png','2021-06-23 14:54:10','2021-06-23 14:54:10'),
-(61,5,'http://truckerjapan.com/uploads/company/11/1625271616456.jpg','2021-07-03 00:20:16','2021-07-03 00:20:16');
+(62,7,'http://localhost:8000/uploads/company/16/1625503033361.jpg','2021-07-05 16:37:13','2021-07-05 16:37:13'),
+(63,7,'http://localhost:8000/uploads/company/16/1625503033639.jpg','2021-07-05 16:37:13','2021-07-05 16:37:13');
 
 /*Table structure for table `failed_jobs` */
 
@@ -146,16 +153,14 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`name`,`email`,`company_name`,`location`,`phone`,`status`,`dob`,`avatar`,`role`,`email_verified_at`,`password`,`path`,`remember_token`,`created_at`,`updated_at`) values 
 (1,'Shinji Ohashi','sin7sin4@gmail.com','Shinji Ohashi','yui','123',1,NULL,NULL,1,NULL,'$2y$10$/FioGTAGf.aJ0dtAfMIiqurvY1CVTKkgI4CpFc8FviIwVwac3LPU2',NULL,NULL,NULL,'2021-06-23 13:57:10'),
-(11,'admin6','admin6@gmail.com','company5','yui','yui',1,NULL,'http://truckerjapan.com/uploads/avatar/1624464554651.jpg',2,NULL,'$2y$10$DsnTm6/kk5FlV.RmRGsxWeCvcDzj.GrFxcMYjFhvDSkJ3eDPxG7/C',NULL,NULL,'2021-06-23 15:56:38','2021-06-23 16:58:44'),
-(12,'admin2','admin2@admin.com','company2','location2 location2 location2 location2 location2 location2 location2 ','12345678',1,NULL,'http://truckerjapan.com/uploads/avatar/1625043615275.jpg',2,NULL,'$2y$10$/Ka7Y/jckXR3FYndv0T4k.p70JOBjtsCLY3dlS/cpFPd5JMeACTg2',NULL,NULL,'2021-06-30 09:00:15','2021-06-30 09:00:15'),
-(13,'admin1','admin1@admin.com','company1','location3','12345678',1,NULL,'http://truckerjapan.com/uploads/avatar/1625134319820.jpg',2,NULL,'$2y$10$tqGtcdEtSslv6Aidu7NlGeswOdBnVBkwotB8WLcOT0Mb8gMheEVCS',NULL,NULL,'2021-07-01 10:12:00','2021-07-02 15:01:41'),
-(15,NULL,'admin3@admin.com','company3','location3','123456789',1,NULL,'http://truckerjapan.com/uploads/avatar/1625234585445.jpg',2,NULL,'$2y$10$MQnvdi6YYvq2GjVChRMN9OY8Ar8Nkc.zcYzk5wyDOTBe/paG0n4z6',NULL,NULL,'2021-07-02 14:03:05','2021-07-02 14:03:05');
+(16,NULL,'admin1@admin.com','company1','location1','12345678',1,NULL,'http://localhost:8000/uploads/avatar/1625501194114.jpg',2,NULL,'$2y$10$VtczvPms.rEd4uZKzr5X4.tOxUcn5UXM71yHgG5NYY35pDbDGGJ3S',NULL,NULL,'2021-07-05 16:06:34','2021-07-05 16:06:34'),
+(17,NULL,'admin2@admin.com','company2','location2','12345678',1,NULL,'http://localhost:8000/uploads/avatar/1625501279452.jpg',2,NULL,'$2y$10$v8Zem5tdU2b2LQl8N0KIFOgE.OCCJ3oGkpx3usoGSCcEdYVHpPOCi',NULL,NULL,'2021-07-05 16:07:59','2021-07-05 16:07:59');
 
 /*Table structure for table `vehicle` */
 
@@ -186,13 +191,12 @@ CREATE TABLE `vehicle` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `loading_capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `vehicle` */
 
 insert  into `vehicle`(`id`,`company_id`,`car_category`,`car_name`,`area`,`model`,`body_number`,`engine_model`,`displacement`,`fule`,`mission`,`shape`,`class`,`max_capacity`,`mileage`,`require_path`,`start_year`,`start_month`,`end_year`,`end_month`,`created_at`,`updated_at`,`loading_capacity`) values 
-(1,3,'いすゞ','コモ','北海道','789','567','yui','567000','軽油','フロアオートマ(AT)','ウィング','バス','2人','256000','http://truckerjapan.com/uploads/vehicle/2/1/1624520737678.jpg','昭和50年(1975年)','1月','令和4年(2022年)','1月','2021-06-22 02:42:21','2021-06-24 07:45:37','256'),
-(3,3,'いすゞ','エルフ','北海道','123','123','123','123','軽油','フロアオートマ(AT)','バン','大型','2人','123','http://truckerjapan.com/uploads/vehicle/2/1/1624522509244.jpg','昭和50年(1975年)','1月','令和6年(2024年)','1月','2021-06-24 08:15:09','2021-06-24 08:15:09','123');
+(4,7,'三菱ふそう','キャンター','青森県','model1','car-1','engine1','2500','軽油','フロアオートマ(AT)','ウィング','小型','3人','3000','http://localhost:8000/uploads/vehicle/16/1/1625530549194.jpg','昭和50年(1975年)','1月',NULL,NULL,'2021-07-06 00:15:49','2021-07-06 00:15:49','2500');
 
 /*Table structure for table `vehicle_equipment` */
 
@@ -232,13 +236,12 @@ CREATE TABLE `vehicle_equipment` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `hill_set` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `vehicle_equipment` */
 
 insert  into `vehicle_equipment`(`id`,`vehicle_id`,`power_set`,`power_window`,`air_set`,`door_set`,`etc_set`,`tacograph_set`,`adblue_set`,`air_sus_set`,`leaf_sus_set`,`cruise_set`,`redtarder_set`,`lane_set`,`disc_set`,`air_bag_set`,`abs_set`,`asr_set`,`camera_set`,`immobilizer_set`,`dvd_set`,`cd_set`,`md_set`,`radio_set`,`navigation_set`,`tv_set`,`repaire_set`,`owner_set`,`unused_set`,`created_at`,`updated_at`,`hill_set`) values 
-(2,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,'2021-06-22 02:42:21','2021-06-24 07:45:37',0),
-(4,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,'2021-06-24 08:15:09','2021-06-24 08:15:09',0);
+(5,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'2021-07-06 00:15:49','2021-07-06 00:15:49',0);
 
 /*Table structure for table `vehicle_fee` */
 
@@ -254,13 +257,12 @@ CREATE TABLE `vehicle_fee` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `vehicle_fee` */
 
 insert  into `vehicle_fee`(`id`,`vehicle_id`,`fee`,`taxExc_price`,`taxInc_price`,`note`,`created_at`,`updated_at`) values 
-(2,1,'123','123','12300000','123','2021-06-22 02:42:21','2021-06-24 06:55:03'),
-(4,3,'123','213','123','123','2021-06-24 08:15:09','2021-06-24 08:15:09');
+(5,4,'5000','300','350','description1\r\ndescription1\r\ndescription1\r\ndescription1','2021-07-06 00:15:49','2021-07-06 00:15:49');
 
 /*Table structure for table `vehicle_media` */
 
@@ -273,20 +275,9 @@ CREATE TABLE `vehicle_media` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `vehicle_media` */
-
-insert  into `vehicle_media`(`id`,`vehicle_id`,`car_path`,`created_at`,`updated_at`) values 
-(109,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948394292.jpg','2021-06-29 06:33:15','2021-06-29 06:33:15'),
-(110,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948395688.jpg','2021-06-29 06:33:17','2021-06-29 06:33:17'),
-(111,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948397506.jpg','2021-06-29 06:33:20','2021-06-29 06:33:20'),
-(112,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948400712.jpg','2021-06-29 06:33:21','2021-06-29 06:33:21'),
-(113,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948402191.jpg','2021-06-29 06:33:23','2021-06-29 06:33:23'),
-(114,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948403956.jpg','2021-06-29 06:33:24','2021-06-29 06:33:24'),
-(115,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948405109.jpg','2021-06-29 06:33:26','2021-06-29 06:33:26'),
-(116,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948406509.jpg','2021-06-29 06:33:27','2021-06-29 06:33:27'),
-(117,3,'http://truckerjapan.com/uploads/vehicle/2/3/1624948407578.jpg','2021-06-29 06:33:28','2021-06-29 06:33:28');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

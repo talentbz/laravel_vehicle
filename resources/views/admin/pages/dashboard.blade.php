@@ -62,7 +62,7 @@
                                 <td>{{number_format($vehicle->mileage).' Km'}}</td>
                                 <td>{{$vehicle->taxExc_price.' 万円'}}</td>
                                 <td class="tax-inc">{{number_format($vehicle->taxInc_price).' 万円'}}</td>
-                                <td>{{$vehicle->name}}</td>
+                                <td>{{$vehicle->company_name}}</td>
                                 <!-- <td>{{$vehicle->note}}</td> -->
                             </tr>
                             @empty
