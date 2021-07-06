@@ -61,7 +61,7 @@
                                         会社を作る</a>
                                     </td>
                                 @else
-                                    <td align="center" colspan="6">There is no data</p>
+                                    <td align="center" colspan="6">データが存在しません</p>
                                 @endif
                             </tr>
                             @endforelse

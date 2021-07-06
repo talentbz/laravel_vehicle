@@ -941,6 +941,6 @@ class vehicleController extends Controller
         $result->car_path = $filePath;
         
         $result->save();
-        return response()->json(['uploaded' => 'uploads/vehicle/'.$userId.'/'.$vehicleId.'/']);
+        return response()->json(['uploaded' => 'uploads/vehicle/'.$userId.'/']);
     }
 }

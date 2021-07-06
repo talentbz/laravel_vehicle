@@ -40,7 +40,7 @@
                     $('.back').hide();
                 },
                 success: function (res) {
-                    toastr["success"]("Data Saved");
+                    toastr["success"]("保存されたデータ");
                     $('.back').show();
                 },
                 error: function (res){
