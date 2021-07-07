@@ -104,6 +104,7 @@ $(document).ready(function () {
             success: function (res) {
                 toastr["success"]("保存されたデータ");
                 $('.back').show();
+                $('.create_save').hide();
             },
             error: function (res){
                 console.log(res)
@@ -130,7 +131,7 @@ $(document).ready(function () {
         
         uploadUrl: add_photo_url,
         overwriteInitial: false,
-        maxFileCount: 5,
+        maxFileCount: 50,
         showBrowse: false,
         browseOnZoneClick: true
     });

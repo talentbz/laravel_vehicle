@@ -72,7 +72,7 @@
                             @empty
                             <tr>
                                 @if(empty($vehicle_infos))
-                                    <td align="center" colspan="13">会社を作ってください。</p>
+                                    <td align="center" colspan="13">車両を登録しましょう。</p>
                                 @else
                                     <td align="center" colspan="13">データはありません。</p>
                                 @endif

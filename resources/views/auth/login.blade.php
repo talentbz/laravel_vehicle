@@ -67,7 +67,7 @@
                                             <input class="form-check-input" type="checkbox" id="remember"
                                                 {{ old('remember') ? 'checked' : '' }}>
                                             <label class="form-check-label" for="remember">
-                                            私を覚えてますか
+                                            IDとパスワードを記憶する
                                             </label>
                                         </div>
 

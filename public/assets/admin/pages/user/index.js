@@ -1,5 +1,14 @@
-
 $(document).ready(function(){
+    
+    oTable = $('#datatable').DataTable({
+        "ordering": false,
+        "language": {
+            "url": datatable_json
+        },
+        responsive: false,
+        "autoWidth": false,
+        "scrollX": true,
+      });
 
     //edit data
     $('.edit').click(function(e){
@@ -17,43 +26,38 @@ $(document).ready(function(){
         $('#location').val(location);
         $('#user_id').val(id);
         $('#editModal').modal('show');
-
-        $('form#myForm').submit(function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            var formData = new FormData(this);
-            $.ajaxSetup({
-                headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: edit_url,
-                method: 'POST',
-                data: formData,
-                beforeSend: function(){
-                    $('.spinner-border').addClass("spinner-display")
-                },
-                success: function (res) {
-                    setTimeout(function () {
-                        $('.spinner-border').removeClass("spinner-display")
-                    }, 1000);
-                    if(res == 'exist'){
-                        toastr["warning"]("メールがあります。別のメールを挿入してください。");
-                    } else {
-                        toastr["success"]("データが保存されました！");
-                        $('#editModal').modal('hide');
-                    }
-                },
-                error: function (res){
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-    
-            });
-        })
     })
+
+    $('form#editForm').submit(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var formData = new FormData(this);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: edit_url,
+            method: 'POST',
+            data: formData,
+            success: function (res) {
+                if(res == 'exist'){
+                    toastr["warning"]("メールがあります。別のメールを挿入してください。");
+                } else {
+                    toastr["success"]("データが保存されました！");
+                    $('#editModal').modal('hide');
+                }
+            },
+            error: function (res){
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+
+        });
+    })
+
 
     //delte data
     $('.confirm_delete').click(function(e){
@@ -94,13 +98,7 @@ $(document).ready(function(){
             url: add_url,
             method: 'post',
             data: formData,
-            beforeSend: function(){
-                $('.spinner-border').addClass("spinner-display")
-            },
             success: function (res) {
-                setTimeout(function () {
-                    $('.spinner-border').removeClass("spinner-display")
-                }, 1000);
                 if(res == 'exist'){
                     toastr["warning"]("メールがあります。別のメールを挿入してください。");
                 } else {

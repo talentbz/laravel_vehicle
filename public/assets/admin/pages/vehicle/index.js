@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     /*  ==========================================
         SHOW UPLOADED IMAGE
     * ========================================== */
@@ -84,7 +85,7 @@ $(document).ready(function () {
         $('.end_year').attr('name', 'end_year');
         $('.end_month').attr('name', 'end_month');
     })
-     //add data
+     //edit data
      $('form#myForm').submit(function(e){
         e.preventDefault();
         e.stopPropagation();
@@ -98,9 +99,6 @@ $(document).ready(function () {
             url: edit_url,
             method: 'post',
             data: formData,
-            beforeSend: function(){
-                $('.back').hide();
-            },
             success: function (res) {
                 toastr["success"]("保存されたデータ");
                 $('.back').show();

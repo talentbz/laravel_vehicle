@@ -412,8 +412,8 @@
                         </table>
                     </div>
                     <div class="vehicle_save">
-                        <input type="button" class="btn btn-outline-primary waves-effect waves-light back" value="Back" />
-                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-save"></i> 保存</button>
+                        <a href="{{route('vehicle.index')}}" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-long-arrow-alt-left"></i> 戻る</a>
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light create_save"><i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
 

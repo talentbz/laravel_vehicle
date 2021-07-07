@@ -12,7 +12,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <form id="myForm" class="custom-validation" method="post" action="javascript:void(0)" enctype="multipart/form-data">
+                                <form id="editForm" class="custom-validation" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     
                                     <!-- <div class="mb-3">

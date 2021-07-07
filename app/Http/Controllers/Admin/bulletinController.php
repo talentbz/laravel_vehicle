@@ -83,7 +83,6 @@ class bulletinController extends Controller
     }
     public function destroy(Request $request){
         $id = $request->id;
-        dd($id);
         if($id){
             $result = Bulletin::where('id', $id)->delete();
             return response()->json($result);

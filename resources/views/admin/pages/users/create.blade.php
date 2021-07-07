@@ -52,10 +52,10 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">ロケーション</label>
+                                        <label class="form-label">所在地</label>
                                         <div>
                                             <input data-parsley-type="location" type="text" name="location" class="form-control" required
-                                                placeholder="ロケーション"/>
+                                                placeholder="所在地"/>
                                         </div>
                                     </div>
                                     <div class="mb-3">

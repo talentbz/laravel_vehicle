@@ -55,7 +55,7 @@
                                 <tr>
                                     <td class="table-light" >内容</td>
                                     <td >
-                                        <textarea id="textarea" class="form-control" maxlength="225" rows="3"
+                                        <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
                                         placeholder="This textarea has a limit of 225 chars." name="content" required></textarea>
                                     </td>
                                 </tr>
@@ -63,7 +63,8 @@
                         </table>
                     </div>
                     <div class="bulletin_save">
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="登録する" />
+                        <a href="{{route('bulletin.index')}}" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-long-arrow-alt-left"></i> 戻る</a>
+                        <button type="submit" class="btn btn-outline-primary waves-effect waves-light create_save"><i class="fas fa-save"></i> 保存</button>
                     </div>
                 </form>
             </div>

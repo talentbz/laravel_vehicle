@@ -19,6 +19,7 @@ $(document).ready(function(){
             success: function (res) {
                 toastr["success"]("保存されたデータ");
                 $('.back').show();
+                $('.create_save').hide();
             },
             error: function (res){
                 console.log(res)
@@ -28,6 +29,12 @@ $(document).ready(function(){
             processData: false
         })
     })
+    table = $("#datatable").DataTable()
+    $("#my-button").click(function() {
+        //table.fnDestroy();
+        table.load();
+        //table = $("#datatable").DataTable();
+    });
     //delete bulletin
     $('.delete').click(function(e){
         var id = $(this).data('id');
@@ -43,8 +50,11 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(res){
                 toastr["success"]("Data deleted!");
-                var oTable = $('#datatable').dataTable();
-                oTable.fnDraw(false);
+                $('#datatable').dataTable().fnDestroy();
+                $("#datatable").dataTable();
+
+
+                //$('#datatable').DataTable().ajax.reload();
            }
         });
         

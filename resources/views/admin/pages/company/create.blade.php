@@ -51,7 +51,7 @@
                                 <tr>
                                     <th class="text-nowrap" scope="row">会社説明</th>
                                     <td colspan="6">
-                                         <textarea id="textarea" name="description"></textarea>
+                                         <textarea id="elm1" name="description"></textarea>
                                     </td>
                                 </tr>
                             </tbody>

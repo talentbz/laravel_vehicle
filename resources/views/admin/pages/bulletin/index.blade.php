@@ -19,7 +19,7 @@
                 <div class="cart-header">
                     <h4 class="card-title">掲示板</h4>
                     @if(!empty($bulletins))
-                        <a href="{{route('vehicle.create')}}" class="btn btn-outline-primary waves-effect waves-light" ><i class="fas fa-plus"></i> 追加</a>
+                        <a href="{{route('bulletin.add')}}" class="btn btn-outline-primary waves-effect waves-light" ><i class="fas fa-plus"></i> 追加</a>
                     @endif    
                 </div>
                 <div class="table-responsive">
@@ -72,13 +72,14 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
+<button id="my-button">click me</button>
 <script>
     var delete_url = "{{route('bulletin.destroy')}}"
 </script>
     @section('script')
     <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
     <!-- Datatable init js -->
-    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+    <!-- <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script> -->
      <!-- toastr plugin -->
      <script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>
         <!-- toastr init -->

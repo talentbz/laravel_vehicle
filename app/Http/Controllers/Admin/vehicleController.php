@@ -926,7 +926,7 @@ class vehicleController extends Controller
         //$image_count = CompanyMedia::where('user_id', $userId)->count();
         if ($request->has('file')) { 
             $extension = $request->file->extension();
-            $imageName = round(microtime(true) * 1000) . '.' . $extension;
+            $imageName = round(time()) . '.' . $extension;
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
             $imgx->resize(700, null, function ($constraint) {

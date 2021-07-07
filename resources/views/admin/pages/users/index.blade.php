@@ -67,7 +67,7 @@
                                 <td>{{$user->status}}</td>
                                 <td>{{$user->updated_at}}</td>
                                 <td align="center">
-                                        <a href="javascript:void(0);" class="text-success edit" data-id="{{ $user->id }}"><i
+                                        <a href="javascript:void(0);" class="text-success edit" data-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#editModal"><i
                                                 class="mdi mdi-pencil font-size-18"></i></a>
                                         <a href="javascript:void(0);" class="text-danger confirm_delete" data-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal"><i
                                            class="mdi mdi-delete font-size-18"></i></a>
@@ -115,7 +115,7 @@
     @section('script')
         <!-- Required datatable js -->
         <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
-        <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+        <!-- <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script> -->
         <!-- toastr plugin -->
         <script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>
         <!-- toastr init -->
