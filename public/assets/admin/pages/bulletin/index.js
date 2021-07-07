@@ -29,12 +29,6 @@ $(document).ready(function(){
             processData: false
         })
     })
-    table = $("#datatable").DataTable()
-    $("#my-button").click(function() {
-        //table.fnDestroy();
-        table.load();
-        //table = $("#datatable").DataTable();
-    });
     //delete bulletin
     $('.delete').click(function(e){
         var id = $(this).data('id');
