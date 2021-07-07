@@ -72,7 +72,6 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
-<button id="my-button">click me</button>
 <script>
     var delete_url = "{{route('bulletin.destroy')}}"
 </script>
