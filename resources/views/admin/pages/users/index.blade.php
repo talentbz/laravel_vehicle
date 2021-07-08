@@ -115,6 +115,7 @@
     @section('script')
         <!-- Required datatable js -->
         <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+        <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
         <!-- <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script> -->
         <!-- toastr plugin -->
         <script src="{{ URL::asset('/assets/libs/toastr/toastr.min.js') }}"></script>

@@ -17,7 +17,7 @@ $(document).ready(function(){
                 $('.back').hide();
             },
             success: function (res) {
-                toastr["success"]("保存されたデータ");
+                toastr["success"]("保存完了");
                 $('.back').show();
                 $('.create_save').hide();
             },

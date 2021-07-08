@@ -13,6 +13,7 @@ File: Datatables Js File
 $(document).ready(function () {
   //$('#datatable').DataTable(); //Buttons examples
   var custom_table = $('#datatable').DataTable({
+    "processing": true,
     "ordering": false,
     "language": {
         "url": datatable_json
@@ -22,6 +23,7 @@ $(document).ready(function () {
     "scrollX": true,
   });
   $('table.display').DataTable({
+    "processing": true,
     "ordering": false,
     "language": {
         "url": datatable_json

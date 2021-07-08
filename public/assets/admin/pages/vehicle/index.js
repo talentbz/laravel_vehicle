@@ -100,7 +100,7 @@ $(document).ready(function () {
             method: 'post',
             data: formData,
             success: function (res) {
-                toastr["success"]("保存されたデータ");
+                toastr["success"]("保存完了");
                 $('.back').show();
             },
             error: function (res){
@@ -116,6 +116,7 @@ $(document).ready(function () {
     $("#input-711").fileinput({
         theme: 'fa',
         initialPreview: car_paths,
+        //uploadAsync: false,
         initialPreviewAsData: true,
         deleteUrl: remove_photo,
         initialPreviewConfig: id_array,
@@ -137,8 +138,9 @@ $(document).ready(function () {
         uploadUrl: add_photo_url,
         overwriteInitial: false,
         maxFileCount: 50,
+        maxFilesNum: 50,
         showBrowse: false,
-        browseOnZoneClick: true
+        browseOnZoneClick: true,
     });
 
     // slick slider

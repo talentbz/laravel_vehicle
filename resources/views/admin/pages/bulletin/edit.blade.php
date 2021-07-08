@@ -54,17 +54,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="table-light" >内容</td>
+                                    <td class="table-light">内容</td>
                                     <td >
                                         <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
-                                        placeholder="This textarea has a limit of 1000 chars." name="content" required>{{$bulletin->content}}</textarea>
+                                        placeholder="1000文字以内" name="content" required>{{$bulletin->content}}</textarea>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="bulletin_save">
-                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="登録する" />
+                        <input type="submit" class="btn btn-outline-primary waves-effect waves-light" value="保存" />
                     </div>
                 </form>
             </div>

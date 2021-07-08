@@ -1,14 +1,4 @@
 $(document).ready(function(){
-    
-    oTable = $('#datatable').DataTable({
-        "ordering": false,
-        "language": {
-            "url": datatable_json
-        },
-        responsive: false,
-        "autoWidth": false,
-        "scrollX": true,
-      });
 
     //edit data
     $('.edit').click(function(e){
@@ -73,10 +63,16 @@ $(document).ready(function(){
                 url: delete_url,
                 data: { id: id },
                 dataType: 'json',
-                success: function(res){
+                success: function(data){
+                    var table = $('#datatable').DataTable( {
+                        ajax: data
+                    } );
+                     
+                    setInterval( function () {
+                        table.ajax.reload();
+                    }, 1000 );
+                    //$('#datatable').DataTable().ajax.reload(null, false);
                     toastr["success"]("データが削除されました!");
-                    var oTable = $('#datatable').dataTable();
-                    oTable.fnDraw(false);
                     $('#deleteModal').modal('hide');
                }
             });
@@ -99,6 +95,7 @@ $(document).ready(function(){
             method: 'post',
             data: formData,
             success: function (res) {
+                $('#datatable').DataTable().ajax.reload(null, false);
                 if(res == 'exist'){
                     toastr["warning"]("メールがあります。別のメールを挿入してください。");
                 } else {

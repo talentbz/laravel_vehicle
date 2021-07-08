@@ -19,7 +19,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">登掲示板</h4>
+                <h4 class="card-title">掲示板登録</h4>
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="table-responsive">
@@ -49,14 +49,14 @@
                                 <tr>
                                     <td class="table-light" >タイトル</td>
                                     <td >
-                                        <input parsley-type="title" type="text" name="title" class="form-control" required  placeholder="Enter title" id="title"/>
+                                        <input parsley-type="title" type="text" name="title" class="form-control" required  placeholder="タイトル" id="title"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >内容</td>
                                     <td >
                                         <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
-                                        placeholder="This textarea has a limit of 225 chars." name="content" required></textarea>
+                                        placeholder="1000文字以内" name="content" required></textarea>
                                     </td>
                                 </tr>
                             </tbody>

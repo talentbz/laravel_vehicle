@@ -30,27 +30,25 @@
                                 <th>日付</th>
                                 <th>カテゴリー</th>
                                 <th>タイトル</th>
-                                <th>内容</th>
+                                <th align="left">内容</th>
                                 <th>修正・削除</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($bulletins as $key=>$bulletin)
                             <tr>
-                                <td>{{$key+=1}}</td>
-                                <td>{{$bulletin->deadline_date}}</td>
-                                <td>{{$bulletin->category}}</td>
-                                <td>{{$bulletin->title}}</td>
+                                <td align="center">{{$key+=1}}</td>
+                                <td align="center">{{$bulletin->deadline_date}}</td>
+                                <td align="center">{{$bulletin->category}}</td>
+                                <td align="center">{{$bulletin->title}}</td>
                                 <td>
                                     <p>{{$bulletin->content}}</p>
                                 </td>
-                                <td>
-                                    <div class="d-flex gap-3">
+                                <td align="center">
                                         <a href="{!! route('bulletin.edit', ['id' => $bulletin->id]) !!}" class="text-success edit" data-id="{{ $bulletin->id }}"><i
                                                 class="mdi mdi-pencil font-size-18"></i></a>
                                         <a href="javascript:void(0);" class="text-danger delete" data-id="{{ $bulletin->id }}"><i
                                                 class="mdi mdi-delete font-size-18"></i></a>
-                                    </div>
                                 </td>
                             </tr>
                             @empty

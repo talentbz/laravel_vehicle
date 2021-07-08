@@ -14,6 +14,8 @@ use App\Models\Vehicle;
 use App\Models\VehicleFee;
 use App\Models\VehicleMedia;
 use App\Models\VehicleEquipment;
+use Illuminate\Support\Facades\Storage;
+
 class vehicleController extends Controller
 {
     public function index(Request $request){
@@ -673,9 +675,9 @@ class vehicleController extends Controller
         if ($request->has('file')) { 
             $extension = $request->file->extension();
             $imageName = round(microtime(true) * 1000) . '.' . $extension;
-            $request->file->move(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'), $imageName);
+            $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
         }
-        $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
+        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
         $vehicle->require_path = $filePath; //end upload image
 
         $vehicle->company_id = $companyId;
@@ -773,8 +775,8 @@ class vehicleController extends Controller
             if ($request->has('file')) { 
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
-                $request->file->move(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'), $imageName);
-                $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
+                $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
+                $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
                 $vehicle->require_path = $filePath;
             }
             $vehicle->class = $request->class;
@@ -837,9 +839,9 @@ class vehicleController extends Controller
             if ($request->has('file')) { 
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
-                $request->file->move(public_path('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'), $imageName);
+                $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
             }
-            $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$vehicleId.'/'.$imageName);
+            $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
             $vehicle->require_path = $filePath; //end upload image
 
             $vehicle->company_id = $companyId;
@@ -911,10 +913,11 @@ class vehicleController extends Controller
         $userId = Auth::user()->id;
         $id = $request->key;
         $fileName = vehicleMedia::where('id', $id)->first()->car_path;
+        
         if(File::exists(public_path($fileName))){
             File::delete(public_path($fileName));
-            dd($fileName);
         }
+        Storage::delete($fileName);
         $result = vehicleMedia::where('id', $id)->delete();
         return response()->json(['result' => true, 'deleted' => $result]);
     }
@@ -926,21 +929,21 @@ class vehicleController extends Controller
         //$image_count = CompanyMedia::where('user_id', $userId)->count();
         if ($request->has('file')) { 
             $extension = $request->file->extension();
-            $imageName = round(time()) . '.' . $extension;
+            $imageName = time() . '.' . $extension;
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
             $imgx->resize(700, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
-                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$userId.'/') . $imageName);
+                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$vehicleId.'/') . $imageName);
         }
         
-        $filePath = URL::asset('uploads/vehicle/'.$userId.'/'.$imageName);
+        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
         $result = new VehicleMedia;
         $result->vehicle_id = $vehicleId;
         $result->car_path = $filePath;
         
         $result->save();
-        return response()->json(['uploaded' => 'uploads/vehicle/'.$userId.'/']);
+        return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$imageName]);
     }
 }

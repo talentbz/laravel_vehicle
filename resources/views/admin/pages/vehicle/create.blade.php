@@ -234,7 +234,7 @@
                                 <td class="table-light" >特記</td>
                                 <td colspan="3">
                                     <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
-                                    placeholder="このtextareaには1000文字の制限があります。" name="specail_note"></textarea>
+                                    placeholder="1000文字以内" name="specail_note"></textarea>
                                 </td>
                             </tr>
                         </tbody>
