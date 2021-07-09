@@ -17,6 +17,7 @@ class CreateVehicleMediaTable extends Migration
             $table->bigIncrements('id');
             $table->integer('vehicle_id');
             $table->string('car_path')->nullable();
+            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }

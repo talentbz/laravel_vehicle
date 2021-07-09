@@ -133,7 +133,10 @@ $(document).ready(function () {
         overwriteInitial: false,
         maxFileCount: 50,
         showBrowse: false,
-        browseOnZoneClick: true
+        browseOnZoneClick: true,
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_').replace(' ', '_');
+        },
     });
 
     // slick slider

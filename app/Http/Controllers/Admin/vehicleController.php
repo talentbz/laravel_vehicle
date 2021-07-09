@@ -343,7 +343,7 @@ class vehicleController extends Controller
         $vehilce_details = Vehicle::where('id', $vehicel_id)->first();
         $vehilce_fee = VehicleFee::where('vehicle_id', $vehicel_id)->first();
         $vehicle_equipment = VehicleEquipment::where('vehicle_id', $vehicel_id)->first();
-        $vehicle_medias = VehicleMedia::where('vehicle_id', $vehicel_id)->get();
+        $vehicle_medias = VehicleMedia::where('vehicle_id', $vehicel_id)->orderBy('car_path', 'ASC')->get();
         //dd($vehilce_details);
         return view('admin.pages.vehicle.details', [
            'vehilce_details'   => $vehilce_details,
@@ -621,7 +621,7 @@ class vehicleController extends Controller
             $vehicel_id = Vehicle::latest('id')->first();
             $vehicel_id ++;
         }
-        $car_paths = VehicleMedia::where('vehicle_id', $vehicel_id)->get();
+        $car_paths = VehicleMedia::where('vehicle_id', $vehicel_id)->orderBy('car_path', 'ASC')->get();
         $path_array = [];
         $id_array = [];
         foreach($car_paths as $car_path){
@@ -912,12 +912,13 @@ class vehicleController extends Controller
     public function photoDestroy(Request $request){
         $userId = Auth::user()->id;
         $id = $request->key;
-        $fileName = vehicleMedia::where('id', $id)->first()->car_path;
-        
+        $fileName = vehicleMedia::where('id', $id)->first()->file_name;
+        $vehicleId = vehicleMedia::where('id', $id)->first()->vehicle_id;
+        $fileName = ('uploads/vehicle/'.$vehicleId.'/'.$fileName);
+        //dd(File::exists(public_path($fileName)));
         if(File::exists(public_path($fileName))){
-            File::delete(public_path($fileName));
+            File::delete(public_path($fileName));   
         }
-        Storage::delete($fileName);
         $result = vehicleMedia::where('id', $id)->delete();
         return response()->json(['result' => true, 'deleted' => $result]);
     }
@@ -929,21 +930,24 @@ class vehicleController extends Controller
         //$image_count = CompanyMedia::where('user_id', $userId)->count();
         if ($request->has('file')) { 
             $extension = $request->file->extension();
-            $imageName = time() . '.' . $extension;
+            $fileName = request()->file->getClientOriginalName();
+            $fileName = str_pad($fileName, 8, '0', STR_PAD_LEFT);
+            //$imageName = time() . '.' . $extension;
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
             $imgx->resize(700, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
-                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$vehicleId.'/') . $imageName);
+                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$vehicleId.'/').$vehicleId.'_' . $fileName);
         }
         
-        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
+        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName);
         $result = new VehicleMedia;
         $result->vehicle_id = $vehicleId;
         $result->car_path = $filePath;
+        $result->file_name = $vehicleId.'_'.$fileName;
         
         $result->save();
-        return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$imageName]);
+        return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName]);
     }
 }
