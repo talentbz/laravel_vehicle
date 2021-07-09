@@ -60,7 +60,6 @@
                                 <td>{{$vehicle_info->car_category}}</td>
                                 <td>{{$vehicle_info->car_name}}</td>
                                 <td>{{$vehicle_info->model}}</td>
-                                <!-- <td>{{number_format($vehicle_info->displacement).' L'}}</td> -->
                                 <td>{{$vehicle_info->start_year.$vehicle_info->start_month}}</td>
                                 <td>{{$vehicle_info->end_year.$vehicle_info->end_month}}</td>
                                 <!-- <td>{{$vehicle_info->body_number}}</td> -->
