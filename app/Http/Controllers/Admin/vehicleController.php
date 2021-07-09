@@ -654,30 +654,30 @@ class vehicleController extends Controller
         ]);
     }
     public function create_store(Request $request){
+        
         //save vehicle details data in vehicel table
         $vehicle = new Vehicle;
         //upload image
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
+        // $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
         
-        if($vehicle_exist>0){
-            $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first()->id;
-        } else {
-            if(Vehicle::latest('id')->first()){
-                $vehicleId = Vehicle::latest('id')->first()->id;
-                $vehicleId ++;
-            } else {
-                $vehicleId = 1;
-            }
-        }
-        
+        // if($vehicle_exist>0){
+        //     $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first()->id;
+        // } else {
+        //     if(Vehicle::latest('id')->first()){
+        //         $vehicleId = Vehicle::latest('id')->first()->id;
+        //         $vehicleId ++;
+        //     } else {
+        //         $vehicleId = 1;
+        //     }
+        // }
         if ($request->has('file')) { 
             $extension = $request->file->extension();
             $imageName = round(microtime(true) * 1000) . '.' . $extension;
-            $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
+            $request->file->move(public_path('uploads/vehicle/require/'), $imageName);
         }
-        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
+        $filePath = URL::asset('uploads/vehicle/require/'.$imageName);
         $vehicle->require_path = $filePath; //end upload image
 
         $vehicle->company_id = $companyId;
@@ -775,8 +775,8 @@ class vehicleController extends Controller
             if ($request->has('file')) { 
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
-                $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
-                $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
+                $request->file->move(public_path('uploads/vehicle/require/'), $imageName);
+                $filePath = URL::asset('uploads/vehicle/require/'.$imageName);
                 $vehicle->require_path = $filePath;
             }
             $vehicle->class = $request->class;
@@ -839,9 +839,9 @@ class vehicleController extends Controller
             if ($request->has('file')) { 
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
-                $request->file->move(public_path('uploads/vehicle/'.$vehicleId.'/'), $imageName);
+                $request->file->move(public_path('uploads/vehicle/require'), $imageName);
             }
-            $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$imageName);
+            $filePath = URL::asset('uploads/vehicle/require/'.$imageName);
             $vehicle->require_path = $filePath; //end upload image
 
             $vehicle->company_id = $companyId;
@@ -925,10 +925,11 @@ class vehicleController extends Controller
     public function photoStore(Request $request, $vehicleId){
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        //$vehicleId = Vehicle::where('company_id', $companyId)->first()->id;
-        //$vehicleId = Vehicle::latest('id')->first()->id;
-        //$image_count = CompanyMedia::where('user_id', $userId)->count();
         if ($request->has('file')) { 
+            $path = public_path('uploads/vehicle/'.$vehicleId.'/');
+            if (!file_exists($path)) {
+                File::makeDirectory($path); //create new folder   
+            }
             $extension = $request->file->extension();
             $fileName = request()->file->getClientOriginalName();
             $fileName = str_pad($fileName, 8, '0', STR_PAD_LEFT);
@@ -938,7 +939,7 @@ class vehicleController extends Controller
             $imgx->resize(700, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
-                    })->crop(640, 480)->save(public_path('uploads/vehicle/'.$vehicleId.'/').$vehicleId.'_' . $fileName);
+                    })->crop(640, 480)->save($path.$vehicleId.'_' . $fileName);
         }
         
         $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName);
