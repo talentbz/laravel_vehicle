@@ -45,7 +45,7 @@
                         <tbody>
                             <tr>
                                 <td class="table-light" scope="row">登録番号</th>
-                                <td >{{'00'.$vehilce_details->id}}</td>
+                                <td >{{prefix_word($vehilce_details->id, 3)}}</td>
                                 <td class="table-light" scope="row">地域(保管場所)</th>
                                 <td >{{$vehilce_details->area}}</td>
                             </tr>

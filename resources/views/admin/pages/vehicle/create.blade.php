@@ -33,7 +33,7 @@
                             <tbody>
                                 <tr>
                                     <td class="table-light" >登録番号</td>
-                                    <td >{{'00'.$vehicel_id}}</td>
+                                    <td >{{prefix_word($vehicel_id, 3)}}</td>
                                     <td class="table-light" >地域(保管場所)</td>
                                     <td >
                                         <div class="templating-select">

@@ -932,7 +932,7 @@ class vehicleController extends Controller
             }
             $extension = $request->file->extension();
             $fileName = request()->file->getClientOriginalName();
-            $fileName = str_pad($fileName, 8, '0', STR_PAD_LEFT);
+            $fileName = prefix_word($fileName, 8);
             //$imageName = time() . '.' . $extension;
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
