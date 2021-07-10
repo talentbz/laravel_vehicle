@@ -933,7 +933,6 @@ class vehicleController extends Controller
             $extension = $request->file->extension();
             $fileName = request()->file->getClientOriginalName();
             $fileName = prefix_word($fileName, 8);
-            //$imageName = time() . '.' . $extension;
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
             $imgx->resize(700, null, function ($constraint) {
@@ -950,5 +949,23 @@ class vehicleController extends Controller
         
         $result->save();
         return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName]);
+    }
+
+    public function destroy(Request $request){
+        $vehicleId = $request->id;
+        
+        $fileNames = VehicleMedia::where('vehicle_id', $vehicleId)->get();
+        foreach($fileNames as $fileName){
+            $filePath = 'uploads/vehicle/'.$vehicleId.'/'.$fileName->file_name;
+            //dd(File::exists(public_path($fileName)));
+            if(File::exists(public_path($filePath))){
+                File::delete(public_path($filePath));   
+            }
+        }
+        VehicleMedia::where('vehicle_id', $vehicleId)->delete();
+        Vehicle::where('id', $vehicleId)->delete();
+        VehicleEquipment::where('vehicle_id', $vehicleId)->delete();
+        VehicleFee::where('vehicle_id', $vehicleId)->delete();
+        return response()->json(['result' => true]);
     }
 }

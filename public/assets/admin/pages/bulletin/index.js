@@ -43,9 +43,9 @@ $(document).ready(function(){
             data: { id: id },
             dataType: 'json',
             success: function(res){
-                toastr["success"]("Data deleted!");
-                $('#datatable').dataTable().fnDestroy();
-                $("#datatable").dataTable();
+                toastr["success"]("データが削除されました!");
+                // $('#datatable').dataTable().fnDestroy();
+                // $("#datatable").dataTable();
 
 
                 //$('#datatable').DataTable().ajax.reload();

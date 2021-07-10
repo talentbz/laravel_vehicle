@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use DB, Validator, Exception;
 
 class Vehicle extends Model
 {
@@ -33,5 +34,8 @@ class Vehicle extends Model
         'created_at',
         'updated_at',
     ];
-    
+    public function getNextId() {
+        $statement = DB::vehicle("id");
+        return $statement[0]->Auto_increment;
+    }
 }

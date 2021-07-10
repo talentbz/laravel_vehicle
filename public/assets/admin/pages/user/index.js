@@ -2,8 +2,8 @@ $(document).ready(function(){
 
     //edit data
     $('.edit').click(function(e){
-        //e.preventDefault();
-        //e.stopPropagation();
+        // e.preventDefault();
+        // e.stopPropagation();
         var id = $(this).data('id');
         var row = $(this).parent().parent(".data-row");
         var email = row.children(".email").text();
@@ -51,6 +51,8 @@ $(document).ready(function(){
 
     //delte data
     $('.confirm_delete').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
         var id = $(this).data('id');
         $('.delete').click(function(){
             $.ajaxSetup({

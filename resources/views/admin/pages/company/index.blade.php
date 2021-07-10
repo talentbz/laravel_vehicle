@@ -43,7 +43,7 @@
                                     </a>
                                 </td>
                                 <td><a href="{!! route('company.details', ['id' => $company_info->id]) !!}">{{$company_info->name}}</a></td>
-                                <td>{{$company_info->member}}</td>
+                                <td>{{$company_info->company_name}}</td>
                                 <td>{{$company_info->location}}</td>
                                 <td>{{$company_info->email}}</td>
                                 <td>{{$company_info->phone}}</td>

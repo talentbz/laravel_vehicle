@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/vehicle/photo_destroy', [App\Http\Controllers\Admin\vehicleController::class, 'photoDestroy'])->name('vehicle.photo_destroy'); 
     Route::post('/vehicle/create_store', [App\Http\Controllers\Admin\vehicleController::class, 'create_store'])->name('vehicle.create_store'); 
     Route::post('/vehicle/edit_store', [App\Http\Controllers\Admin\vehicleController::class, 'edit_store'])->name('vehicle.edit_store'); 
+    Route::post('/vehicle/destroy', [App\Http\Controllers\Admin\vehicleController::class, 'destroy'])->name('vehicle.destroy'); 
     //Bulletin board 
     Route::get('/bulletin', [App\Http\Controllers\Admin\bulletinController::class, 'index'])->name('bulletin.index');
     Route::get('/bulletin/details/{id}', [App\Http\Controllers\Admin\bulletinController::class, 'details'])->name('bulletin.details');

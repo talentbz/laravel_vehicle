@@ -38,6 +38,7 @@
                                 <th>販売価格(税抜)</th>
                                 <th>販売価格(税込）</th>
                                 <th>会社名</th>
+                                <th>削除</th>
                                 <!-- <th width="5%">特記</th> -->
                             </tr>
                         </thead>
@@ -55,7 +56,6 @@
                                 <td>{{$vehicle->car_category}}</td>
                                 <td>{{$vehicle->car_name}}</td>
                                 <td>{{$vehicle->model}}</td>
-                                <!-- <td>{{number_format($vehicle->displacement).' L'}}</td> -->
                                 <td>{{$vehicle->start_year.$vehicle->start_month}}</td>
                                 <td>{{$vehicle->end_year.$vehicle->end_month}}</td>
                                 <!-- <td>{{$vehicle->body_number}}</td> -->
@@ -63,7 +63,11 @@
                                 <td>{{$vehicle->taxExc_price.' 万円'}}</td>
                                 <td class="tax-inc">{{number_format($vehicle->taxInc_price).' 万円'}}</td>
                                 <td>{{$vehicle->company_name}}</td>
-                                <!-- <td>{{$vehicle->note}}</td> -->
+                                <td align="center">
+                                        <a href="javascript:void(0);" class="text-danger confirm_vehicle" data-id="{{ $vehicle->id }}" data-bs-toggle="modal"
+                                                data-bs-target="#vehicleDelete"><i
+                                                class="mdi mdi-delete font-size-18"></i></a>
+                                </td>
                             </tr>
                             @empty
                             <tr>
@@ -77,6 +81,26 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
+<!-- sample modal content -->
+<div id="vehicleDelete" class="modal fade" tabindex="-1" aria-labelledby="vehicleDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="vehicleDeleteLabel">本気ですか？</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>これらのレコードを本当に削除しますか？ このプロセスは元に戻せません。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary waves-effect"
+                    data-bs-dismiss="modal">閉じる</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light vehicle_delete">削除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- bulletin table -->
 <div class="row">
@@ -148,6 +172,7 @@
 </div><!-- /.modal -->
 <script>
     var bulletin_destroy = "{{route('bulletin.destroy')}}"
+    var vehicle_destroy = "{{route('vehicle.destroy')}}"
 </script>
 </script>
     @section('script')

@@ -43,7 +43,7 @@
                                 <th>走行距離</th>
                                 <th>販売価格(税抜)</th>
                                 <th>販売価格(税込）</th>
-                                <!-- <th width="5%">特記</th> -->
+                                <th>削除</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,7 +66,13 @@
                                 <td>{{number_format($vehicle_info->mileage).' Km'}}</td>
                                 <td>{{$vehicle_info->taxExc_price.' 万円'}}</td>
                                 <td class="tax-inc">{{number_format($vehicle_info->taxInc_price).' 万円'}}</td>
-                                <!-- <td>{{$vehicle_info->note}}</td> -->
+                                <td align="center">
+                                        <a href="{!! route('vehicle.edit', ['id' => $vehicle_info->id]) !!}" class="text-success edit" data-id="{{ $vehicle_info->id }}"><i
+                                                class="mdi mdi-pencil font-size-18"></i></a>
+                                        <a href="javascript:void(0);" class="text-danger confirm_delete" data-id="{{ $vehicle_info->id }}" data-bs-toggle="modal"
+                                                data-bs-target="#myModal"><i
+                                                class="mdi mdi-delete font-size-18"></i></a>
+                                </td>
                             </tr>
                             @empty
                             <tr>
@@ -84,6 +90,28 @@
         </div>
     </div> <!-- end col -->
 </div> <!-- end row -->
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myModalLabel">本気ですか？</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>これらのレコードを本当に削除しますか？ このプロセスは元に戻せません。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary waves-effect"
+                    data-bs-dismiss="modal">閉じる</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light delete_button">削除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    vehicle_destroy = "{{route('vehicle.destroy')}}";
+</script>
     @section('script')
     <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
     <!-- Datatable init js -->
