@@ -938,7 +938,8 @@ class vehicleController extends Controller
             $imgx->resize(640, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
-                    })->crop(640, 480)->save($path.$vehicleId.'_' . $fileName);
+                    })->crop(640, 480)
+                    ->save($path.$vehicleId.'_' . $fileName);
         }
         
         $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName);

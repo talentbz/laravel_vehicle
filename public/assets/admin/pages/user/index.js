@@ -90,7 +90,6 @@ $(document).ready(function(){
             method: 'post',
             data: formData,
             success: function (res) {
-                $('#datatable').DataTable().ajax.reload(null, false);
                 if(res == 'exist'){
                     toastr["warning"]("メールがあります。別のメールを挿入してください。");
                 } else {

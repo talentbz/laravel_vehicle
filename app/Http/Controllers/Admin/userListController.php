@@ -14,7 +14,8 @@ class userListController extends Controller
     public function index(Request $request)
     {
         $users = User::select('users.*', 'company_details.id AS company_id')
-                     ->join('company_details', 'company_details.user_id', '=', 'users.id')
+                     ->where('users.role', 2)
+                     ->leftJoin('company_details', 'company_details.user_id', '=', 'users.id')
                      ->orderBy('users.created_at', 'desc')->get();
         return view('admin.pages.users.index', [
             'users' => $users,
@@ -71,8 +72,8 @@ class userListController extends Controller
     public function userDelete(Request $request)
     {
         $id = $request->id;
-        $result = User::where('id', $id)->delete();
-        $result = Company::where('user_id', $id)->delete();
-        return response()->json($result);
+        User::where('id', $id)->delete();
+        Company::where('user_id', $id)->delete();
+        return response()->json('success');
     }
 }

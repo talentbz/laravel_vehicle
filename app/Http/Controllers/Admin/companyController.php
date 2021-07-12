@@ -124,6 +124,7 @@ class companyController extends Controller
         if(is_null($company)){
             $companyId = Company::latest()->first()->id;
             $companyId ++;
+            
             if ($request->has('file')) { 
                 $extension = $request->file->extension();
                 $imageName = round(microtime(true) * 1000) . '.' . $extension;
