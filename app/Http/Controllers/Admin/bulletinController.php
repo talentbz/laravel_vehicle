@@ -17,7 +17,7 @@ class bulletinController extends Controller
         $userId = Auth::user()->id;
         $company = Company::select('id')->where('user_id', $userId)->first();
         if($company){
-            $bulletins = Bulletin::where('company_id', $company->id)->orderBy('updated_at', 'DESC')->get();
+            $bulletins = Bulletin::where('company_id', $company->id)->orderBy('created_at', 'DESC')->get();
             
         } else {
             $bulletins = [];

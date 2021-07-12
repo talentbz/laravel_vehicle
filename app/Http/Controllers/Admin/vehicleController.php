@@ -28,7 +28,7 @@ class vehicleController extends Controller
                                         ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                         ->groupBy('vehicle.id')
                                         ->select('vehicle.*', 'vehicle_media.car_path', 'vehicle_fee.taxExc_price', 'vehicle_fee.taxInc_price')
-                                        ->orderBy('vehicle.updated_at', 'asc')
+                                        ->orderBy('vehicle.created_at', 'desc')
                                         ->get();                    
             } else {
                 $vehicle_infos =[];
@@ -935,7 +935,7 @@ class vehicleController extends Controller
             $fileName = prefix_word($fileName, 8);
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop
-            $imgx->resize(700, null, function ($constraint) {
+            $imgx->resize(640, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     })->crop(640, 480)->save($path.$vehicleId.'_' . $fileName);

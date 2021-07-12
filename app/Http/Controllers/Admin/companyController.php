@@ -22,6 +22,7 @@ class companyController extends Controller
                                  ->join('users', 'company_details.user_id', '=', 'users.id')
                                  ->join('company_media', 'company_details.id', '=', 'company_media.company_id')
                                  ->groupBy('company_details.id')
+                                 ->orderBy('company_details.created_at', 'desc')
                                  ->get();
         return view('admin.pages.company.index', [
             'company_infos' => $company_infos,

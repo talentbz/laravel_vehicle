@@ -34,8 +34,8 @@
                                 </th> -->
                                 <th width="5%">会員NO</th>
                                 <th width="5%">写真</th>
-                                <th width="10%">ID(Email)</th>
                                 <th width="20%">会社名</th>
+                                <th width="10%">ID(Email)</th>
                                 <th width="10%">電話番号</th>
                                 <th width="20%">所在地</th>
                                 <th width="10%">状態</th>
@@ -54,14 +54,18 @@
                                 </td> -->
                                 <td align="center">{{$key+=1}}</td>
                                 <td align="center">
-                                    @if($user->avatar)
-                                        <img class="rounded-circle avatar-xs" src="{{$user->avatar}}" alt="">
-                                    @else
-                                        <img class="rounded-circle avatar-xs" src="{{URL::asset('images/default.jpg')}}">    
-                                    @endif
+                                    <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">
+                                        @if($user->avatar)
+                                            <img class="rounded-circle avatar-xs" src="{{$user->avatar}}" alt="">
+                                        @else
+                                            <img class="rounded-circle avatar-xs" src="{{URL::asset('images/default.jpg')}}">    
+                                        @endif
+                                    </a>
+                                </td>
+                                <td class="company_name">
+                                    <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">{{$user->company_name}}</a>
                                 </td>
                                 <td class="email">{{$user->email}}</td>
-                                <td class="company_name">{{$user->company_name}}</td>
                                 <td class="phone">{{$user->phone}}</td>
                                 <td class="location">{{$user->location}}</td>
                                 <td>{{$user->status}}</td>

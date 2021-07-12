@@ -2,8 +2,8 @@ $(document).ready(function(){
 
     //edit data
     $('.edit').click(function(e){
-        // e.preventDefault();
-        // e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
         var id = $(this).data('id');
         var row = $(this).parent().parent(".data-row");
         var email = row.children(".email").text();
@@ -66,13 +66,6 @@ $(document).ready(function(){
                 data: { id: id },
                 dataType: 'json',
                 success: function(data){
-                    var table = $('#datatable').DataTable( {
-                        ajax: data
-                    } );
-                     
-                    setInterval( function () {
-                        table.ajax.reload();
-                    }, 1000 );
                     //$('#datatable').DataTable().ajax.reload(null, false);
                     toastr["success"]("データが削除されました!");
                     $('#deleteModal').modal('hide');
