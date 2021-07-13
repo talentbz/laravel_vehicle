@@ -15,17 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+
+//frontend
 Route::group(['middleware' => 'guest'], function(){
-    Route::get('/home', [App\Http\Controllers\Front\FrontController::class, 'home'])->name('home');
+    Route::get('/', [App\Http\Controllers\Front\FrontController::class, 'home'])->name('home');
 });
 
-// Route::group(['checkRole' => 'guest'], function(){
-//     Route::get('/user', [App\Http\Controllers\Front\FrontController::class, 'home'])->name('home');
-// });
 
 //admin
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root')->middleware('checkRole');
+    Route::get('/admin', [App\Http\Controllers\HomeController::class, 'root'])->name('root')->middleware('checkRole');
     Route::get('/dashboard', [App\Http\Controllers\Admin\dashboardController::class, 'index'])->name('dashboard')->middleware('checkRole');
     
     //user lists

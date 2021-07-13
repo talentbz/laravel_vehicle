@@ -51,7 +51,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td align="center" colspan="5">データが存在しません</p>
+                                <td align="center" colspan="7">データが存在しません</p>
                             </tr>
                             @endforelse
                         </tbody>

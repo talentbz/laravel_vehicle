@@ -21,16 +21,25 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     protected function authenticated(Request $request, $user)
     {
     if($user->role == 1 ) {// do your magic here
         return redirect()->route('dashboard');
-    } elseif( $user->role == 2){
+    } else{
         return redirect()->route('vehicle.index');
     }
     return redirect('/home');
+    }
+
+    //logout redirect
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
+        return redirect()->route('root');
     }
     /**
      * Where to redirect users after login.

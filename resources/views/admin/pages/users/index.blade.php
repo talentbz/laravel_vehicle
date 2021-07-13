@@ -54,6 +54,7 @@
                                 </td> -->
                                 <td align="center">{{$key+=1}}</td>
                                 <td align="center">
+                                    @if($user->company_id)
                                     <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">
                                         @if($user->avatar)
                                             <img class="rounded-circle avatar-xs" src="{{$user->avatar}}" alt="">
@@ -61,9 +62,22 @@
                                             <img class="rounded-circle avatar-xs" src="{{URL::asset('images/default.jpg')}}">    
                                         @endif
                                     </a>
+                                    @else
+                                    <a href="#">
+                                        @if($user->avatar)
+                                            <img class="rounded-circle avatar-xs" src="{{$user->avatar}}" alt="">
+                                        @else
+                                            <img class="rounded-circle avatar-xs" src="{{URL::asset('images/default.jpg')}}">    
+                                        @endif
+                                    </a>
+                                    @endif
                                 </td>
                                 <td class="company_name">
-                                    <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">{{$user->company_name}}</a>
+                                    @if($user->company_id)
+                                        <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">{{$user->company_name}}</a>
+                                    @else
+                                        <a href="#">{{$user->company_name}}</a>
+                                    @endif
                                 </td>
                                 <td class="email">{{$user->email}}</td>
                                 <td class="phone">{{$user->phone}}</td>

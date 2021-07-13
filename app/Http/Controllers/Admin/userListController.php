@@ -15,7 +15,7 @@ class userListController extends Controller
     {
         $users = User::select('users.*', 'company_details.id AS company_id')
                      ->where('users.role', 2)
-                     ->leftJoin('company_details', 'company_details.user_id', '=', 'users.id')
+                     ->join('company_details', 'company_details.user_id', '=', 'users.id', 'left outer')
                      ->orderBy('users.created_at', 'desc')->get();
         return view('admin.pages.users.index', [
             'users' => $users,
