@@ -65,5 +65,5 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-//Language Translation test
+//Language Translation test1
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
