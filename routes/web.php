@@ -18,7 +18,15 @@ Auth::routes();
 
 //frontend
 Route::group(['middleware' => 'guest'], function(){
-    Route::get('/', [App\Http\Controllers\Front\FrontController::class, 'home'])->name('home');
+    Route::get('/', [App\Http\Controllers\Frontend\homeController::class, 'index'])->name('home');
+    Route::get('/sale', [App\Http\Controllers\Frontend\saleController::class, 'index'])->name('sale');
+    Route::get('/rent', [App\Http\Controllers\Frontend\rentController::class, 'index'])->name('rent');
+    Route::get('/rentflow', [App\Http\Controllers\Frontend\rentController::class, 'rentFlow'])->name('rentFlow');
+    Route::get('/bulletin', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletin');
+    Route::get('/purchase', [App\Http\Controllers\Frontend\purchaseController::class, 'index'])->name('purchase');
+    Route::get('/purchaseflow', [App\Http\Controllers\Frontend\purchaseController::class, 'purchaseFlow'])->name('purchaseFlow');
+    Route::get('/faq', [App\Http\Controllers\Frontend\faqController::class, 'index'])->name('faq');
+    Route::get('/store', [App\Http\Controllers\Frontend\storeController::class, 'index'])->name('store');
 });
 
 
