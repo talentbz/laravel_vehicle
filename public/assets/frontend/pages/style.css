@@ -43,6 +43,7 @@
 }
 .footer {
     height: auto;
+    position: static;
 }
 .footer p{
     font-weight: 700;
@@ -61,6 +62,10 @@
 .footer ul li a:hover{
     color: #eee;
 } 
+body[data-layout=horizontal] .page-content {
+    margin: 0;
+    padding: 0;
+}
 /* responsive */
 @media only screen and (max-width: 991px) {
     .front-logo {

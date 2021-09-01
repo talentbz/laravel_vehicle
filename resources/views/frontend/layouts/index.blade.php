@@ -19,8 +19,9 @@
             </div>
             <div class="page-content">
                 <!-- Start content -->
+                @yield('content')
                 <div class="container-fluid">
-                    @yield('content')
+                    
                 </div> <!-- content -->
             </div>
             @include('frontend.layouts.footer')
