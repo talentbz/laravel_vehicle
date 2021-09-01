@@ -8,6 +8,7 @@ use App\Models\Vehicle;
 use App\Models\VehicleFee;
 use App\Models\VehicleMedia;
 use App\Models\VehicleEquipment;
+use App\Models\Bulletin;
 
 class homeController extends Controller
 {
@@ -35,10 +36,20 @@ class homeController extends Controller
                                 ->orderBy('vehicle.created_at', 'desc')
                                 ->take(8)
                                 ->get();     
-                                                    
+        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->take(10)->get();                                  
+        $bulletin_categories = [
+            '全て',
+            '求人',
+            '仕事求む',
+            '仕事依頼',
+            '車両探し',
+            'その他',
+        ];                                       
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
             'vehicle_infos' => $vehicle_infos,
+            'bulletin_infos' => $bulletin_infos,
+            'bulletin_categories' => $bulletin_categories,
         ]);
     }
     public function category(Request $request, $name)

@@ -58,7 +58,7 @@
                         @foreach ($vehicle_infos as $key=>$vehicle_info)
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="card p-1 border shadow-none">
-                                    <div class="position-relative">
+                                    <div class="position-relative car-list-image">
                                         @if($vehicle_info->car_path)
                                             <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
                                         @else
@@ -91,18 +91,69 @@
                                             </li>
                                         </ul>
                                         <div>
-                                            <a href="javascript: void(0);" class="text-primary">Read more <i class="mdi mdi-arrow-right"></i></a>
+                                            <!-- <a href="javascript: void(0);" class="text-primary">Read more <i class="mdi mdi-arrow-right"></i></a> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
+                        <div class="read-more">
+                            <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
+                        </div>
+                    </div>
+
+                    <!-- bulletin board -->
+                    <div class="category row">
+                        <div class="category-title row">
+                            <div class="col-md-10">
+                                <i class="fa fa-search"></i>
+                                <h3>掲示板情報</h3>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="templating-select">
+                                    <select class="select2 form-control" name="category">
+                                        @foreach($bulletin_categories as $bulletin_categorie)
+                                            <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap">
+                                <!-- <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Phone / Email</th>
+                                        <th>Address</th>
+                                        <th>Wallet Balance</th>
+                                        <th>Joining Date</th>
+                                    </tr>
+                                </thead> -->
+                                <tbody>
+                                    @foreach ($bulletin_infos as $key=>$bulletin_info)
+                                        <tr>
+                                            <td>{{$bulletin_info->deadline_date}}</td>
+                                            <td>{{$bulletin_info->category}}</td>
+                                            <td>{{$bulletin_info->title}}</td>
+                                            <td>
+                                                <p class="mb-0">{{$bulletin_info->content}}</p>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="read-more">
+                            <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
+                        </div>
                     </div>
                 </div>
 
             </div>
     </div> <!-- content -->
     @section('script')
+    <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/homepage/index.js') }}"></script>
     @endsection
 @endsection

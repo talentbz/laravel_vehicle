@@ -83,9 +83,9 @@
     margin-right: 10px;
     padding-top: 4px;
 }
-.category-title h3{
+/* .category-title h3{
     
-}
+} */
 .car-info {
     display: grid; 
 }
@@ -102,7 +102,16 @@
     float: right;
     margin-top: 6px;
 }
-.img-fluid, .img-thumbnail {
+.car-list-image img {
     width: 100%;
     max-height: 304px;
+}
+.read-more a{
+    float: right;
+    background: rgb(237, 125, 49);
+    border-color: rgb(237, 125, 49);
+}
+.read-more a:hover {
+    background: rgb(243, 166, 115);
+    border-color: rgb(243, 166, 115);
 }
