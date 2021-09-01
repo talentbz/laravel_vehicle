@@ -20,9 +20,6 @@
             <div class="page-content">
                 <!-- Start content -->
                 @yield('content')
-                <div class="container-fluid">
-                    
-                </div> <!-- content -->
             </div>
             @include('frontend.layouts.footer')
         </div>

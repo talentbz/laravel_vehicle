@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use App\Models\VehicleFee;
+use App\Models\VehicleMedia;
+use App\Models\VehicleEquipment;
 
 class homeController extends Controller
 {
@@ -24,8 +28,17 @@ class homeController extends Controller
             ['img'=>'/images/frontend/home/car-list/12.png', 'name'=>'その他', 'link'=>'#'],
         ];
 
+        $vehicle_infos = Vehicle::leftJoin('vehicle_equipment', 'vehicle.id', '=', 'vehicle_equipment.vehicle_id')
+                                ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
+                                ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
+                                ->groupBy('vehicle.id')
+                                ->orderBy('vehicle.created_at', 'desc')
+                                ->take(8)
+                                ->get();     
+                                                    
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
+            'vehicle_infos' => $vehicle_infos,
         ]);
     }
     public function category(Request $request, $name)

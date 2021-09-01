@@ -86,3 +86,19 @@
 .category-title h3{
     
 }
+.car-info {
+    display: grid;
+}
+.car-info p {
+    margin: 0;
+    margin-bottom: 2px;
+}
+.car-info .car-price{
+    color: red;
+    font-size: 20px;
+    font-weight: 500;
+}
+.car-info a {
+    float: right;
+    margin-top: 6px;
+}
