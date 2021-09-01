@@ -87,7 +87,7 @@
     
 }
 .car-info {
-    display: grid;
+    display: grid; 
 }
 .car-info p {
     margin: 0;
@@ -101,4 +101,8 @@
 .car-info a {
     float: right;
     margin-top: 6px;
+}
+.img-fluid, .img-thumbnail {
+    width: 100%;
+    max-height: 304px;
 }
