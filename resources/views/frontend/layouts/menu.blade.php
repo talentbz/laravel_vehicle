@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid front-header">
-    <a class="navbar-brand front-logo" href="#">
-        <span>TRUCKER JAPAN</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="top-header">
+        <a class="navbar-brand front-logo" href="#">
+            <span>TRUCKER JAPAN</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
@@ -53,7 +55,7 @@
   </div>
 </nav>
 <div class="container-fluid">
-    <div class="navbar">
+    <div class="navbar header-bottom">
         <div class="header-logo">
             <a href="#">
                 <div class="logo-name text-info">

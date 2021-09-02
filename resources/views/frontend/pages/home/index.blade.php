@@ -1,8 +1,8 @@
 @extends('frontend.layouts.index')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
 @endsection
 @section('title')
     homepage
@@ -31,7 +31,7 @@
                 <div class="car-list">
                     <div class="list-title">
                         <h3>中古トラックを探す</h3>
-                        <p>現在の登録台数：<span>325</span>台</p>
+                        <p>現在の登録台数：<span>{{$vehicle_infos->count()}}</span>台</p>
                     </div>
                     <div class="category row">
                         <div class="category-title">
@@ -39,16 +39,142 @@
                             <h3>ボディタイプで探す</h3>
                         </div>
                         @foreach ($body_lists as $key=>$body_list)
-                        <div class="col-md-2">
+                        <div class="col-md-2 car-list-info">
                             <a href="{!! route('bodycategory', ['name' => $body_list['link']]) !!}">
                                 <img src="{{asset($body_list['img'])}}" alt="">
                                 <p>{{$body_list['name']}}</p>
                             </a>
                         </div>
                         @endforeach
+                        <div class="read-more">
+                            <a href="#" class="btn btn-primary" type="submit">リース</a>
+                        </div>
                     </div>
                     
-
+                    <!-- detail search -->
+                    <div class="category row">
+                        <div class="category-title">
+                            <i class="fa fa-search"></i>
+                            <h3>絞込み検索</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <!-- car shape  -->
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">形状</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- year -->
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">年式</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">~</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- size -->
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">大きさ</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class="col-md-12 mt-5">
+                                <div class="row">
+                                    <!-- millege -->
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">走行距離</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">~</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- location -->
+                                    <div class="col-md-3">
+                                        <div class="templating-select row">
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <label for="" class="pt-2">地域</label>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                                <select class="select2 form-control">
+                                                    @foreach($bulletin_categories as $bulletin_categorie)
+                                                        <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="read-more detail-search">
+                            <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
+                        </div>
+                    </div>
                     <!-- latest car info -->
                     <div class="category row">
                         <div class="category-title">
@@ -101,7 +227,7 @@
                             <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
                         </div>
                     </div>
-
+                
                     <!-- bulletin board -->
                     <div class="category row">
                         <div class="category-title row">
@@ -121,15 +247,9 @@
                         </div>
                         <div class="table-responsive">
                             <table class="table align-middle table-nowrap">
-                                <!-- <thead>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Phone / Email</th>
-                                        <th>Address</th>
-                                        <th>Wallet Balance</th>
-                                        <th>Joining Date</th>
-                                    </tr>
-                                </thead> -->
+                                <thead>
+                                
+                                </thead>
                                 <tbody>
                                     @foreach ($bulletin_infos as $key=>$bulletin_info)
                                         <tr>

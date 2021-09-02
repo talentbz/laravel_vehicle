@@ -72,6 +72,7 @@
     background: #fff;
     border-radius: 17px;
     padding: 30px;
+    width: 100%;
 }
 .category-title{
     border-bottom: 3px solid #50a5f1;
@@ -114,4 +115,106 @@
 .read-more a:hover {
     background: rgb(243, 166, 115);
     border-color: rgb(243, 166, 115);
+}
+/* responsive */
+@media only screen and (max-width: 1024px) {
+    .home-content {
+        width: 90% !important;
+    }
+    .banner-image .home-search {
+        width: 76%;
+    }
+    .search input {
+        height: 45px;
+    }
+    .search button {
+        height: 36px;
+        width: 83px;
+    }
+    .search .fa-search {
+        top: 15px;
+    }
+    .car-info a {
+        float: left;
+        margin-top: 4px;
+        margin-bottom: 9px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .banner-image .home-search{
+        width: 69%;
+        top: 30%;
+        left:35%;
+    }
+    .home-search p{
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .banner-image .home-search{
+        width: 60%;
+        top: 20%;
+        left: 40%;
+    }
+    .home-search p{
+        font-size: 17px;
+    }
+    .search input{
+        height: 33px;
+    }
+    .search .fa-search {
+        top: 12px;
+        font-size: 10px;
+    }
+    .search input{
+        font-size: 10px;
+    }
+    .search button {
+        height: 25px;
+        width: 48px;
+        font-size: 11px;
+        padding-top: 4px;
+        top: 4px;
+    }
+    .car-list-info {
+        width: 50% !important;
+        text-align: center;
+    }.car-info .car-price {
+        width: 100%;
+        float: left;
+    }
+    .detail-search {
+        margin-top: 15px !important;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .home-search p {
+        font-size: 13px;
+    }
+    .search input {
+        font-size: 8px;
+    }
+    .search button {
+        height: 24px;
+        width: 46px;
+        font-size: 10px;
+        padding-top: 3px;
+        top: 4px;
+    }
+    .category {
+        margin-top: 10px !important;
+    }
+    .list-title h3 {
+        font-size: 19px;
+    }
+    .list-title p {
+        font-size: 11px;
+        padding-top: 7px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .category-title h3{
+        font-size: 17px;
+    }
 }

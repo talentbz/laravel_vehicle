@@ -72,3 +72,38 @@ body[data-layout=horizontal] .page-content {
         display: block;
     }
 }
+@media only screen and (max-width: 768px) {
+    .front-logo {
+        float: left;
+    }
+    .front-logo span {
+        color: #fff;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .front-header button{
+        float: right;
+    }
+    .header-bottom {
+        display: none;
+    }
+    #navbarScroll{
+        float: left;
+    }
+    #navbarScroll ul {
+        max-height: initial;
+    }
+    .top-header {
+        display: inline-table;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .footer-column{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 375px) {
+    
+}
