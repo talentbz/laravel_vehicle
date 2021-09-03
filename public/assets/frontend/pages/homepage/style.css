@@ -51,6 +51,18 @@
     background: rgb(243, 166, 115);
     border-color: rgb(243, 166, 115);
 }
+.detail-search {
+    text-align: right;
+    margin-top: 25px;
+}
+.detail-search input{
+    background: rgb(237, 125, 49);
+    border-color: rgb(237, 125, 49);
+}
+.detail-search input:hover{
+    background: rgb(243, 166, 115);
+    border-color: rgb(243, 166, 115);
+}
 .car-list{
     display: contents;
 }
@@ -115,6 +127,16 @@
 .read-more a:hover {
     background: rgb(243, 166, 115);
     border-color: rgb(243, 166, 115);
+}
+.car-category-checkbox{
+    width: 14.28% !important;
+    text-align: center;
+}
+.car-category-checkbox input {
+    margin-right: 5px;
+}
+.car-category-checkbox span {
+    /* float: left; */
 }
 /* responsive */
 @media only screen and (max-width: 1024px) {

@@ -11,12 +11,12 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="#" role="button">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('home') }}" role="button">
                 <span>トップ</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="#" role="button">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('sale') }}" role="button">
                 <span>中古車販売</span>
             </a>
         </li>
@@ -57,7 +57,7 @@
 <div class="container-fluid">
     <div class="navbar header-bottom">
         <div class="header-logo">
-            <a href="#">
+            <a href="{{ route('home') }}">
                 <div class="logo-name text-info">
                     <span class="logo-1">trucker</span>
                     <span class="logo-2">japan</span>

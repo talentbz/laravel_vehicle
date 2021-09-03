@@ -17,6 +17,10 @@
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
+            <!-- Back to top button -->
+            <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
             <div class="page-content">
                 <!-- Start content -->
                 @yield('content')
@@ -36,18 +40,36 @@
     @include('layouts.vendor-scripts')
     <script>
         $(document).ready(function(){
-        //ajax loading spinner
-        var loading = $('.spinner-wrapper').hide();
-        $(document)
-            .ajaxStart(function () {
-                loading.show();
+            
+            //ajax loading spinner
+            var loading = $('.spinner-wrapper').hide();
+            $(document)
+                .ajaxStart(function () {
+                    loading.show();
+                })
+                .ajaxStop(function () {
+                    setTimeout(function(){
+                        loading.hide();
+                    }, 500)
+                });
             })
-            .ajaxStop(function () {
-                setTimeout(function(){
-                    loading.hide();
-                }, 500)
+
+            //back to top
+            var btn = $('#btn-back-to-top');
+            $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
             });
-        })
+
+            btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+            });
+
+        
     </script>
 </body>
 

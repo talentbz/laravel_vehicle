@@ -2,10 +2,11 @@
 
 @section('css')
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/pagination/pagination.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
 @endsection
 @section('title')
-    homepage
+    sale
 @endsection
 
 @section('content')
@@ -30,28 +31,6 @@
     <div class="container-fluid home-content">
             <div class="row">
                 <div class="car-list">
-                    <div class="list-title">
-                        <h3>中古トラックを探す</h3>
-                        <p>現在の登録台数：<span>{{$vehicle_infos->count()}}</span>台</p>
-                    </div>
-                    <div class="category row">
-                        <div class="category-title">
-                            <i class="fa fa-search"></i>
-                            <h3>ボディタイプで探す</h3>
-                        </div>
-                        @foreach ($body_lists as $key=>$body_list)
-                        <div class="col-md-2 car-list-info">
-                            <a href="{!! route('bodycategory', ['name' => $body_list['link']]) !!}">
-                                <img src="{{asset($body_list['img'])}}" alt="">
-                                <p>{{$body_list['name']}}</p>
-                            </a>
-                        </div>
-                        @endforeach
-                        <div class="read-more">
-                            <a href="#" class="btn btn-primary" type="submit">リース</a>
-                        </div>
-                    </div>
-                    
                     <!-- detail search -->
                     <div class="category row">
                         <div class="category-title">
@@ -211,13 +190,11 @@
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <div class="card p-1 border shadow-none">
                                     <div class="position-relative car-list-image">
-                                        <a href="{!! route('carDetails', ['id' => $vehicle_info->id]) !!}">
-                                            @if($vehicle_info->car_path)
-                                                <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
-                                            @else
-                                                <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
-                                            @endif
-                                        </a>
+                                        @if($vehicle_info->car_path)
+                                            <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
+                                        @else
+                                            <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
+                                        @endif
                                     </div>
                                     <div class="p-3">
                                         <ul class="list-inline car-info">
@@ -251,57 +228,18 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="read-more">
+                        <!-- <div class="read-more">
                             <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
-                        </div>
-                    </div>
-                
-                    <!-- bulletin board -->
-                    <div class="category row">
-                        <div class="category-title row">
-                            <div class="col-md-10">
-                                <i class="fa fa-search"></i>
-                                <h3>掲示板情報</h3>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="templating-select">
-                                    <select class="select2 form-control" name="category">
-                                        @foreach($bulletin_categories as $bulletin_categorie)
-                                            <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table align-middle table-nowrap">
-                                <thead>
-                                
-                                </thead>
-                                <tbody>
-                                    @foreach ($bulletin_infos as $key=>$bulletin_info)
-                                        <tr>
-                                            <td>{{$bulletin_info->deadline_date}}</td>
-                                            <td>{{$bulletin_info->category}}</td>
-                                            <td>{{$bulletin_info->title}}</td>
-                                            <td>
-                                                <p class="mb-0">{{$bulletin_info->content}}</p>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="read-more">
-                            <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
-                        </div>
+                        </div> -->
+                        
+                        
                     </div>
                 </div>
-
             </div>
     </div> <!-- content -->
     @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
-    <script src="{{ URL::asset('/assets/frontend/pages/homepage/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pagination/pagination.js') }}"></script>
+    <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
     @endsection
 @endsection

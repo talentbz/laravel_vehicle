@@ -29,7 +29,7 @@ class CreateVehicleTable extends Migration
             $table->string('class');
             $table->string('max_capacity');
             $table->string('loading_capacity');
-            $table->string('mileage');
+            $table->bigInteger('mileage');
             $table->string('require_path');
             $table->string('start_year');
             $table->string('start_month');

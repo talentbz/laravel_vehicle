@@ -22,6 +22,11 @@ Route::group(['middleware' => 'guest'], function(){
     // car category
     Route::get('/category/{name}', [App\Http\Controllers\Frontend\homeController::class, 'bodyCategory'])->name('bodycategory'); 
     Route::get('/sale', [App\Http\Controllers\Frontend\saleController::class, 'index'])->name('sale');
+    Route::post('/sale', [App\Http\Controllers\Frontend\saleController::class, 'searchResult'])->name('sale.search');
+
+    //car details
+    Route::get('/details/{id}', [App\Http\Controllers\Frontend\carListController::class, 'detail'])->name('carDetails'); 
+
     Route::get('/rent', [App\Http\Controllers\Frontend\rentController::class, 'index'])->name('rent');
     Route::get('/rentflow', [App\Http\Controllers\Frontend\rentController::class, 'rentFlow'])->name('rentFlow');
     Route::get('/bulletin', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletin');
