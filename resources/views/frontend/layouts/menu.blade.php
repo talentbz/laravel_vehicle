@@ -26,7 +26,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="#" role="button">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('bulletinBoard') }}" role="button">
                 <span>掲示板</span>
             </a>
         </li>

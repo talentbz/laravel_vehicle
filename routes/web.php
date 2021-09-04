@@ -29,7 +29,7 @@ Route::group(['middleware' => 'guest'], function(){
 
     Route::get('/rent', [App\Http\Controllers\Frontend\rentController::class, 'index'])->name('rent');
     Route::get('/rentflow', [App\Http\Controllers\Frontend\rentController::class, 'rentFlow'])->name('rentFlow');
-    Route::get('/bulletin', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletin');
+    Route::get('/bulletinboard', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletinBoard');
     Route::get('/purchase', [App\Http\Controllers\Frontend\purchaseController::class, 'index'])->name('purchase');
     Route::get('/purchaseflow', [App\Http\Controllers\Frontend\purchaseController::class, 'purchaseFlow'])->name('purchaseFlow');
     Route::get('/faq', [App\Http\Controllers\Frontend\faqController::class, 'index'])->name('faq');
