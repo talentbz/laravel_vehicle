@@ -161,9 +161,10 @@ class saleController extends Controller
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 //get string date to int
-                                ->leftjoin(DB::raw('(SELECT vehicle.id, CONVERT(SUBSTR(start_year,-6,4), SIGNED) AS year FROM vehicle) AS date_c '), 'date_c.id', '=', 'vehicle.id' )
+                                ->leftjoin(DB::raw('(SELECT vehicle.id As vhid, CONVERT(SUBSTR(start_year,-6,4), SIGNED) AS year FROM vehicle) AS date_c '), 'date_c.vhid', '=', 'vehicle.id' )
                                 ->groupBy('vehicle.id')
                                 ->orderBy('vehicle.created_at', 'desc'); 
+                            
         //static variable array
         $years = [
             '昭和50年(1975年)',
