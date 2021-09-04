@@ -71,7 +71,7 @@
                 <a href="tel:0120984165" data-nsfw-filter-status="swf">0120-984-165</a>
                 <p>受付間：9時~18時(土日祝除く)</p>
             </div>
-            <button type="button" class="btn btn-secondary">ログイン</button>
+            <a href="{{ route('root') }}" type="button" class="btn btn-warning custome-btn-bg"><i class="fas fa-user"></i>ログイン</a>
         </div>
     </div>
 </div>

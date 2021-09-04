@@ -2,7 +2,7 @@
 
 @section('css')
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('/assets/libs/pagination/pagination.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/bulletin/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
 @endsection
@@ -37,9 +37,14 @@
                             <h3>掲示板情報</h3>
                         </div>
                         <div class="table-responsive">
-                            <table class="table align-middle table-nowrap">
+                        <table id="datatable" class="table align-middle table-nowrap">
                                 <thead>
-                                
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($bulletin_infos as $key=>$bulletin_info)
@@ -64,7 +69,10 @@
         </div>
     @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
-    <script src="{{ URL::asset('/assets/libs/pagination/pagination.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/pagination/jquery.twbsPagination.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <!-- Datatable init js -->
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
     @endsection
 @endsection

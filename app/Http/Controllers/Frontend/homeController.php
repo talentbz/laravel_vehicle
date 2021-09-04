@@ -34,8 +34,7 @@ class homeController extends Controller
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id')
                                 ->orderBy('vehicle.created_at', 'desc')
-                                ->take(8)
-                                ->get();     
+                                ->paginate(8);    
                 
         $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->take(10)->get();                                  
         $bulletin_categories = [
@@ -169,6 +168,12 @@ class homeController extends Controller
             'バス',
             'その他',
         ];
+        
+        if ($request->ajax()) {
+            return view('frontend.pages.home.carlist', [
+                'vehicle_infos' => $vehicle_infos,
+            ])->render();  
+        }
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
             'vehicle_infos' => $vehicle_infos,

@@ -104,6 +104,25 @@ body[data-layout=horizontal] .page-content {
     opacity: 1;
     visibility: visible;
 }
+.header-info a {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.custome-btn-bg{
+    background: rgb(237, 125, 49) !important;
+    border-color: rgb(237, 125, 49) !important;
+}
+.custome-btn-bg:hover {
+    background: rgb(243, 166, 115) !important;
+    border-color: rgb(243, 166, 115) !important;
+}
+.page-item.active .page-link {
+    background-color: rgb(237, 125, 49) !important;
+    border-color: rgb(237, 125, 49) !important;
+}
+.pagination-wrapper .pagination{
+    float: right;
+}
 /* responsive */
 @media only screen and (max-width: 991px) {
     .front-logo {
