@@ -35,7 +35,7 @@ class homeController extends Controller
                                 ->groupBy('vehicle.id')
                                 ->orderBy('vehicle.created_at', 'desc')
                                 ->paginate(8);    
-                
+        $vehicle_count =Vehicle::select('id')->count();
         $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->take(10)->get();                                  
         $bulletin_categories = [
             '全て',
@@ -176,6 +176,7 @@ class homeController extends Controller
         }
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
+            'vehicle_count' =>$vehicle_count,
             'vehicle_infos' => $vehicle_infos,
             'bulletin_infos' => $bulletin_infos,
             'bulletin_categories' => $bulletin_categories,

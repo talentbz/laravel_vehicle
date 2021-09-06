@@ -1,6 +1,6 @@
 <div class="list-title">
     <h3>中古トラックを探す</h3>
-    <p>現在の登録台数：<span>{{$vehicle_infos->count()}}</span>台</p>
+    <p>現在の登録台数：<span>{{$vehicle_count}}</span>台</p>
 </div>
 <div class="category row">
     <div class="category-title">

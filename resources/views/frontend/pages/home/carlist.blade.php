@@ -3,7 +3,7 @@
     <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="card p-1 border shadow-none">
             <div class="position-relative car-list-image">
-                <a href="{!! route('carDetails', ['id' => $vehicle_info->id]) !!}">
+                <a href="{!! route('carDetails', ['id' => $vehicle_info->id ? $vehicle_info->id:'#']) !!}">
                     @if($vehicle_info->car_path)
                         <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
                     @else

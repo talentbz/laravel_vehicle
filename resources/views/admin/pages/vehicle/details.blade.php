@@ -103,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td class="table-light" scope="row">リサイクル料金</th>
-                                <td >{{number_format($vehilce_fee->fee).' 円'}}</td>
+                                <td >{{number_format($vehilce_fee->fee?$vehilce_fee->fee:'0').' 円'}}</td>
                                 <td class="table-light"></th>
                                 <td></td>
                             </tr>
