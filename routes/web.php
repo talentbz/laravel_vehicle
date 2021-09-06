@@ -27,6 +27,10 @@ Route::group(['middleware' => 'guest'], function(){
     //car details
     Route::get('/details/{id}', [App\Http\Controllers\Frontend\carListController::class, 'detail'])->name('carDetails'); 
 
+    //company introduce
+    Route::get('/companyintro', [App\Http\Controllers\Frontend\companyIntro::class, 'index'])->name('companyIntroduce');
+    Route::get('/companyintro/{id}', [App\Http\Controllers\Frontend\companyIntro::class, 'details'])->name('companyIntroduce.details');
+
     Route::get('/rent', [App\Http\Controllers\Frontend\rentController::class, 'index'])->name('rent');
     Route::get('/rentflow', [App\Http\Controllers\Frontend\rentController::class, 'rentFlow'])->name('rentFlow');
     Route::get('/bulletinboard', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletinBoard');

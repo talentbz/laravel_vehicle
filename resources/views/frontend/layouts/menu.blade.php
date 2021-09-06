@@ -46,7 +46,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="#" role="button">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('companyIntroduce') }}" role="button">
                 <span>店舗</span>
             </a>
         </li>
