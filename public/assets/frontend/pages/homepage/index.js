@@ -8,12 +8,17 @@ $(function() {
     });
 
     function getCarList(url) {
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             url : url  
         }).done(function (data) {
             $('.carlist-page').html(data);  
         }).fail(function () {
-            alert('Articles could not be loaded.');
+            alert('記事を読み込めませんでした。');
         });
     }
 });

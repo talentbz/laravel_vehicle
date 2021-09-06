@@ -172,7 +172,7 @@ class homeController extends Controller
         if ($request->ajax()) {
             return view('frontend.pages.home.carlist', [
                 'vehicle_infos' => $vehicle_infos,
-            ])->render();  
+            ]);  
         }
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
