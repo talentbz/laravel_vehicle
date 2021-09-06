@@ -20,8 +20,7 @@ class saleController extends Controller
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id')
                                 ->orderBy('vehicle.created_at', 'desc')
-                                //->take(8)
-                                ->get();  
+                                ->paginate(8);
         $years = [
             '昭和50年(1975年)',
             '昭和51年(1976年)',
@@ -144,6 +143,11 @@ class saleController extends Controller
             'バス',
             'その他',
         ];
+        if ($request->ajax()) {
+            return view('frontend.pages.sale.carlist', [
+                'vehicle_infos' => $vehicle_infos,
+            ]);  
+        }
         return view('frontend.pages.sale.index', [
             'years'=>$years,
             'shapes'=>$shapes,
@@ -373,8 +377,13 @@ class saleController extends Controller
                 }
             });
         }
-                               
-        $vehicle_infos = $vehicle_infos->get(); 
+        if ($request->ajax()) {
+            return view('frontend.pages.sale.carlist', [
+                'vehicle_infos' => $vehicle_infos,
+            ]);  
+        }
+        
+        $vehicle_infos = $vehicle_infos->paginate(8);
         return view('frontend.pages.sale.search', [
             'years'=>$years,
             'shapes'=>$shapes,

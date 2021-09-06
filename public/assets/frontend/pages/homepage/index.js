@@ -8,11 +8,6 @@ $(function() {
     });
 
     function getCarList(url) {
-        $.ajaxSetup({
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
         $.ajax({
             url : url  
         }).done(function (data) {

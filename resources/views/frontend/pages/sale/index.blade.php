@@ -186,48 +186,10 @@
                             <i class="fa fa-search"></i>
                             <h3>最新情報！</h3>
                         </div>
-                        @foreach ($vehicle_infos as $key=>$vehicle_info)
-                            <div class="col-md-3 col-sm-3 col-xs-12">
-                                <div class="card p-1 border shadow-none">
-                                    <div class="position-relative car-list-image">
-                                        @if($vehicle_info->car_path)
-                                            <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
-                                        @else
-                                            <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
-                                        @endif
-                                    </div>
-                                    <div class="p-3">
-                                        <ul class="list-inline car-info">
-                                            <li class="list-inline-item me-3">
-                                                <span class="car-price">{{number_format($vehicle_info->taxInc_price)}}万円</span>
-                                                <a href="#" class="badge bg-danger font-size-12 ">リースOK</a>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p>{{$vehicle_info->car_category}}</p>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p>{{$vehicle_info->model}}</p>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p>{{$vehicle_info->shape}}</p>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p><span>{{number_format($vehicle_info->mileage)}}</span>km</p>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p>{{$vehicle_info->start_year}} {{$vehicle_info->start_month}}</p>
-                                            </li>
-                                            <li class="list-inline-item me-3">
-                                                <p>{{$vehicle_info->note}}</p>
-                                            </li>
-                                        </ul>
-                                        <div>
-                                            <!-- <a href="javascript: void(0);" class="text-primary">Read more <i class="mdi mdi-arrow-right"></i></a> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+
+                        <div class="carlist-page row">
+                            @include('frontend.pages.home.carlist')
+                        </div>
                         <!-- <div class="read-more">
                             <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
                         </div> -->
@@ -239,7 +201,7 @@
     </div> <!-- content -->
     @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
-    <script src="{{ URL::asset('/assets/libs/pagination/pagination.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/frontend/pages/home/index.js') }}"></script>
     @endsection
 @endsection
