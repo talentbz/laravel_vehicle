@@ -9,7 +9,9 @@ class faqController extends Controller
 {
     public function index(Request $request)
     {
-        dd("faq");
-        return view('index');
+        
+        return view('frontend.pages.faq.index', [
+            // 'vehicle_infos' => $vehicle_infos,
+       ]);
     }
 }
