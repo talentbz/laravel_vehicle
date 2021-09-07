@@ -35,6 +35,9 @@ Route::group(['middleware' => 'guest'], function(){
     Route::group(['prefix' => 'membership'], function(){
         Route::get('/', [App\Http\Controllers\Frontend\membership::class, 'index'])->name('membership');
         Route::get('/dealer', [App\Http\Controllers\Frontend\membership::class, 'dealer'])->name('membership.dealer');
+        Route::get('/dealer/contact-form', [App\Http\Controllers\Frontend\membership::class, 'dealerShow'])->name('contact.form');
+        Route::post('/dealer/contact-form', [App\Http\Controllers\Frontend\membership::class, 'dealerStoreForm'])->name('contact.save');
+
         Route::get('/shipping', [App\Http\Controllers\Frontend\membership::class, 'shipping'])->name('membership.shipping');
     });
 
