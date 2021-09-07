@@ -138,6 +138,52 @@
 .car-category-checkbox span {
     /* float: left; */
 }
+.car-list-info {
+    text-align: center;
+    border: 1px dashed #ccc;
+}
+.adver-top {
+    background: #50a5f1;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+}
+.adver-top h1{
+    color: #fff;
+}
+.adver-top h1 i{
+    margin-right: 20px;
+}
+.adver-top p{
+    font-size: 17px;
+}
+.wrecker-service, .painting-service{
+    width: 30% !important;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.wrecker-service img, .painting-service img{
+    width: 50px;
+    margin-right: 10px;
+}
+.wrecker-service {
+    border: 3px solid rgb(255, 192, 0);
+}
+.wrecker-service:hover{
+    background: rgb(255, 192, 0);
+    color: #fff;
+}
+.painting-service {
+    border: 3px solid rgb(112, 173, 71);
+}
+.painting-service:hover {
+    background: rgb(112, 173, 71);
+    color: #fff;
+}
 /* responsive */
 @media only screen and (max-width: 1024px) {
     .home-content {

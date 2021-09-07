@@ -1,0 +1,43 @@
+.membership-wrapper {
+    width: 300px !important;
+    margin: auto;
+    border: 3px solid #50a5f1;
+    text-align: center;
+    padding: 10px;
+}
+.membership-wrapper:hover{
+    cursor: pointer;
+    background: #50a5f1;
+    color: #fff;
+}
+.de-fee {
+    border: 3px solid #ccc;
+}
+.de-fee p, .de-require p, .de-test p, .de-follow p {
+    margin: 22px;
+    font-size: 17px;
+}
+.de-fee p {
+    border-bottom: 1px solid #ccc;
+}
+.de-fee span{
+    margin-right: 20px;
+}
+.de-require p{
+    border-bottom: 1px solid #ccc;
+}
+.de-follow p{
+    border-bottom: 1px solid #ccc;
+}
+.de-application {
+    text-align: center;
+    margin-top: 45px !important;
+}
+.de-application p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.de-application a{
+    font-size: 20px;
+    font-weight: 500;
+}

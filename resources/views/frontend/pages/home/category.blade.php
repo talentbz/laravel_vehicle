@@ -15,7 +15,7 @@
         </a>
     </div>
     @endforeach
-    <div class="read-more">
+    <div class="read-more mt-2">
         <a href="#" class="btn btn-primary" type="submit">リース</a>
     </div>
 </div>

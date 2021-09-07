@@ -41,13 +41,18 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="#" role="button">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('faq') }}" role="button">
                 <span>よくある質問</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('companyIntroduce') }}" role="button">
                 <span>店舗</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle arrow-none custom-menu" href="{{ route('membership') }}" role="button">
+                <span>掲載店募集</span>
             </a>
         </li>
       </ul>

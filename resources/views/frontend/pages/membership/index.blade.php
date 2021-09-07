@@ -3,6 +3,7 @@
 @section('css')
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/membership/style.css') }}">
 @endsection
 @section('title')
     homepage
@@ -26,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="banner-adver">
+    <!-- <div class="banner-adver">
         <div class="container">
             <div class="row mt-5 mb-5 adver-top">
                 <h1>掲載店募集<i class="fas fa-angle-double-right"></i></h1>
@@ -50,34 +51,39 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- car list per category -->
     <div class="container-fluid home-content">
             <div class="row">
                 <div class="car-list">
-                    <!-- category search -->
-                    @include('frontend.pages.home.category')
-                    
-                    <!-- detail search -->
-                    @include('frontend.pages.home.search')
-                    
-                    <!-- latest car info -->
                     <div class="category row">
                         <div class="category-title">
-                            <i class="fas fa-truck-moving"></i>
-                            <h3>最新情報！</h3>
+                            <i class="fas fa-cash-register"></i>
+                            <h3>まずは会員登録から</h3>
                         </div>
-                            
-                        <div class="carlist-page row">
-                            @include('frontend.pages.home.carlist')
+
+                        <div class="">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="membership-wrapper">
+                                        <h1>販売店様</h1>
+                                        <h3>詳細はこちら</h3>
+                                        <a href="{{route('membership.dealer')}}">
+                                            <span>中古車販売店、ディーラーの方のご利用には月会費が必要となります(11,000円/月)</span>
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="membership-wrapper">
+                                        <h1>運送会社様</h1>
+                                        <h3>詳細はこちら</h3>
+                                        <a href="{{route('membership.shipping')}}">
+                                            <span>運送会社の方のは無料でご利用いただけます。</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- <div class="read-more">
-                            <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
-                        </div> -->
                     </div>
-                    
-                    <!-- bulletin board -->
-                    @include('frontend.pages.home.bulletin')
                 </div>
 
             </div>

@@ -31,6 +31,13 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/companyintro', [App\Http\Controllers\Frontend\companyIntro::class, 'index'])->name('companyIntroduce');
     Route::get('/companyintro/{id}', [App\Http\Controllers\Frontend\companyIntro::class, 'details'])->name('companyIntroduce.details');
 
+    //Recruitment of listed stores
+    Route::group(['prefix' => 'membership'], function(){
+        Route::get('/', [App\Http\Controllers\Frontend\membership::class, 'index'])->name('membership');
+        Route::get('/dealer', [App\Http\Controllers\Frontend\membership::class, 'dealer'])->name('membership.dealer');
+        Route::get('/shipping', [App\Http\Controllers\Frontend\membership::class, 'shipping'])->name('membership.shipping');
+    });
+
     Route::get('/rent', [App\Http\Controllers\Frontend\rentController::class, 'index'])->name('rent');
     Route::get('/rentflow', [App\Http\Controllers\Frontend\rentController::class, 'rentFlow'])->name('rentFlow');
     Route::get('/bulletinboard', [App\Http\Controllers\Frontend\bulletinController::class, 'index'])->name('bulletinBoard');
