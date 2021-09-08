@@ -99,6 +99,88 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        <!-- register name -->
+                                        <tr>
+                                            <td class="table-light" scope="row">法人名/個人名<span>※</span></td>
+                                            <td >
+                                                <input type="text" class="form-control" required  name="register_name" />
+                                            </td>
+                                        </tr>
+                                        <!-- Furigana name -->
+                                        <tr>
+                                            <td class="table-light" scope="row">法人名/個人名ふりがな<span>※</span></td>
+                                            <td >
+                                                <input type="text" class="form-control" required  name="register_furigana" />   
+                                            </td>
+                                        </tr>
+                                        <!-- agency name -->
+                                        <tr>
+                                            <td class="table-light" scope="row">代表者名<span>※</td>
+                                            <td ><input type="text" class="form-control" required  name="agency_name" /></td>
+                                        </tr>
+                                        <!-- agency firagana -->
+                                        <tr>
+                                            <td class="table-light" scope="row">代表者名ふりがな<span>※</span></td>
+                                            <td >
+                                                <input type="text" class="form-control" required  name="agency_firagana" />
+                                            </td>
+                                        </tr>
+                                        <!-- person name -->
+                                        <tr>
+                                            <td class="table-light" scope="row">担当者名</td>
+                                            <td >
+                                                <input type="text" class="form-control"  name="person_name" />
+                                            </td>
+                                        </tr>
+                                        <!-- person firagana name -->
+                                        <tr>
+                                            <td class="table-light" scope="row">担当者名ふりがな</td>
+                                            <td ><input type="text" class="form-control" name="person_firagana" /></td>
+                                        </tr>
+                                        <!-- address -->
+                                        <tr>
+                                            <td class="table-light" scope="row">住所<span>※</span></td>
+                                            <td >
+                                                <div class="postal-code">
+                                                    <label for="">〒</label>
+                                                    <input type="text" class="form-control" data-parsley-length="[7,7]">
+                                                </div>
+                                                <div class="address">
+                                                    <select class="select2 form-control" name="state">
+                                                        @foreach($areas as $area)
+                                                            <option value='{{$area}}'>{{$area}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="address">
+                                                    <input type="text" class="form-control" required  name="city" placeholder="市区郡・地名・番地等" />
+                                                </div>
+                                                <div class="address">
+                                                    <input type="text" class="form-control" required  name="apartment" placeholder="建物、マンション名・部屋番号等"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- telephone -->
+                                        <tr>
+                                            <td class="table-light" scope="row">電話番号<span>※</span></td>
+                                            <td >
+                                                <input data-parsley-type="number" type="text" class="form-control" required name="phone"/>
+                                            </td>
+                                        </tr>
+                                        <!-- fax -->
+                                        <tr>
+                                            <td class="table-light" scope="row">FAX番号<span>※</span></td>
+                                            <td >
+                                                <input data-parsley-type="number" type="text" class="form-control" name="fax"/>
+                                            </td>
+                                        </tr>
+                                        <!-- email -->
+                                        <tr>
+                                            <td class="table-light" scope="row">E-mail<span>※</span></td>
+                                            <td >
+                                                <input parsley-type="email" type="email" class="form-control"  name="email"/>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
