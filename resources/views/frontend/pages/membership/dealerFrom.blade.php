@@ -143,7 +143,7 @@
                                             <td >
                                                 <div class="postal-code">
                                                     <label for="">〒</label>
-                                                    <input type="text" class="form-control" data-parsley-length="[7,7]">
+                                                    <input type="text" class="form-control" data-parsley-length="[7,7]" name="postal_code">
                                                 </div>
                                                 <div class="address">
                                                     <select class="select2 form-control" name="state">

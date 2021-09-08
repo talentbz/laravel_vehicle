@@ -14,13 +14,6 @@
         .table-bordered, .table-bordered td, .table-bordered th {
             border: 1px solid #eff2f7;
         }
-        .table>tbody {
-            vertical-align: middle;
-        }
-        .table>:not(caption)>*>* {
-            padding: .75rem;
-            box-shadow: inset 0 0 0 9999px transparent;
-        }
         tbody, td, tfoot, th, thead, tr {
             border: 0 solid;
             border-color: inherit;
@@ -41,7 +34,7 @@
                 <!-- checkbox -->
                 <tr>
                     <td class="table-light" scope="row">事業形態</td>
-                    <td >{{$organ_name}} {{$personal_name}}</td>
+                    <td >{{$organ_name}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">法人名/個人名</td>
@@ -66,6 +59,11 @@
                 <tr>
                     <td class="table-light" scope="row">担当者名ふりがな</td>
                     <td >{{$person_firagana}}</td>
+                </tr>>{{$state}} {{city}} {{apartment}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">住所</td>
+                    <td >{{$state}} {{city}} {{apartment}} postal code: {{postal_code}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">電話番号</td>

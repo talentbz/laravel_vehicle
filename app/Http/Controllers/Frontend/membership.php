@@ -74,7 +74,7 @@ class membership extends Controller
         ]);
     }
     public function dealerStoreForm(Request $request){
-        
+
         Mail::send('mail', array(
             'organ_name' => $request->get('organ_name'),
             'register_name' => $request->get('register_name'),
@@ -83,7 +83,10 @@ class membership extends Controller
             'agency_firagana' => $request->get('agency_firagana'),
             'person_name' => $request->get('person_name'),
             'person_firagana' => $request->get('person_firagana'),
-            'phone' => $request->get('phone'),
+            'postal_code' => $request->get('postal_code'),
+            'state' => $request->get('state'),
+            'city' => $request->get('city'),
+            'apartment' => $request->get('apartment'),
             'fax' => $request->get('fax'),
             'email' => $request->get('email'),
             'site_url' => $request->get('site_url'),
