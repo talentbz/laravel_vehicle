@@ -1,0 +1,34 @@
+.address {
+    padding: 10px 0;
+}
+.postal-code {
+    padding: 10px 0;
+    display: flex;
+}
+.postal-code label {
+    float: left;
+    margin-left: 10px;
+}
+.postal-code input {
+    float: left;
+    width: 90%;
+    margin-left: 10px;
+}
+.table-light span{
+    margin-left: 4px;
+    color: red;
+}
+.start-time {
+    width: 40%;
+    float: left;
+}
+.end-time{
+    width: 40%;
+    float: right;
+}
+.form-post {
+    text-align: right;
+}
+.table-light {
+    width: 25%;
+}
