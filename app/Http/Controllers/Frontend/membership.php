@@ -85,7 +85,7 @@ class membership extends Controller
             'person_firagana' => $request->get('person_firagana'),
             'postal_code' => $request->get('postal_code'),
             'state' => $request->get('state'),
-            'city' => $request->get('city'),
+            'city_name' => $request->get('city_name'),
             'apartment' => $request->get('apartment'),
             'fax' => $request->get('fax'),
             'email' => $request->get('email'),

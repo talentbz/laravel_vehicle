@@ -153,7 +153,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="address">
-                                                    <input type="text" class="form-control" required  name="city" placeholder="市区郡・地名・番地等" />
+                                                    <input type="text" class="form-control" required  name="city_name" placeholder="市区郡・地名・番地等" />
                                                 </div>
                                                 <div class="address">
                                                     <input type="text" class="form-control" required  name="apartment" placeholder="建物、マンション名・部屋番号等"/>

@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">住所</td>
-                    <td >{{$state}} {{city}} {{apartment}} postal code: {{postal_code}}</td>
+                    <td >{{$state}} {{city_name}} {{apartment}} postal code: {{postal_code}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">電話番号</td>
