@@ -178,7 +178,7 @@
                                         <tr>
                                             <td class="table-light" scope="row">E-mail<span>※</span></td>
                                             <td >
-                                                <input parsley-type="email" type="text" class="form-control"  name="email"/>
+                                                <input parsley-type="email" type="email" class="form-control"  name="email"/>
                                             </td>
                                         </tr>
                                     </tbody>

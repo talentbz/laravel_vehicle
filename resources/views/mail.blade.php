@@ -17,6 +17,10 @@
         .table>tbody {
             vertical-align: middle;
         }
+        .table>:not(caption)>*>* {
+            padding: .75rem;
+            box-shadow: inset 0 0 0 9999px transparent;
+        }
         tbody, td, tfoot, th, thead, tr {
             border: 0 solid;
             border-color: inherit;
@@ -41,7 +45,7 @@
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">法人名/個人名</td>
-                    <td >{{$personal_name}}</td>
+                    <td >{{$register_name}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">法人名/個人名ふりがな</td>
@@ -77,7 +81,7 @@
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">URL</td>
-                    <td >{{$site_url}} {{$end_time}}</td>
+                    <td >{{$site_url}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">営業時間</td>

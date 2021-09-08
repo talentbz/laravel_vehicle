@@ -76,8 +76,8 @@ class membership extends Controller
     public function dealerStoreForm(Request $request){
         
         Mail::send('mail', array(
-            'organ_name' => $request->get('organ_name'),
-            'personal_name' => $request->get('personal_name'),
+            'organ_name' => $request->get('organ_name') =='on'?'法人':'',
+            'personal_name' => $request->get('personal_name')=='on'?'個人':'',
             'register_name' => $request->get('register_name'),
             'register_furigana' => $request->get('register_furigana'),
             'agency_name' => $request->get('agency_name'),
