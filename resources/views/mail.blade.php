@@ -59,7 +59,6 @@
                 <tr>
                     <td class="table-light" scope="row">担当者名ふりがな</td>
                     <td >{{$person_firagana}}</td>
-                </tr>>{{$state}} {{city}} {{apartment}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">住所</td>

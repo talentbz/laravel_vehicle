@@ -95,8 +95,8 @@ class membership extends Controller
             'weekend_date' => $request->get('weekend_date'),
         ), function($message) use ($request){
             $message->from($request->email);
-            $message->to('leragnezdina@mail.ru', 'Hello Admin')
-            ->subject('Your Website Contact Form');
+            $message->to('leragnezdina@mail.ru', '掲載申込みフォーム　運送会社様用')
+            ->subject('掲載申込みフォーム　運送会社様用');
         });      
 
       return back()->with('success', 'Thanks for contacting!');
