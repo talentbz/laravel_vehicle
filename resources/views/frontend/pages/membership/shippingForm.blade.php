@@ -158,7 +158,7 @@
                                                     <input type="text" class="form-control" required  name="city_name" placeholder="市区郡・地名・番地等" />
                                                 </div>
                                                 <div class="address">
-                                                    <input type="text" class="form-control" required  name="apartment" placeholder="建物、マンション名・部屋番号等"/>
+                                                    <input type="text" class="form-control" name="apartment" placeholder="建物、マンション名・部屋番号等"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -173,7 +173,7 @@
                                         <tr>
                                             <td class="table-light" scope="row">FAX番号<span>※</span></td>
                                             <td >
-                                                <input data-parsley-type="number" type="text" class="form-control" required name="fax"/>
+                                                <input data-parsley-type="number" type="text" class="form-control" name="fax"/>
                                             </td>
                                         </tr>
                                         <!-- email -->
@@ -225,7 +225,7 @@
                                             <td><input parsley-type="url" type="url" class="form-control" name="site_url"></td>
                                         </tr>
                                         <tr>
-                                            <td class="table-light" scope="row">古物商許可証<span>※</span></td>
+                                            <td class="table-light" scope="row">営業時間</td>
                                             <td>
                                                 <div class="start-time">
                                                     <div class="input-group">
@@ -250,13 +250,13 @@
                             </div>
 
                             <!-- publlication count -->
-                            <h3 class="mt-3">【古物商許可証】<h6>※古物商許可証は必須です。</h6></h3>
+                            <h3 class="mt-3">【掲載台数】<h6>※掲載プランは途中変更可能です。消費税込みの価格です。</h6></h3>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead></thead>
                                     <tbody>
                                         <tr>
-                                            <td class="table-light" scope="row">古物商許可証<span>※</span></td>
+                                            <td class="table-light" scope="row">掲載台数<span>※</span></td>
                                             <td>
                                                 <div class="pub-count">
                                                     <select class="select2 form-control" name="pub_count">

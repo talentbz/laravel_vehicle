@@ -97,7 +97,7 @@ class membership extends Controller
             'weekend_date' => $request->get('weekend_date'),
         ), function($message) use ($request){
             $message->from($request->email);
-            $message->to('leragnezdina@mail.ru', '販売店様')
+            $message->to('app@truckerjapan.com', '販売店様')
             ->subject('販売店様');
         });      
 
@@ -201,7 +201,7 @@ class membership extends Controller
             'remark' => $request->get('remark'),
         ), function($message) use ($request){
             $message->from($request->email);
-            $message->to('leragnezdina@mail.ru', '運送会社様')
+            $message->to('app@truckerjapan.com', '運送会社様')
             ->subject('運送会社様');
         });      
 

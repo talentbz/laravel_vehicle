@@ -143,7 +143,7 @@
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">備考</td>
-                    <td >{$remark}}</td>
+                    <td >{{$remark}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">古物商許可証</td>

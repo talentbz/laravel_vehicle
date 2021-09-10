@@ -156,7 +156,7 @@
                                                     <input type="text" class="form-control" required  name="city_name" placeholder="市区郡・地名・番地等" />
                                                 </div>
                                                 <div class="address">
-                                                    <input type="text" class="form-control" required  name="apartment" placeholder="建物、マンション名・部屋番号等"/>
+                                                    <input type="text" class="form-control"  name="apartment" placeholder="建物、マンション名・部屋番号等"/>
                                                 </div>
                                             </td>
                                         </tr>
@@ -169,9 +169,9 @@
                                         </tr>
                                         <!-- fax -->
                                         <tr>
-                                            <td class="table-light" scope="row">FAX番号<span>※</span></td>
+                                            <td class="table-light" scope="row">FAX番号</td>
                                             <td >
-                                                <input data-parsley-type="number" type="text" class="form-control" name="fax" required/>
+                                                <input data-parsley-type="number" type="text" class="form-control" name="fax"/>
                                             </td>
                                         </tr>
                                         <!-- email -->
