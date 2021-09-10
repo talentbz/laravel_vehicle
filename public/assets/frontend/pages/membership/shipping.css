@@ -1,0 +1,74 @@
+.sh-main {
+    border: 3px solid #ccc;
+    padding: 50px;
+}
+.category  span{
+    color: red;
+}
+.sh-require p, .sh-exam p, .sh-flow p{
+    margin: 22px;
+    font-size: 17px;
+}
+.sh-require p {
+    border-bottom:1px solid #ccc;
+}
+.sh-application {
+    text-align: center;
+    margin-top: 45px !important;
+}
+.sh-application p {
+    font-size: 25px;
+    font-weight: 600;
+}
+.sh-application a {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* shipping Form css */
+.address {
+    padding: 10px 0;
+}
+.postal-code {
+    padding: 10px 0;
+    display: flex;
+}
+.postal-code label {
+    float: left;
+    margin-left: 10px;
+}
+.postal-code input {
+    float: left;
+    width: 90%;
+    margin-left: 10px;
+}
+.table-light span{
+    margin-left: 4px;
+    color: red;
+}
+.start-time {
+    width: 40%;
+    float: left;
+}
+.end-time{
+    width: 40%;
+    float: right;
+}
+.form-post {
+    text-align: right;
+}
+.table-light {
+    width: 25%;
+}
+.start-permite {
+    width: 40%;
+    float: left;
+}
+.end-permite{
+    width: 40%;
+    float: right;
+}
+.start-permite label, .end-permite label {
+    margin-top: 14px;
+    margin-left: 10px !important;
+}

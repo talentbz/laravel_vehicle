@@ -30,6 +30,7 @@
     <body>
         <table class="table table-bordered">
             <thead></thead>
+            @if($is_dealer == 'on')
             <tbody>
                 <!-- checkbox -->
                 <tr>
@@ -62,7 +63,7 @@
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">住所</td>
-                    <td >{{$state}} {{city_name}} {{apartment}} postal code: {{postal_code}}</td>
+                    <td >{{$state}} {{$city_name}} {{$apartment}} postal code: {{$postal_code}}</td>
                 </tr>
                 <tr>
                     <td class="table-light" scope="row">電話番号</td>
@@ -89,5 +90,79 @@
                     <td >{{$weekend_date}}</td>
                 </tr>
             </tbody>
+            @else
+            <tbody>
+                <!-- checkbox -->
+                <tr>
+                    <td class="table-light" scope="row">事業形態</td>
+                    <td >{{$organ_name}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">法人名/個人名</td>
+                    <td >{{$register_name}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">法人名/個人名ふりがな</td>
+                    <td >{{$register_furigana}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">代表者名</td>
+                    <td >{{$agency_name}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">代表者名ふりがな</td>
+                    <td >{{$agency_firagana}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">担当者名</td>
+                    <td >{{$person_name}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">担当者名ふりがな</td>
+                    <td >{{$person_firagana}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">住所</td>
+                    <td >{{$state}} {{$city_name}} {{$apartment}} postal code: {{$postal_code}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">電話番号</td>
+                    <td >{{$phone}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">FAX番号</td>
+                    <td >{{$fax}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">E-mail</td>
+                    <td >{{$email}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">古物商許可証</td>
+                    <td >{{$permit_text}}第 {{$permit_number}}号</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">備考</td>
+                    <td >{$remark}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">古物商許可証</td>
+                    <td >{{$pub_count}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">URL</td>
+                    <td >{{$site_url}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">営業時間</td>
+                    <td >{{$start_time}} {{$end_time}}</td>
+                </tr>
+                <tr>
+                    <td class="table-light" scope="row">定休日</td>
+                    <td >{{$weekend_date}}</td>
+                </tr>
+            </tbody>
+            @endif
+        </table>
     </body>
 </html>

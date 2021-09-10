@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="de-application">
                                     <p>掲載のお申込みは下記のボタンからお願い致します。</p>
-                                    <a href="#" class="btn btn-outline-danger">申込フォーム</a>
+                                    <a href="{{route('dealer.contact.form')}}" class="btn btn-outline-danger">申込フォーム</a>
                                 </div>
                             </div>
                         </div>

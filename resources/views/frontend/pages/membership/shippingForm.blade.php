@@ -4,7 +4,7 @@
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/membership/dealer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/membership/shipping.css') }}">
 @endsection
 @section('title')
     homepage
@@ -72,10 +72,12 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="custom-validation" method="post" action="{{ route('dealer.contact.email') }}" enctype="multipart/form-data">
+                        <form class="custom-validation" method="post" action="{{ route('shipping.contact.email') }}" enctype="multipart/form-data">
                             @csrf
+                            
+                            <!-- main -->
                             <h5>トラッカージャパンへの掲載お申し込みはこちらのフォームからお願いいたします。</h5>
-                            <h3 class="mt-5"> 【基本情報】<h6>※掲載は無料です</h6></h3>
+                            <h3 class="mt-5">【基本情報】<h6>※がついている項目は、すべて入力必須項目です。</h6></h3>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
@@ -143,7 +145,7 @@
                                             <td >
                                                 <div class="postal-code">
                                                     <label for="">〒</label>
-                                                    <input type="text" class="form-control" data-parsley-length="[7,7]" name="postal_code" required>
+                                                    <input type="text" class="form-control" data-parsley-length="[7,7]" name="postal_code">
                                                 </div>
                                                 <div class="address">
                                                     <select class="select2 form-control" name="state">
@@ -171,20 +173,48 @@
                                         <tr>
                                             <td class="table-light" scope="row">FAX番号<span>※</span></td>
                                             <td >
-                                                <input data-parsley-type="number" type="text" class="form-control" name="fax" required/>
+                                                <input data-parsley-type="number" type="text" class="form-control" required name="fax"/>
                                             </td>
                                         </tr>
                                         <!-- email -->
                                         <tr>
                                             <td class="table-light" scope="row">E-mail<span>※</span></td>
                                             <td >
-                                                <input parsley-type="email" type="email" class="form-control"  name="email" required/>
+                                                <input parsley-type="email" type="email" class="form-control"  required name="email"/>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
+                            <!-- permit -->
+                            <h3 class="mt-3">【古物商許可証】<h6>※古物商許可証は必須です。</h6></h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-light" scope="row">古物商許可証<span>※</span></td>
+                                            <td>
+                                                <div class="start-permite">
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text" name="permit_text" data-parsley-type="text" required>
+                                                        <label for="">第</label>
+                                                    </div>
+                                                </div>
+                                                <div class="end-permite">
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text" name="permit_number" data-parsley-type="number" required>
+                                                        <label for="">号</label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- others -->
                             <h3 class="mt-3">【会社情報】</h3>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
@@ -195,7 +225,7 @@
                                             <td><input parsley-type="url" type="url" class="form-control" name="site_url"></td>
                                         </tr>
                                         <tr>
-                                            <td class="table-light" scope="row">営業時間</td>
+                                            <td class="table-light" scope="row">古物商許可証<span>※</span></td>
                                             <td>
                                                 <div class="start-time">
                                                     <div class="input-group">
@@ -218,6 +248,45 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <!-- publlication count -->
+                            <h3 class="mt-3">【古物商許可証】<h6>※古物商許可証は必須です。</h6></h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-light" scope="row">古物商許可証<span>※</span></td>
+                                            <td>
+                                                <div class="pub-count">
+                                                    <select class="select2 form-control" name="pub_count">
+                                                        @foreach($pub_counts as $pub_count)
+                                                            <option value='{{$pub_count}}'>{{$pub_count}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- remark -->
+                            <h3 class="mt-3">【備考】</h6></h3>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-light" scope="row">備考</td>
+                                            <td>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remark"></textarea>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- button -->
                             <div class="form-post mt-3">
                                 <input type="submit" name="send" value="確認画面" class="btn btn-outline-danger">
                             </div>
