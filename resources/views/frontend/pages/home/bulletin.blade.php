@@ -6,18 +6,23 @@
         </div>
         <div class="col-md-2">
             <div class="templating-select">
-                <select class="select2 form-control" name="category">
+                <!-- <select class="select2 form-control" name="category">
                     @foreach($bulletin_categories as $bulletin_categorie)
                         <option value="{{$bulletin_categorie}}">{{$bulletin_categorie}}</option>
                     @endforeach
-                </select>
+                </select> -->
             </div>
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table align-middle table-nowrap">
+        <table id="datatable" class="table align-middle table-nowrap">
             <thead>
-            
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 @foreach ($bulletin_infos as $key=>$bulletin_info)
@@ -33,7 +38,7 @@
             </tbody>
         </table>
     </div>
-    <div class="read-more">
+    <!-- <div class="read-more">
         <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
-    </div>
+    </div> -->
 </div>

@@ -24,6 +24,9 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/sale', [App\Http\Controllers\Frontend\saleController::class, 'index'])->name('sale');
     Route::post('/sale', [App\Http\Controllers\Frontend\saleController::class, 'searchResult'])->name('sale.search');
 
+    //forklift
+    Route::get('/forklift', [App\Http\Controllers\Frontend\forkLiftController::class, 'index'])->name('forklift');
+    Route::post('/forklift', [App\Http\Controllers\Frontend\forkLiftController::class, 'searchResult'])->name('forklift.search');
     //car details
     Route::get('/details/{id}', [App\Http\Controllers\Frontend\carListController::class, 'detail'])->name('carDetails'); 
 

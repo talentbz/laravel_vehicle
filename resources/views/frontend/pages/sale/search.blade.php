@@ -142,37 +142,26 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- manufacture -->
+                                        <div class="col-md-3">
+                                            <div class="templating-select row">
+                                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                                    <label for="" class="pt-2">メーカー</label>
+                                                </div>
+                                                <div class="col-md-10 col-sm-10 col-xs-12">
+                                                    <select class="select2 form-control" name="manufacture">
+                                                            <option value=" いすゞ"> いすゞ</option>
+                                                            <option value=" 日野"> 日野</option>
+                                                            <option value=" 三菱ふそう">三菱ふそう</option>
+                                                            <option value="UDトラックス">UDトラックス</option>
+                                                            <option value="トヨタ">トヨタ</option>
+                                                            <option value="マツダ">マツダ</option>
+                                                            <option value="その他">その他</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="isuzu" />
-                                    <span class="">いすゞ</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="hino" />
-                                    <span class="">日野</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="fuso" />
-                                    <span class="">三菱ふそう</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="ud" />
-                                    <span class="">UDトラックス</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="toyoda" />
-                                    <span class="">トヨタ</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="mazda" />
-                                    <span class="">マツダ</span>
-                                </div>
-                                <div class="car-category-checkbox">
-                                    <input type="checkbox" class="form-check-input" name="others" />
-                                    <span class="">その他</span>
                                 </div>
                             </div>
                             <div class="read-more detail-search">

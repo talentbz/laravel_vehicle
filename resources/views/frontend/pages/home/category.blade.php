@@ -8,14 +8,14 @@
         <h3>ボディタイプで探す</h3>
     </div>
     @foreach ($body_lists as $key=>$body_list)
-    <div class="col-md-2 car-list-info">
-        <a href="{!! route('bodycategory', ['name' => $body_list['link']]) !!}">
+    <div class="col-md-2 col-xs-4 car-list-info">
+        <a href="{!! route('bodycategory', ['name' => $body_list['name']]) !!}">
             <img src="{{asset($body_list['img'])}}" alt="">
             <p>{{$body_list['name']}}</p>
         </a>
     </div>
     @endforeach
     <div class="read-more mt-2">
-        <a href="#" class="btn btn-primary" type="submit">リース</a>
+        <a href="{{route('sale')}}" class="btn btn-primary" type="submit">リース</a>
     </div>
 </div>

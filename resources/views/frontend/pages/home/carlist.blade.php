@@ -1,6 +1,6 @@
 
 @foreach ($vehicle_infos as $key=>$vehicle_info)
-    <div class="col-md-3 col-sm-3 col-xs-12">
+    <div class="col-md-3 col-sm-3 col-xs-12 car-details">
         <div class="card p-1 border shadow-none">
             <div class="position-relative car-list-image">
                 <a href="{!! route('carDetails', ['id' => $vehicle_info->id ? $vehicle_info->id:'#']) !!}">
@@ -31,9 +31,6 @@
                     </li>
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->start_year}} {{$vehicle_info->start_month}}</p>
-                    </li>
-                    <li class="list-inline-item me-3">
-                        <p>{{$vehicle_info->note}}</p>
                     </li>
                 </ul>
                 <div>

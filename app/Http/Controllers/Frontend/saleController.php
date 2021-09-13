@@ -301,20 +301,21 @@ class saleController extends Controller
         $location = $request->location;
         
         //car category
-        $isuze = $request->isuze; 
-        $hino = $request->hino;   
-        $fuso = $request->fuso;   
-        $ud = $request->ud;       
-        $toyoda = $request->toyoda; 
-        $mazda = $request->mazda; 
-        $others = $request->others;
-        if($isuze) $isuze ="いすゞ";
-        if($hino) $hino = "日野";
-        if($fuso) $fuso = "三菱ふそう";
-        if($ud) $ud = "UDトラックス";
-        if($toyoda) $toyoda = "トヨタ";
-        if($mazda) $mazda = "マツダ";
-        if($others) $others = "その他";  
+        // $isuze = $request->isuze; 
+        // $hino = $request->hino;   
+        // $fuso = $request->fuso;   
+        // $ud = $request->ud;       
+        // $toyoda = $request->toyoda; 
+        // $mazda = $request->mazda; 
+        // $others = $request->others;
+        // if($isuze) $isuze ="いすゞ";
+        // if($hino) $hino = "日野";
+        // if($fuso) $fuso = "三菱ふそう";
+        // if($ud) $ud = "UDトラックス";
+        // if($toyoda) $toyoda = "トヨタ";
+        // if($mazda) $mazda = "マツダ";
+        // if($others) $others = "その他";  
+        $manufacture = $request->manufacture;
 
         if ($body_shape){
             $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");
@@ -334,34 +335,37 @@ class saleController extends Controller
         if ($size){
             $vehicle_infos = $vehicle_infos->where('class', 'LIKE', "%{$size}%");
         }   
+        if($manufacture){
+            $vehicle_infos = $vehicle_infos->where('car_category', 'LIKE', "%{$manufacture}%");
+        }
         // if ($location){
         //     $vehicle_infos = $vehicle_infos->where('area', 'LIKE', "%{$location}%");
         // } 
-        if($isuze || $hino || $fuso || $ud || $toyoda || $mazda || $others){
-            $vehicle_infos = $vehicle_infos->where(function($query) use($isuze, $hino, $fuso, $ud, $toyoda, $mazda, $others){
-                                                    if($isuze){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$isuze}%");
-                                                    }          
-                                                    if($hino){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$hino}%");
-                                                    }       
-                                                    if($fuso){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$fuso}%");
-                                                    }  
-                                                    if($ud){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$ud}%");
-                                                    }  
-                                                    if($toyoda){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$toyoda}%");
-                                                    } 
-                                                    if($mazda){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$mazda}%");
-                                                    }  
-                                                    if($others){
-                                                        $query->orWhere('car_category', 'LIKE', "%{$others}%");
-                                                    }});
+        // if($isuze || $hino || $fuso || $ud || $toyoda || $mazda || $others){
+        //     $vehicle_infos = $vehicle_infos->where(function($query) use($isuze, $hino, $fuso, $ud, $toyoda, $mazda, $others){
+        //                                             if($isuze){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$isuze}%");
+        //                                             }          
+        //                                             if($hino){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$hino}%");
+        //                                             }       
+        //                                             if($fuso){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$fuso}%");
+        //                                             }  
+        //                                             if($ud){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$ud}%");
+        //                                             }  
+        //                                             if($toyoda){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$toyoda}%");
+        //                                             } 
+        //                                             if($mazda){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$mazda}%");
+        //                                             }  
+        //                                             if($others){
+        //                                                 $query->orWhere('car_category', 'LIKE', "%{$others}%");
+        //                                             }});
 
-        }  
+        // }  
 
 
         //general search

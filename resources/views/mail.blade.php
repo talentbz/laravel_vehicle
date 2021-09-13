@@ -146,7 +146,7 @@
                     <td >{{$remark}}</td>
                 </tr>
                 <tr>
-                    <td class="table-light" scope="row">古物商許可証</td>
+                    <td class="table-light" scope="row">掲載台数</td>
                     <td >{{$pub_count}}</td>
                 </tr>
                 <tr>

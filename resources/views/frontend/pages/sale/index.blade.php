@@ -2,6 +2,11 @@
 
 @section('css')
     <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/datepicker/datepicker.min.css') }}">
     <link href="{{ URL::asset('/assets/libs/pagination/pagination.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
 @endsection
@@ -201,6 +206,15 @@
     </div> <!-- content -->
     @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
+
+    <!-- form advanced init -->
+    <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/home/index.js') }}"></script>
     @endsection
