@@ -33,10 +33,10 @@ class homeController extends Controller
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id')
-                                ->orderBy('vehicle.created_at', 'desc')
+                                ->orderBy('vehicle.id', 'desc')
                                 ->paginate(8);    
         $vehicle_count =Vehicle::select('id')->count();
-        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->take(10)->get();                                  
+        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();                                  
         $bulletin_categories = [
             '全て',
             '求人',
