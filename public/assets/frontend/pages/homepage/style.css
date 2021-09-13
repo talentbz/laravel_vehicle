@@ -87,7 +87,7 @@
     width: 100%;
 }
 .category-title{
-    border-bottom: 3px solid #50a5f1;
+    border-bottom: 3px solid #1CA3D3;
     margin-bottom: 20px;
 }
 .category-title i{
@@ -143,7 +143,7 @@
     border: 1px dashed #ccc;
 }
 .adver-top {
-    background: #50a5f1;
+    background: #1CA3D3;
     color: #fff;
     text-align: center;
     padding: 5px;

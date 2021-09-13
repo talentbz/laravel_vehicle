@@ -1,0 +1,11 @@
+.add-details {
+    border: 3px solid #eee;
+}
+.add-details label {
+    float: left;
+    font-weight: 600;
+}
+.add-details p {
+    float: left;
+    margin-left: 10px;
+}

@@ -1,5 +1,5 @@
 
-@foreach ($vehicle_infos as $key=>$vehicle_info)
+@forelse ($vehicle_infos as $key=>$vehicle_info)
     <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="card p-1 border shadow-none">
             <div class="position-relative car-list-image">
@@ -39,7 +39,9 @@
             </div>
         </div>
     </div>
-@endforeach
+@empty
+    <p>No Data</p>
+@endforelse
 <div class="pagination-wrapper">
     {!! $vehicle_infos->links() !!}
 </div>
