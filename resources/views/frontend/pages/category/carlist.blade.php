@@ -5,9 +5,9 @@
             <div class="position-relative car-list-image">
                 <a href="{!! route('carDetails', ['id' => $vehicle_info->id ? $vehicle_info->id:'#']) !!}">
                     @if($vehicle_info->car_path)
-                        <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
+                        <img src="{{asset($vehicle_info->car_path)}}" alt="">
                     @else
-                        <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
+                        <img src="{{URL::asset('images/photo.png')}}" alt="" >
                     @endif
                 </a>
             </div>
