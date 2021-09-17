@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <!-- details section -->
-                        <h4 class="card-title vehicle-list">詳細情報</h4>
+                        <h4 class="card-title">詳細情報</h4>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead>
@@ -139,19 +139,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="">お問合せ先:</label>
-                                    <p>{{$user_info->location}}</p>
+                                    <p>{{$user_info->company_name}}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">担当者:</label>
                                     <p>{{$user_info->member}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="">会社名:</label>
-                                    <p>{{$user_info->comapny_name}}</p>
+                                    <!-- <label for="">会員番号:</label>
+                                    <p>{{$user_info->comapny_name}}</p> -->
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">問合せ番号:</label>
-                                    <p>{{$user_info->phone}}</p>
+                                    <p>{{$user_info->user_id}}{{prefix_word($vehilce_details->id, 3)}}</p>
                                 </div>
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6 mt-3">

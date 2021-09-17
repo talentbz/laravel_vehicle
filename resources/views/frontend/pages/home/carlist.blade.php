@@ -5,9 +5,9 @@
             <div class="position-relative car-list-image">
                 <a href="{!! route('carDetails', ['id' => $vehicle_info->id ? $vehicle_info->id+1:'#']) !!}">
                     @if($vehicle_info->car_path)
-                        <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
+                        <img src="{{asset($vehicle_info->car_path)}}" alt="">
                     @else
-                        <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
+                        <img src="{{URL::asset('images/photo.png')}}" alt="" >
                     @endif
                 </a>
             </div>
@@ -20,9 +20,9 @@
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->car_category}}</p>
                     </li>
-                    <li class="list-inline-item me-3">
+                    <!-- <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->model}}</p>
-                    </li>
+                    </li> -->
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->shape}}</p>
                     </li>
@@ -30,7 +30,7 @@
                         <p><span>{{number_format($vehicle_info->mileage)}}</span>km</p>
                     </li>
                     <li class="list-inline-item me-3">
-                        <p>{{$vehicle_info->start_year}} {{$vehicle_info->start_month}}</p>
+                        <p>{{$vehicle_info->start_year}}</p>
                     </li>
                 </ul>
                 <div>

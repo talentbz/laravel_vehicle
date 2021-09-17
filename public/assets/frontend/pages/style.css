@@ -1,3 +1,7 @@
+@import url(//db.onlinewebfonts.com/c/a9aca7e1ecdbdf39d9a97fe080562d20?family=Meiryo+UI);
+body, h1,h2,h3,h4,h5,h6,p,span, label, a, button, input, optgroup, select, textarea{
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
 .front-logo {
     display: none;
 }
@@ -11,7 +15,11 @@
     display: initial !important;
 }
 #navbarScroll{
-    float: right;
+    justify-content: center;
+}
+#navbarScroll span{
+    font-size: 18px;
+    font-weight: 800;
 }
 .header-logo {
     float: left;
@@ -32,6 +40,8 @@
 }
 .header-info img {
     float: left;
+    margin-top: 7px;
+    margin-right: 10px;
 }
 .tel-number {
     float: left;
@@ -105,12 +115,17 @@ body[data-layout=horizontal] .page-content {
     visibility: visible;
 }
 .header-info a {
-    margin-top: 10px;
+    margin-top: 13px;
     margin-left: 10px;
+    font-size: 18px;
 }
 .custome-btn-bg{
     background: rgb(237, 125, 49) !important;
     border-color: rgb(237, 125, 49) !important;
+    font-size: 13px !important;
+}
+.custome-btn-bg i {
+    margin-right: 7px;
 }
 .custome-btn-bg:hover {
     background: rgb(243, 166, 115) !important;
@@ -139,6 +154,17 @@ body[data-layout=horizontal] .page-content {
         font-weight: bold;
         font-size: 20px;
     }
+    .logo-title {
+        font-style: inherit !important;
+        margin-left: 6px;
+        font-size: 10px !important;
+    }
+    .navbar-toggler {
+        margin-top: 5px;
+    }
+    #navbarScroll span {
+        font-size: 12px;
+    }
     .front-header button{
         float: right;
     }
@@ -160,8 +186,25 @@ body[data-layout=horizontal] .page-content {
     }
 }
 @media only screen and (max-width: 414px) {
+    .front-logo span {
+        color: #fff;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    .logo-title {
+        font-style: inherit !important;
+        margin-left: 6px;
+        font-size: 9px !important;
+    }
     .footer-column{
         width: 50%;
+    }
+    .logo {
+        font-size: 17px;
+    }
+    .logo-title {
+        font-size: 9px !important;
     }
 }
 @media only screen and (max-width: 375px) {

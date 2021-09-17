@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="category row">
+    <div class="category">
         <div class="category-title">
             <i class="fa fa-search"></i>
             <h3>よくある質問Q&A</h3>

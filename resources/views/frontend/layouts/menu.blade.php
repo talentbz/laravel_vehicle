@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <div class="container-fluid front-header">
       <div class="top-header">
-        <a class="navbar-brand front-logo" href="#">
-            <span>TRUCKER JAPAN</span>
+        <a class="navbar-brand front-logo" href="{{route('home')}}">
+            <span class="logo'">TRUCKER JAPAN</span>
+            <span class="logo-title">中古トラック情報はトラッカージャパン</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

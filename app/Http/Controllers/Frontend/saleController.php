@@ -316,7 +316,6 @@ class saleController extends Controller
         // if($mazda) $mazda = "マツダ";
         // if($others) $others = "その他";  
         $manufacture = $request->manufacture;
-
         if ($body_shape){
             $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");
         }

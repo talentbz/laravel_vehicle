@@ -57,12 +57,12 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody> 
                             </table>
                         </div>
-                        <div class="read-more">
+                        <!-- <div class="read-more">
                             <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

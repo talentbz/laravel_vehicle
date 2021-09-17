@@ -97,7 +97,7 @@
                         <div class="category row">
                             <div class="category-title">
                                 <i class="fa fa-search"></i>
-                                <h3>最新情報！</h3>
+                                <h3>在庫車両</h3>
                             </div>
 
                             <div class="carlist-page row">

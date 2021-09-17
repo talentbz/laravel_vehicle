@@ -35,14 +35,16 @@
     </div>
     <div class="banner-adver">
         <div class="container">
-            <div class="row mt-5 mb-5 adver-top">
-                <h1>掲載店募集<i class="fas fa-angle-double-right"></i></h1>
-                <p>中古トラック、ダンプなどをトラッカージャパンに掲載しませんか？</p>
+            <div class="row mt-3 mb-3 adver-top">
+                <a href="{{route('membership')}}">
+                    <h1>掲載店募集<i class="fas fa-angle-double-right"></i></h1>
+                    <p>中古トラック、ダンプなどをトラッカージャパンに掲載しませんか？</p>
+                </a>
             </div>
-            <div class="row">
+            <div class="row adver-bottom">
                 <div class="wrecker-service">
                     <h1>レッカーサービス</h1>
-                    <a href="#">
+                    <a href="{{route('membership.dealer')}}">
                         <img src="{{asset('/images/frontend/home/icon/wrecker.png')}}" alt="">
                         <span>全国対応・迅速・格安・安全</span>
                     </a>
@@ -50,7 +52,7 @@
                 </div>
                 <div class="painting-service">
                     <h1>板金塗装サービス</h1>
-                    <a href="#">
+                    <a href="{{route('membership.shipping')}}">
                         <img src="{{asset('/images/frontend/home/icon/painting.png')}}" alt="">
                         <span>迅速・格安・丁寧・安心</span>
                     </a>
@@ -59,10 +61,6 @@
         </div>
     </div>
     <div class="category">
-        <div class="category-title">
-            <i class="fa fa-search"></i>
-            <h3>絞込み検索</h3>
-        </div>
         <!-- car list per category -->
         <div class="container-fluid home-content">
                 <div class="row">
@@ -81,6 +79,20 @@
                             <div class="category-title">
                                 <i class="fas fa-truck-moving"></i>
                                 <h3>最新情報！</h3>
+                                <!-- <div class="sort-filter">
+                                    <form method="GET">
+                                        <select class="select2 form-control" id="filter" name="filter" value="{{$filter}}" data-placeholder="すべて">
+                                            <option></option>
+                                            <option value="row_price"> 価格が安い</option>
+                                            <option value="high_price"> 価格が高い</option>
+                                            <option value="old_model_date">年式が古い</option>
+                                            <option value="new_model_date">年式が新しい</option>
+                                            <option value="short_mileage">走行距離が短い</option>
+                                            <option value="long_mileage">走行距離が長い</option>
+                                        </select>
+                                        <input type="submit" class="btn btn-danger" value="適用"/>
+                                    </form>
+                                </div> -->
                             </div>
                                 
                             <div class="carlist-page row">

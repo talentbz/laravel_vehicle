@@ -1,9 +1,15 @@
 @extends('frontend.layouts.index')
 
 @section('css')
-    <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ URL::asset('/assets/libs/pagination/pagination.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/frontend/pages/homepage/style.css') }}">
+    <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/datepicker/datepicker.min.css') }}">
 @endsection
 @section('title')
     sale
@@ -43,136 +49,146 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <!-- manufacture -->
-                                        <div class="col-md-4">
-                                            <div class="templating-select row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">メーカー</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <select class="select2 form-control" name="manufacture">
-                                                        <option value=" いすゞ"> いすゞ</option>
-                                                        <option value=" 日野"> 日野</option>
-                                                        <option value=" 三菱ふそう">三菱ふそう</option>
-                                                        <option value="UDトラックス">UDトラックス</option>
-                                                        <option value="トヨタ">トヨタ</option>
-                                                        <option value="マツダ">マツダ</option>
-                                                        <option value="その他">その他</option>
-                                                    </select>
-                                                </div>
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">メーカー</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="manufacture" data-placeholder="すべて">
+                                                    <option></option>
+                                                    <option value=" いすゞ"> いすゞ</option>
+                                                    <option value=" 日野"> 日野</option>
+                                                    <option value=" 三菱ふそう">三菱ふそう</option>
+                                                    <option value="UDトラックス">UDトラックス</option>
+                                                    <option value="トヨタ">トヨタ</option>
+                                                    <option value="マツダ">マツダ</option>
+                                                    <option value="その他">その他</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- size -->
-                                        <div class="col-md-4">
-                                            <div class="templating-select row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">大きさ</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <select class="select2 form-control" name="size">
-                                                        @foreach($classes as $class)
-                                                            <option value="{{$class}}">{{$class}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">大きさ</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="size" data-placeholder="大きさ">
+                                                    <option></option>
+                                                    @foreach($classes as $class)
+                                                        <option value="{{$class}}">{{$class}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- location -->
-                                        <div class="col-md-4">
-                                            <div class="templating-select row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">地域</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <select class="select2 form-control" name="location">
-                                                        @foreach($areas as $area)
-                                                            <option value="{{$area}}">{{$area}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">地域</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="location" data-placeholder="地域">
+                                                    <option></option>
+                                                    @foreach($areas as $area)
+                                                        <option value="{{$area}}">{{$area}}</option>
+                                                    @endforeach
+                                                </select>  
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mt-5">
-                                    <div class="row">
-                                        <!-- car shape  -->
-                                        <div class="col-md-4">
-                                            <div class="templating-select row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">形状</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <select class="select2 form-control" name="shape">
-                                                        @foreach($shapes as $shape)
-                                                            <option value="{{$shape}}">{{$shape}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                         <!-- car shape -->
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">形状</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="shape" data-placeholder="形状">
+                                                    <option></option>
+                                                    @foreach($shapes as $shape)
+                                                        <option value="{{$shape}}">{{$shape}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-
-                                        <!-- year -->
-                                        <div class="col-md-8">
-                                            <div class="templating-year row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">年式</label>
-                                                </div>
-                                                <div class="col-md-8 templating-year-select">
-                                                    <select class="select2 form-control" name="from_year">
-                                                        @foreach($years as $year)
-                                                            <option value="{{$year}}">{{$year}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <!-- from year -->
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">年式</label>
                                             </div>
-                                            <div class="templating-year row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2 select-label-mark">~</label>
-                                                </div>
-                                                <div class="col-md-8 templating-year-select">
-                                                    <select class="select2 form-control" name="to_year">
-                                                        @foreach($years as $year)
-                                                            <option value="{{$year}}">{{$year}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="from_year" data-placeholder="選択してください">
+                                                    <option></option>
+                                                    @foreach($years as $year)
+                                                        <option value="{{$year}}">{{$year}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div  class="col-md-12 mt-5">
-                                    <div class="row">
-                                        <!-- millege -->
-                                        <div class="col-md-4">
-                                            <div class="templating-select  row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2">走行距離</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <input type="number" class="form-control" name="to_millege"/>
-                                                </div>
+                                        <!-- to year -->
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2 to-year">~</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="to_year" data-placeholder="選択してください">
+                                                    <option></option>
+                                                    @foreach($years as $year)
+                                                        <option value="{{$year}}">{{$year}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="templating-select row">
-                                                <div class="col-md-4 select-label">
-                                                    <label for="" class="pt-2 select-label-mark">~</label>
-                                                </div>
-                                                <div class="col-md-8 select-box">
-                                                    <input type="number" class="form-control" name="from_millege"/>
-                                                </div>
+                                        <!-- from millege -->
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2">走行距離</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="to_millege" data-placeholder="下限なし">
+                                                    <option></option>
+                                                    <option value="50000">{{number_format(50000)}}</option>
+                                                    <option value="100000">{{number_format(100000)}}</option>
+                                                    <option value="200000">{{number_format(200000)}}</option>
+                                                    <option value="300000">{{number_format(300000)}}</option>
+                                                    <option value="400000">{{number_format(400000)}}</option>
+                                                    <option value="500000">{{number_format(500000)}}</option>
+                                                    <option value="600000">{{number_format(600000)}}</option>
+                                                    <option value="700000">{{number_format(700000)}}</option>
+                                                    <option value="800000">{{number_format(800000)}}</option>
+                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                </select>
                                             </div>
                                         </div>
-                                    <div class="col-md-4"></div>
-                                        
+                                        <!-- to millege -->
+                                        <div class="select-wrapper">
+                                            <div class="select-label">
+                                                <label for="" class="pt-2 to-millege"> ~ </label>
+                                            </div>
+                                            <div class="select-box">
+                                                <select class="select2 form-control" name="from_millege" data-placeholder="上限なし">
+                                                    <option></option>
+                                                    <option value="50000">{{number_format(50000)}}</option>
+                                                    <option value="100000">{{number_format(100000)}}</option>
+                                                    <option value="200000">{{number_format(200000)}}</option>
+                                                    <option value="300000">{{number_format(300000)}}</option>
+                                                    <option value="400000">{{number_format(400000)}}</option>
+                                                    <option value="500000">{{number_format(500000)}}</option>
+                                                    <option value="600000">{{number_format(600000)}}</option>
+                                                    <option value="700000">{{number_format(700000)}}</option>
+                                                    <option value="800000">{{number_format(800000)}}</option>
+                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        
                             <div class="read-more detail-search">
-                                <input class="btn btn-warning" type="submit" value="もっと見る" />
+                                <input class="btn btn-warning" type="submit" value="検索" />
                             </div>
                         </form>
                     </div>
+
+
                     <!-- latest car info -->
                     <div class="category row">
                         <div class="category-title">
@@ -193,7 +209,19 @@
     </div> <!-- content -->
     @section('script')
     <script src="{{ URL::asset('/assets/libs/select2/select2.min.js') }}"></script>
-    <script src="{{ URL::asset('/assets/frontend/pages/home/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/spectrum-colorpicker/spectrum-colorpicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
+
+    <!-- form advanced init -->
+    <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
+    <script src="{{ URL::asset('/assets/libs/datatables/datatables.min.js') }}"></script>
+    <!-- Datatable init js -->
+    <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
+
     <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
     @endsection
 @endsection

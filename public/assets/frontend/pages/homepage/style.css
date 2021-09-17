@@ -1,3 +1,4 @@
+
 .home-content {
     margin-top: 30px;
 }
@@ -9,8 +10,8 @@
 }
 .banner-image .home-search {
     position: absolute;
-    top: 45%;
-    left: 35%;
+    top: 40%;
+    left: 33%;
 }
 .home-search p{
     color: #fff;
@@ -24,7 +25,8 @@
 .search input {
     height: 60px;
     text-indent: 25px;
-    border: 2px solid #d6d4d4
+    border: 2px solid #d6d4d4;
+    font-size: 18px;
 }
 
 .search input:focus {
@@ -46,6 +48,7 @@
     width: 110px;
     background: rgb(237, 125, 49);
     border-color: rgb(237, 125, 49);
+    font-size: 20px;
 }
 .search button:hover {
     background: rgb(243, 166, 115);
@@ -58,10 +61,12 @@
 .detail-search input{
     background: rgb(237, 125, 49);
     border-color: rgb(237, 125, 49);
+    width: 100px;
 }
 .detail-search input:hover{
     background: rgb(243, 166, 115);
     border-color: rgb(243, 166, 115);
+    /* width: 100px; */
 }
 .car-list{
     display: contents;
@@ -80,8 +85,8 @@
     color: red;
 }
 .category{
-    margin-top: 25px !important;
-    background: #fff;
+    /* margin-top: -7px !important; */
+    /* background: #fff; */
     border-radius: 17px;
     padding: 30px;
     width: 100%;
@@ -89,6 +94,8 @@
 .category-title{
     border-bottom: 3px solid #1CA3D3;
     margin-bottom: 20px;
+    clear: both;
+    display: flex;
 }
 .category-title i{
     float: left;
@@ -96,9 +103,13 @@
     margin-right: 10px;
     padding-top: 4px;
 }
-/* .category-title h3{
-    
-} */
+.category-title h3{
+    float: left;
+    font-size: 18px;
+}
+.sort-filter {
+    float: right;
+}
 .car-info {
     display: grid; 
 }
@@ -120,7 +131,6 @@
     max-height: 304px;
 }
 .read-more a{
-    float: right;
     background: rgb(237, 125, 49);
     border-color: rgb(237, 125, 49);
 }
@@ -140,7 +150,7 @@
 }
 .car-list-info {
     text-align: center;
-    border: 1px dashed #ccc;
+    border: 1px solid #ccc;
 }
 .adver-top {
     background: #1CA3D3;
@@ -156,6 +166,7 @@
 }
 .adver-top p{
     font-size: 17px;
+    color: #fff;
 }
 .wrecker-service, .painting-service{
     width: 30% !important;
@@ -171,27 +182,59 @@
     margin-right: 10px;
 }
 .wrecker-service {
-    border: 3px solid rgb(255, 192, 0);
+    border: 5px solid rgb(255, 192, 0);
 }
 .wrecker-service:hover{
     background: rgb(255, 192, 0);
     color: #fff;
 }
 .painting-service {
-    border: 3px solid rgb(112, 173, 71);
+    border: 5px solid rgb(112, 173, 71);
 }
 .painting-service:hover {
     background: rgb(112, 173, 71);
     color: #fff;
 }
-.select-label {
+.select-wrapper {
+    width: 33.33% !important;
+    float: left;
+    margin-bottom: 30px;
+}
+.select-wrapper .select-label {
+    width: 30%;
+    float: left;
     text-align: center;
+}
+.select-wrapper .select-box {
+    width: 70%;
+    float: left;
 }
 .templating-year {
     width: 40%;
     float: left;
 }
+.read-more {
+    text-align: center;
+}
+.category-read-more {
+    text-align: center;
+}
+.category-read-more a{
+    color: rgb(237, 125, 49);
+    border-color: rgb(237, 125, 49);
+    width: 100px;
+}
+.category-read-more a:hover{
+    background: rgb(237, 125, 49);
+    color: #fff;
+    border-color: rgb(237, 125, 49);
+}
 /* responsive */
+@media only screen and (max-width: 1440px) {
+    .banner-image .home-search {
+        left: 33%;
+    }
+}
 @media only screen and (max-width: 1024px) {
     .home-content {
         width: 90% !important;
@@ -205,6 +248,7 @@
     .search button {
         height: 36px;
         width: 83px;
+        padding-top: 4px;
     }
     .search .fa-search {
         top: 15px;
@@ -225,8 +269,8 @@
         font-size: 22px;
         margin-bottom: 8px;
     }
-    .banner-adver {
-        display: none;
+    .adver-bottom {
+        display: none !important;
     }
     .car-list-info img {
         width: 80%;
@@ -237,13 +281,27 @@
     .templating-year {
         width: 54%;
     }
+    .home-content {
+        margin-top: auto;
+    }
+    .search button {
+        padding-top: 5px;
+        font-size: 15px;
+    }
+    .search input{
+        font-size: 15px;
+    }
 }
 @media only screen and (max-width: 414px) {
     .home-content {
-        width: 100%;
+        width: 100% !important;
     }
     .category {
-        padding: 10px;
+        /* padding: 0; */
+        margin-top: 20px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        padding: 5px;
     }
     .banner-image .home-search{
         width: 60%;
@@ -252,6 +310,12 @@
     }
     .home-search p{
         font-size: 17px;
+    }
+    .adver-top h1 {
+        font-size: 18px;
+    }
+    .adver-top p {
+        font-size: 13px;
     }
     .search input{
         height: 33px;
@@ -278,26 +342,13 @@
         float: left;
     }
     .detail-search {
-        margin-top: 15px !important;
-    }
-    .banner-adver{
-        display: none;
+        margin-top: -15px !important;
     }
     .car-list-info img {
         width: 100%;
     }
-    .select-label{
-        width: 30% !important;
-        text-align: left;
-    }
-    .select-box {
-        width: 70% !important;
-    }
-    .templating-year {
-        width: 100%;
-    }
-    .select-label-mark {
-        display: none;
+    .select-wrapper {
+        width: 50% !important;
     }
     .templating-year-select select {
         width: 70% !important;
@@ -319,6 +370,20 @@
     }
     .car-details {
         width: 50% !important;
+    }
+    .list-title h3 {
+
+        font-size: 18px;
+
+    }
+    .to-millege, .to-year {
+        padding-right: 25px;
+    }
+    #datatable_filter, .dataTables_length{
+        display: none;
+    } 
+    #datatable_wrapper thead {
+        display: none;
     }
 }
 @media only screen and (max-width: 375px) {

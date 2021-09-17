@@ -9,3 +9,14 @@
     float: left;
     margin-left: 10px;
 }
+@media only screen and (max-width: 414px) {
+    .slider{
+        margin-bottom: 0 !important;
+    }
+    .slider-thumbnails .slick-slide {
+        padding: 0 !important;
+    }
+    .slider-thumbnails .slick-slide img {
+        border: solid 1px #fff !important;
+    }
+}

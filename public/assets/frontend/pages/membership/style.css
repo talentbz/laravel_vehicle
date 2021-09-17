@@ -41,3 +41,26 @@
     font-size: 20px;
     font-weight: 500;
 }
+@media only screen and (max-width: 768px) { 
+    .membership-wrapper {
+        width: 280px !important;
+    }
+}
+@media only screen and (max-width: 414px) { 
+    .membership-wrapper {
+        width: 164px !important;
+        height: 150px;
+    }
+    .membership-wrapper h1 {
+        font-size: 18px;
+    }
+    .membership-wrapper a h3 {
+        font-size: 15px;
+        color: rgb(28, 163, 211);
+        text-decoration: underline;
+    }
+    .membership-wrapper a span {
+        font-size: 10px;
+        color: #000;
+    }
+}

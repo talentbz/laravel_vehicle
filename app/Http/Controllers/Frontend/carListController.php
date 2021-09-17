@@ -23,7 +23,6 @@ class carListController extends Controller
         $vehilce_fee = VehicleFee::where('vehicle_id', $id)->first();
         $vehicle_equipment = VehicleEquipment::where('vehicle_id', $id)->first();
         $vehicle_medias = VehicleMedia::where('vehicle_id', $id)->orderBy('car_path', 'ASC')->get();
-        //dd($vehilce_details);
         return view('frontend.pages.car.detail', [
            'vehilce_details'   => $vehilce_details,
            'vehilce_fee'       => $vehilce_fee,

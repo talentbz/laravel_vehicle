@@ -32,9 +32,8 @@ class homeController extends Controller
         $vehicle_infos = Vehicle::leftJoin('vehicle_equipment', 'vehicle.id', '=', 'vehicle_equipment.vehicle_id')
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
-                                ->groupBy('vehicle.id')
-                                ->orderBy('vehicle.id', 'desc')
-                                ->paginate(8);    
+                                ->groupBy('vehicle.id');
+                                   
         $vehicle_count =Vehicle::select('id')->count();
         $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();                                  
         $bulletin_categories = [
@@ -168,11 +167,37 @@ class homeController extends Controller
             'バス',
             'その他',
         ];
+        //pagination section
         
-        if ($request->ajax()) {
-            return view('frontend.pages.home.carlist', [
-                'vehicle_infos' => $vehicle_infos,
-            ]);  
+
+        //filter section
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            if($filter == 'row_price') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc')->paginate(8); 
+            } elseif ($filter == 'high_price'){
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc')->paginate(8);
+            } elseif ($filter == 'old_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc')->paginate(8);
+            } elseif ($filter == 'new_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc')->paginate(8);
+            } elseif ($filter == 'short_mileage') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc')->paginate(8);
+            } else {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc')->paginate(8);
+            }
+            if ($request->ajax()) {
+                return view('frontend.pages.home.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]);  
+            }
+        } else {
+            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            if ($request->ajax()) {
+                return view('frontend.pages.home.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]);  
+            }
         }
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
@@ -184,6 +209,7 @@ class homeController extends Controller
             'shapes'=>$shapes,
             'areas'=>$areas,
             'classes'=>$classes,
+            'filter' =>$filter,
         ]);
     }
     public function bodyCategory(Request $request, $name)

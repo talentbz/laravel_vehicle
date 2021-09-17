@@ -15,7 +15,9 @@
         </a>
     </div>
     @endforeach
-    <div class="read-more mt-2">
-        <a href="{{route('sale')}}" class="btn btn-primary" type="submit">リース</a>
+    <div class="category-read-more mt-2">
+        <a href="{{route('sale')}}" class="btn btn-outline-danger" type="submit">リース</a>
     </div>
 </div>
+
+
