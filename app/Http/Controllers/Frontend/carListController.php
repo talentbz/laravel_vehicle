@@ -19,10 +19,11 @@ class carListController extends Controller
                             ->leftJoin('users', 'users.id', '=', 'company_details.user_id')
                             ->where('vehicle.id', '=', $id)
                             ->first();
-                  
+        //dd($id );          
         $vehilce_fee = VehicleFee::where('vehicle_id', $id)->first();
         $vehicle_equipment = VehicleEquipment::where('vehicle_id', $id)->first();
         $vehicle_medias = VehicleMedia::where('vehicle_id', $id)->orderBy('car_path', 'ASC')->get();
+      //  dd($vehicle_medias);
         return view('frontend.pages.car.detail', [
            'vehilce_details'   => $vehilce_details,
            'vehilce_fee'       => $vehilce_fee,

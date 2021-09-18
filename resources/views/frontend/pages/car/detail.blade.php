@@ -51,7 +51,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="table-light" scope="row">登録番号</th>
-                                        <td >{{prefix_word($vehilce_details->id, 3)}}</td>
+                                        <td >{{($vehilce_details->id)?prefix_word($vehilce_details->id, 3):''}}</td>
                                         <td class="table-light" scope="row">地域(保管場所)</th>
                                         <td >{{$vehilce_details->area}}</td>
                                     </tr>
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">問合せ番号:</label>
-                                    <p>{{$user_info->user_id}}{{prefix_word($vehilce_details->id, 3)}}</p>
+                                    <p>{{$user_info->user_id}}{{($vehilce_details->id)?prefix_word($vehilce_details->id, 3):''}}</p>
                                 </div>
                                 <div class="col-md-6"></div>
                                 <div class="col-md-6 mt-3">
