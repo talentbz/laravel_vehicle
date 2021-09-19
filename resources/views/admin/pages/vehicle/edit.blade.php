@@ -22,6 +22,7 @@
             <div class="card-body">
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
+                    <input type="hidden" name="vehicle_id" value="{{$vehilce_details->id}}">
                     <!-- vehicle details -->
                     <h4 class="card-title">詳細情報</h4>
                     <div class="table-responsive">

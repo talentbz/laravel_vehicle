@@ -750,9 +750,10 @@ class vehicleController extends Controller
         //save vehicle info
         $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
         if($vehicle_exist>0){
+            
             //save vehicle details data in vehicel table
             $vehicle = Vehicle::where('company_id', $companyId)->first();
-            $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first()->id;
+            $vehicleId = $request->vehicle_id;
             $vehicle->company_id = $companyId;
             $vehicle->car_category = $request->category_name;
             $vehicle->car_name = $request->vehicle_type;
@@ -970,3 +971,4 @@ class vehicleController extends Controller
         return response()->json(['result' => true]);
     }
 }
+//

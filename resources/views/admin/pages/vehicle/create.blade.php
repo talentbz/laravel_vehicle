@@ -157,12 +157,12 @@
                                 <tr>
                                     <td class="table-light" >最大積載量</td>
                                     <td >
-                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" requireds placeholder="最大容量を入力してください" id="max-capacity">
+                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" required placeholder="最大容量を入力してください" id="max-capacity">
                                         <p class="details-list">kg</p>
                                     </td>
                                     <td class="table-light" >走行距離</td>
                                     <td >
-                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" requireds placeholder="マイレージを入力してください " id="mileage">
+                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" required placeholder="マイレージを入力してください " id="mileage">
                                         <p class="details-list">km</p>
                                     </td>
                                 </tr>
@@ -210,7 +210,7 @@
                             <tr>
                                 <td class="table-light" >リサイクル料金</td>
                                 <td >
-                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" requireds placeholder="リサイクル料金を入力してください" id="recycling-fee">
+                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" required placeholder="リサイクル料金を入力してください" id="recycling-fee">
                                     <p class="details-list">円</p>
                                     </td>
                                 <td class="table-light" ></td>
@@ -221,12 +221,12 @@
                             <tr>
                                 <td class="table-light" >販売価格(税抜)</td>
                                 <td >
-                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" requireds  placeholder="税抜きで入力" id="excluding-tax">
+                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" required  placeholder="税抜きで入力" id="excluding-tax">
                                     <p class="details-list">万円</p>
                                     </td>
                                 <td class="table-light" >販売価格(税込)</td>
                                 <td >
-                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" requireds placeholder="税込入力" id="including-tax">
+                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" required placeholder="税込入力" id="including-tax">
                                     <p class="details-list">万円</p>
                                 </td>
                             </tr>
