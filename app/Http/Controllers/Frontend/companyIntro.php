@@ -42,17 +42,42 @@ class companyIntro extends Controller
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 //get string date to int
                                 ->leftjoin(DB::raw('(SELECT vehicle.id As vhid, CONVERT(SUBSTR(start_year,-6,4), SIGNED) AS year FROM vehicle) AS date_c '), 'date_c.vhid', '=', 'vehicle.id' )
-                                ->groupBy('vehicle.id')
-                                ->orderBy('vehicle.created_at', 'desc')
-                                ->paginate(8);
-        if ($request->ajax()) {
-            return view('frontend.pages.company.carlist', [
-                'vehicle_infos' => $vehicle_infos,
-            ]);  
-        }
+                                ->groupBy('vehicle.id');
+
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            if($filter == 'row_price') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
+            } elseif ($filter == 'high_price'){
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
+            } elseif ($filter == 'old_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
+            } elseif ($filter == 'new_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
+            } elseif ($filter == 'short_mileage') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
+            } else {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
+            }
+            $vehicle_infos = $vehicle_infos->paginate(8);
+            
+            if ($request->ajax()) {
+                return view('frontend.pages.company.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]); 
+            }
+        } else {
+            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            if ($request->ajax()) {
+                return view('frontend.pages.company.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]); 
+            }
+        }  
         return view('frontend.pages.company.details', [
              'company_infos' => $company_infos,
              'vehicle_infos' => $vehicle_infos,
+             'filter' => $filter,
         ]);
     }
 }
