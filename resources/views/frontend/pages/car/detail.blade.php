@@ -175,7 +175,7 @@
         $(document).ready(function(){
             $('.slider-thumbnails').slick({
                 infinite: false,
-                slidesToShow: 5,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 asNavFor: '.slider',
                 focusOnSelect: true
