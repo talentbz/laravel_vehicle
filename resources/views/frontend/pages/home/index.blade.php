@@ -79,20 +79,18 @@
                             <div class="category-title">
                                 <i class="fas fa-truck-moving"></i>
                                 <h3>最新情報！</h3>
-                                <!-- <div class="sort-filter">
-                                    <form method="GET">
-                                        <select class="select2 form-control" id="filter" name="filter" value="{{$filter}}" data-placeholder="すべて">
-                                            <option></option>
-                                            <option value="row_price"> 価格が安い</option>
-                                            <option value="high_price"> 価格が高い</option>
-                                            <option value="old_model_date">年式が古い</option>
-                                            <option value="new_model_date">年式が新しい</option>
-                                            <option value="short_mileage">走行距離が短い</option>
-                                            <option value="long_mileage">走行距離が長い</option>
-                                        </select>
-                                        <input type="submit" class="btn btn-danger" value="適用"/>
-                                    </form>
-                                </div> -->
+                                
+                                <div class="sort-filter">
+                                    <select class="select2 form-control" id="filter-select" name="filter" value="{{$filter}}" data-placeholder="すべて">
+                                        <option></option>
+                                        <option value="row_price"> 価格が安い</option>
+                                        <option value="high_price"> 価格が高い</option>
+                                        <option value="old_model_date">年式が古い</option>
+                                        <option value="new_model_date">年式が新しい</option>
+                                        <option value="short_mileage">走行距離が短い</option>
+                                        <option value="long_mileage">走行距離が長い</option>
+                                    </select>
+                                </div>
                             </div>
                                 
                             <div class="carlist-page row">
@@ -104,7 +102,22 @@
                         </div>
                         
                         <!-- bulletin board -->
-                        @include('frontend.pages.home.bulletin')
+                        <div class="category row">
+                            <div class="category-title">
+                                <i class="fas fa-sticky-note"></i>
+                                <h3>掲示板情報</h3>
+                                <div class="sort-filter">
+                                    <select class="select2 form-control" id="table-filter"   data-placeholder="最新情報">
+                                        <option></option>
+                                        <option value="求人"> 求人</option>
+                                        <option value="仕事求む"> 仕事求む</option>
+                                        <option value="仕事依頼">仕事依頼</option>
+                                        <option value="車両探し">車両探し</option>
+                                        <option value="その他">その他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @include('frontend.pages.home.bulletin')
                     </div>
 
                 </div>

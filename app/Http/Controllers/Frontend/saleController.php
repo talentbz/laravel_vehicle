@@ -18,9 +18,7 @@ class saleController extends Controller
         $vehicle_infos = Vehicle::leftJoin('vehicle_equipment', 'vehicle.id', '=', 'vehicle_equipment.vehicle_id')
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
-                                ->groupBy('vehicle.id')
-                                ->orderBy('vehicle.created_at', 'desc')
-                                ->paginate(8);
+                                ->groupBy('vehicle.id');
         $years = [
             '昭和50年(1975年)',
             '昭和51年(1976年)',
@@ -143,10 +141,34 @@ class saleController extends Controller
             'バス',
             'その他',
         ];
-        if ($request->ajax()) {
-            return view('frontend.pages.sale.carlist', [
-                'vehicle_infos' => $vehicle_infos,
-            ]);  
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            if($filter == 'row_price') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
+            } elseif ($filter == 'high_price'){
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
+            } elseif ($filter == 'old_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
+            } elseif ($filter == 'new_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
+            } elseif ($filter == 'short_mileage') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
+            } else {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
+            }
+            $vehicle_infos = $vehicle_infos->paginate(8);
+            if ($request->ajax()) {
+                return view('frontend.pages.sale.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]);  
+            }
+        } else {
+            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            if ($request->ajax()) {
+                return view('frontend.pages.sale.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]);  
+            }
         }
         return view('frontend.pages.sale.index', [
             'years'=>$years,
@@ -154,6 +176,7 @@ class saleController extends Controller
             'areas'=>$areas,
             'classes'=>$classes,
             'vehicle_infos'=>$vehicle_infos,
+            'filter' =>$filter,
         ]);
     }
 
@@ -300,21 +323,7 @@ class saleController extends Controller
         $from_millege = (int)($request->from_millege);
         $location = $request->location;
         
-        //car category
-        // $isuze = $request->isuze; 
-        // $hino = $request->hino;   
-        // $fuso = $request->fuso;   
-        // $ud = $request->ud;       
-        // $toyoda = $request->toyoda; 
-        // $mazda = $request->mazda; 
-        // $others = $request->others;
-        // if($isuze) $isuze ="いすゞ";
-        // if($hino) $hino = "日野";
-        // if($fuso) $fuso = "三菱ふそう";
-        // if($ud) $ud = "UDトラックス";
-        // if($toyoda) $toyoda = "トヨタ";
-        // if($mazda) $mazda = "マツダ";
-        // if($others) $others = "その他";  
+    
         $manufacture = $request->manufacture;
         if ($body_shape){
             $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");

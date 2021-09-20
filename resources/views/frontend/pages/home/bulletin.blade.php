@@ -1,8 +1,4 @@
-<div class="category row">
-    <div class="category-title">
-        <i class="fas fa-sticky-note"></i>
-        <h3>掲示板情報</h3>
-    </div>
+
     <div class="table-responsive">
         <table id="datatable" class="table align-middle table-nowrap">
             <thead>
@@ -30,4 +26,6 @@
     <!-- <div class="read-more">
         <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
     </div> -->
-</div>
+<script>
+    home_url = "{{route('home')}}";
+</script>

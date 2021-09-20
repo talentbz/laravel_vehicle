@@ -171,33 +171,53 @@ class homeController extends Controller
         
         //filter section
         $filter = $request->query('filter');
+        $bulltin_filter = $request->bulletin_filter;
         if (!empty($filter)) {
             if($filter == 'row_price') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc')->paginate(8); 
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
             } elseif ($filter == 'high_price'){
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc')->paginate(8);
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
             } elseif ($filter == 'old_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc')->paginate(8);
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
             } elseif ($filter == 'new_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc')->paginate(8);
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
             } elseif ($filter == 'short_mileage') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc')->paginate(8);
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
             } else {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc')->paginate(8);
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
             }
+            $vehicle_infos = $vehicle_infos->paginate(8);
+            
             if ($request->ajax()) {
-                return view('frontend.pages.home.carlist', [
-                    'vehicle_infos' => $vehicle_infos,
-                ]);  
+                if(!empty($bulltin_filter)){
+                    $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    return view('frontend.pages.home.bulletin', [
+                        'bulletin_infos' => $bulletin_infos,
+                    ]);  
+                } else {
+                    return view('frontend.pages.home.carlist', [
+                        'vehicle_infos' => $vehicle_infos,
+                    ]); 
+                } 
             }
         } else {
             $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
             if ($request->ajax()) {
-                return view('frontend.pages.home.carlist', [
-                    'vehicle_infos' => $vehicle_infos,
-                ]);  
+                if(!empty($bulltin_filter)){
+                    $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    return view('frontend.pages.home.bulletin', [
+                        'bulletin_infos' => $bulletin_infos,
+                    ]);  
+                } else {
+                    return view('frontend.pages.home.carlist', [
+                        'vehicle_infos' => $vehicle_infos,
+                    ]); 
+                } 
             }
         }
+       
+        
+        
         return view('frontend.pages.home.index', [
             'body_lists' => $body_lists,
             'vehicle_count' =>$vehicle_count,
@@ -217,14 +237,8 @@ class homeController extends Controller
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id')
-                                ->where('vehicle.shape', '=', $name)
-                                ->orderBy('vehicle.created_at', 'desc')
-                                ->paginate(8);  
-        if ($request->ajax()) {
-            return view('frontend.pages.home.carlist', [
-                'vehicle_infos' => $vehicle_infos,
-            ]);  
-        }
+                                ->where('vehicle.shape', '=', $name);
+    
         $years = [
             '昭和50年(1975年)',
             '昭和51年(1976年)',
@@ -347,12 +361,44 @@ class homeController extends Controller
             'バス',
             'その他',
         ];
+
+        $filter = $request->query('filter');
+        if (!empty($filter)) {
+            if($filter == 'row_price') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
+            } elseif ($filter == 'high_price'){
+                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
+            } elseif ($filter == 'old_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
+            } elseif ($filter == 'new_model_date') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
+            } elseif ($filter == 'short_mileage') {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
+            } else {
+                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
+            }
+            $vehicle_infos = $vehicle_infos->paginate(8);
+            
+            if ($request->ajax()) {
+                return view('frontend.pages.category.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]); 
+            }
+        } else {
+            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            if ($request->ajax()) {
+                return view('frontend.pages.category.carlist', [
+                    'vehicle_infos' => $vehicle_infos,
+                ]); 
+            }
+        }
         return view('frontend.pages.category.body', [
             'years' => $years,
             'shapes' => $shapes,
             'areas' => $areas,
             'classes' => $classes,
             'vehicle_infos' => $vehicle_infos,
+            'filter' => $filter,
         ]);
     }
 

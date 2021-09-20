@@ -1,13 +1,13 @@
 
-@forelse ($vehicle_infos as $key=>$vehicle_info)
-    <div class="col-md-3 col-sm-3 col-xs-12">
+@foreach ($vehicle_infos as $key=>$vehicle_info)
+    <div class="col-md-3 col-sm-3 col-xs-12 car-details">
         <div class="card p-1 border shadow-none">
             <div class="position-relative car-list-image">
                 <a href="{!! route('carDetails', ['id' => $vehicle_info->vehicle_id ? $vehicle_info->vehicle_id:'#']) !!}">
                     @if($vehicle_info->car_path)
-                        <img src="{{asset($vehicle_info->car_path)}}" alt="" class="img-thumbnail">
+                        <img src="{{asset($vehicle_info->car_path)}}" alt="">
                     @else
-                        <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" >
+                        <img src="{{URL::asset('images/photo.png')}}" alt="" >
                     @endif
                 </a>
             </div>
@@ -20,9 +20,9 @@
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->car_category}}</p>
                     </li>
-                    <li class="list-inline-item me-3">
+                    <!-- <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->model}}</p>
-                    </li>
+                    </li> -->
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->shape}}</p>
                     </li>
@@ -30,7 +30,7 @@
                         <p><span>{{number_format($vehicle_info->mileage)}}</span>km</p>
                     </li>
                     <li class="list-inline-item me-3">
-                        <p>{{$vehicle_info->start_year}} {{$vehicle_info->start_month}}</p>
+                        <p>{{$vehicle_info->start_year}}</p>
                     </li>
                 </ul>
                 <div>
@@ -39,9 +39,7 @@
             </div>
         </div>
     </div>
-@empty
-    <p>No Data</p>
-@endforelse
+@endforeach
 <div class="pagination-wrapper">
     {!! $vehicle_infos->links() !!}
 </div>

@@ -187,10 +187,21 @@
                         </form>
                     </div>
                     <!-- latest car info -->
-                    <div class="category row">
+                    <div class="category">
                         <div class="category-title">
                             <i class="fa fa-search"></i>
                             <h3>最新情報！</h3>
+                            <div class="sort-filter">
+                                <select class="select2 form-control" id="filter-select" name="filter" value="{{$filter}}" data-placeholder="すべて">
+                                    <option></option>
+                                    <option value="row_price"> 価格が安い</option>
+                                    <option value="high_price"> 価格が高い</option>
+                                    <option value="old_model_date">年式が古い</option>
+                                    <option value="new_model_date">年式が新しい</option>
+                                    <option value="short_mileage">走行距離が短い</option>
+                                    <option value="long_mileage">走行距離が長い</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="carlist-page row">
@@ -217,6 +228,6 @@
     <!-- form advanced init -->
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/search/index.js') }}"></script>
-    <script src="{{ URL::asset('/assets/frontend/pages/home/index.js') }}"></script>
+    <script src="{{ URL::asset('/assets/frontend/pages/homepage/index.js') }}"></script>
     @endsection
 @endsection

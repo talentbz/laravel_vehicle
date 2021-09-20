@@ -17,7 +17,7 @@
 @endsection
 
 @section('content')
-    <div class="banner-image">
+    <!-- <div class="banner-image">
         <img src="{{asset('/images/frontend/home/banner_1.jpg')}}" class="img-fluid" alt="Responsive image">
         <div class="container home-search">
             <div class="row height d-flex justify-content-center align-items-center">
@@ -58,12 +58,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="category row">
         <div class="category-title">
-            <i class="fa fa-search"></i>
             <h3>掲載申込みフォーム　運送会社様用<span>※掲載は無料です</span></h3>
         </div>
         <!-- contact form -->
