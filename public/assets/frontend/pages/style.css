@@ -2,6 +2,9 @@
 body, h1,h2,h3,h4,h5,h6,p,span, label, a, button, input, optgroup, select, textarea{
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
 }
+body{
+    background-color: #fff;
+}
 .front-logo {
     display: none;
 }
