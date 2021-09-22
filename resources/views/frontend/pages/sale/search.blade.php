@@ -142,7 +142,7 @@
                                                 <label for="" class="pt-2">走行距離</label>
                                             </div>
                                             <div class="select-box">
-                                                <select class="select2 form-control" name="to_millege" data-placeholder="下限なし">
+                                                <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
                                                     <option></option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
@@ -163,7 +163,7 @@
                                                 <label for="" class="pt-2 to-millege"> ~ </label>
                                             </div>
                                             <div class="select-box">
-                                                <select class="select2 form-control" name="from_millege" data-placeholder="上限なし">
+                                                <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
                                                     <option></option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
