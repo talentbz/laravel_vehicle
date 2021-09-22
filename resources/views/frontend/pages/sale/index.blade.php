@@ -21,7 +21,7 @@
         <div class="container home-search">
             <div class="row height d-flex justify-content-center align-items-center">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <p>フリーワードで検索す</p>
+                    <p>フフリーワードで検索する</p>
                     <div class="search">
                         <form action="{{route('sale.search')}}" method="post" enctype="multipart/form-data">
                         {!! csrf_field() !!}

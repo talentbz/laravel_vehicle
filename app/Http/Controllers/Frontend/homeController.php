@@ -369,7 +369,7 @@ class homeController extends Controller
             'バス',
             'その他',
         ];
-
+        
         $filter = $request->query('filter');
         if (!empty($filter)) {
             if($filter == 'row_price') {

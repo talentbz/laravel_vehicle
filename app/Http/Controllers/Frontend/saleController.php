@@ -244,7 +244,22 @@ class saleController extends Controller
             '令和4年(2022年)',
 
         ];
+        $distants = [
+            '',
+            0,
+            50000,
+            100000,
+            200000,
+            300000,
+            400000,
+            500000,
+            600000,
+            700000,
+            800000,
+            900001,
+        ];
         $shapes = [
+            'すべて',
             'ウィング',
             'バン',
             '冷凍・冷蔵',
@@ -259,6 +274,7 @@ class saleController extends Controller
             'その他',
         ];
         $areas = [
+            'すべて',
             '北海道',
             '青森県',
             '岩手県',
@@ -315,30 +331,37 @@ class saleController extends Controller
             'バス',
             'その他',
         ];
+        $categories = [
+            'すべて',
+            'いすゞ',
+            '日野',
+            '三菱ふそう',
+            'UDトラックス',
+            'トヨタ',
+            'マツダ',
+            'その他',
+        ];
         $body_shape = $request->shape;
-        $to_year = (int)substr($request->to_year, -8, 4);
-        $from_year = (int)substr($request->from_year, -8, 4);
+        $to_year = substr($request->to_year, -8, 4);
+        $from_year = substr($request->from_year, -8, 4);
+       
+        $to_millege = $request->to_millege;
+        $from_millege = $request->from_millege;
+        // dd($from_millege);
         $size = $request->size;
-        $to_millege = (int)($request->to_millege);
-        $from_millege = (int)($request->from_millege);
         $location = $request->location;
-        $manufacture = $request->manufacture;
+        $manufacture = $request->manufacture; 
+        if($manufacture == 'すべて') $manufacture ='';
+        if($size == 'すべて') $size ='';
+        if($location == 'すべて') $location ='';
+
         if ($body_shape){
             $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");
         }
-        if ($from_year){
-            $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year);
-            //$vehicle_infos = $vehicle_infos->whereBetween('year', array($from_year, $to_year));
-        }
-        if($to_year) {
-            $vehicle_infos = $vehicle_infos->where('year', '<=', $to_year);
-        }
-        if ($from_millege){
-            $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege);
-        }
-        if ($to_millege){
-            $vehicle_infos = $vehicle_infos->where('mileage', '<=', $to_millege);
-        }       
+        //dd('from_year= '.$from_year.'to_year= '.$to_year);
+            // $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year)
+            //                                ->where('mileage', '>=', $from_year)
+            //                                ->orWhere('year', '<=', $to_year);
         if ($size){
             $vehicle_infos = $vehicle_infos->where('class', 'LIKE', "%{$size}%");
         }   
@@ -349,6 +372,7 @@ class saleController extends Controller
             $vehicle_infos = $vehicle_infos->where('area', 'LIKE', "%{$location}%");
         } 
         // if($isuze || $hino || $fuso || $ud || $toyoda || $mazda || $others){
+
         //     $vehicle_infos = $vehicle_infos->where(function($query) use($isuze, $hino, $fuso, $ud, $toyoda, $mazda, $others){
         //                                             if($isuze){
         //                                                 $query->orWhere('car_category', 'LIKE', "%{$isuze}%");
@@ -399,7 +423,17 @@ class saleController extends Controller
             'years'=>$years,
             'shapes'=>$shapes,
             'areas'=>$areas,
+            'distants'=>$distants,
+            'categories'=>$categories,
+            'manufacture' =>$manufacture,
+            'location'=>$location,
             'classes'=>$classes,
+            'from_year'=>$from_year,
+            'to_year'=>$to_year,
+            'from_millege'=>$from_millege,
+            'to_millege'=>$to_millege,
+            'body_shape'=>$body_shape,
+            'size'=>$size,
             'vehicle_infos'=>$vehicle_infos,
         ]);
     }

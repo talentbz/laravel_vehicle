@@ -21,7 +21,7 @@
         <div class="container home-search">
             <div class="row height d-flex justify-content-center align-items-center">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <p>フリーワードで検索す</p>
+                    <p>フフリーワードで検索する</p>
                     <div class="search">
                         <form action="{{route('sale.search')}}" method="post" enctype="multipart/form-data">
                         {!! csrf_field() !!}
@@ -56,13 +56,9 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="manufacture" data-placeholder="すべて">
                                                     <option></option>
-                                                    <option value=" いすゞ"> いすゞ</option>
-                                                    <option value=" 日野"> 日野</option>
-                                                    <option value=" 三菱ふそう">三菱ふそう</option>
-                                                    <option value="UDトラックス">UDトラックス</option>
-                                                    <option value="トヨタ">トヨタ</option>
-                                                    <option value="マツダ">マツダ</option>
-                                                    <option value="その他">その他</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{$category}}" {{$manufacture == $category ? 'selected':''}}>{{$category}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -74,8 +70,9 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="size" data-placeholder="大きさ">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($classes as $class)
-                                                        <option value="{{$class}}">{{$class}}</option>
+                                                        <option value="{{$class}}" {{$size == $class ? 'selected':''}}>{{$class}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -89,7 +86,7 @@
                                                 <select class="select2 form-control" name="location" data-placeholder="地域">
                                                     <option></option>
                                                     @foreach($areas as $area)
-                                                        <option value="{{$area}}">{{$area}}</option>
+                                                        <option value="{{$area}}" {{$location == $area ? 'selected':''}}>{{$area}}</option>
                                                     @endforeach
                                                 </select>  
                                             </div>
@@ -103,7 +100,7 @@
                                                 <select class="select2 form-control" name="shape" data-placeholder="形状">
                                                     <option></option>
                                                     @foreach($shapes as $shape)
-                                                        <option value="{{$shape}}">{{$shape}}</option>
+                                                        <option value="{{$shape}}" {{$shape == $body_shape ? 'selected':''}}>{{$shape}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -117,7 +114,7 @@
                                                 <select class="select2 form-control" name="from_year" data-placeholder="選択してください">
                                                     <option></option>
                                                     @foreach($years as $year)
-                                                        <option value="{{$year}}">{{$year}}</option>
+                                                        <option value="{{$year}}" {{$from_year == $year ? 'selected':''}}>{{$year}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -131,7 +128,7 @@
                                                 <select class="select2 form-control" name="to_year" data-placeholder="選択してください">
                                                     <option></option>
                                                     @foreach($years as $year)
-                                                        <option value="{{$year}}">{{$year}}</option>
+                                                        <option value="{{$year}}" {{$to_year == $year ? 'selected':''}}>{{$year}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -143,17 +140,9 @@
                                             </div>
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
-                                                    <option></option>
-                                                    <option value="50000">{{number_format(50000)}}</option>
-                                                    <option value="100000">{{number_format(100000)}}</option>
-                                                    <option value="200000">{{number_format(200000)}}</option>
-                                                    <option value="300000">{{number_format(300000)}}</option>
-                                                    <option value="400000">{{number_format(400000)}}</option>
-                                                    <option value="500000">{{number_format(500000)}}</option>
-                                                    <option value="600000">{{number_format(600000)}}</option>
-                                                    <option value="700000">{{number_format(700000)}}</option>
-                                                    <option value="800000">{{number_format(800000)}}</option>
-                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                    @foreach($distants as $distant)
+                                                        <option value="{{$distant}}" {{$from_millege == '' ? '' : ($from_millege == $distant ? 'selected':'')}}>{{$distant}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -164,17 +153,9 @@
                                             </div>
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
-                                                    <option></option>
-                                                    <option value="50000">{{number_format(50000)}}</option>
-                                                    <option value="100000">{{number_format(100000)}}</option>
-                                                    <option value="200000">{{number_format(200000)}}</option>
-                                                    <option value="300000">{{number_format(300000)}}</option>
-                                                    <option value="400000">{{number_format(400000)}}</option>
-                                                    <option value="500000">{{number_format(500000)}}</option>
-                                                    <option value="600000">{{number_format(600000)}}</option>
-                                                    <option value="700000">{{number_format(700000)}}</option>
-                                                    <option value="800000">{{number_format(800000)}}</option>
-                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                    @foreach($distants as $distant)
+                                                        <option value="{{$distant}}" {{$to_millege == '' ? '' : ($to_millege == $distant ? 'selected':'')}}>{{$distant}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

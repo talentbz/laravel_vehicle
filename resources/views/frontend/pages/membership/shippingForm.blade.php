@@ -17,48 +17,7 @@
 @endsection
 
 @section('content')
-    <!-- <div class="banner-image">
-        <img src="{{asset('/images/frontend/home/banner_1.jpg')}}" class="img-fluid" alt="Responsive image">
-        <div class="container home-search">
-            <div class="row height d-flex justify-content-center align-items-center">
-                <div class="col-md-8 col-sm-8 col-xs-12">
-                    <p>フリーワードで検索す</p>
-                    <div class="search">
-                        <form action="{{route('sale.search')}}" method="post" enctype="multipart/form-data">
-                        {!! csrf_field() !!}
-                            <i class="fa fa-search"></i> <input type="text" class="form-control" placeholder="例　三菱　QPG-FS64VZ" name="general_search"> 
-                            <button class="btn btn-primary" type="submit">検索</button> 
-                        </form> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="banner-adver">
-        <div class="container">
-            <div class="row mt-5 mb-5 adver-top">
-                <h1>掲載店募集<i class="fas fa-angle-double-right"></i></h1>
-                <p>中古トラック、ダンプなどをトラッカージャパンに掲載しませんか？</p>
-            </div>
-            <div class="row">
-                <div class="wrecker-service">
-                    <h1>レッカーサービス</h1>
-                    <a href="#">
-                        <img src="{{asset('/images/frontend/home/icon/wrecker.png')}}" alt="">
-                        <span>全国対応・迅速・格安・安全</span>
-                    </a>
-                    
-                </div>
-                <div class="painting-service">
-                    <h1>板金塗装サービス</h1>
-                    <a href="#">
-                        <img src="{{asset('/images/frontend/home/icon/painting.png')}}" alt="">
-                        <span>迅速・格安・丁寧・安心</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> -->
+
 
 
     <div class="category row">
@@ -70,8 +29,29 @@
 
             <!-- Alert User -->
             @if(Session::has('success'))
-                <div class="alert alert-success">
+                <!-- <div class="alert alert-success">
                     {{Session::get('success')}}
+                </div> -->
+                <!-- Static Backdrop Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h1 style="text-align:center;">Thank you</h1>
+                                <h1 style="text-align:center;">
+                                    <div class="checkmark-circle">
+                                        <div class="background"></div>
+                                        <div class="checkmark draw"></div>
+                                    </div>
+                                <h1>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button> -->
+                                <a href="{{route('home')}}" class="btn btn-primary">トップページ</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endif
             <div class="col-12">
@@ -315,5 +295,6 @@
 
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
+    <script src="{{ URL::asset('/assets/frontend/pages/membership/index.js') }}"></script>
     @endsection
 @endsection

@@ -144,7 +144,31 @@ body[data-layout=horizontal] .page-content {
 .empty-text {
     text-align: center;
 }
+.navbar {
+    padding: 0 !important;
+}
 /* responsive */
+.nav-item .active {
+    background: #fff;
+    color: #000 !important;
+}
+.nav-item a:active {
+    background: #fff;
+    color: #000 !important;
+}
+.nav-item a{
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    transition: 0.4s;
+}
+.nav-item:hover {
+    background: #fff;
+    color: #000 !important;
+    transition: 0.4s;
+}
+.nav-item a:hover {
+    color: #000 !important;
+}
 @media only screen and (max-width: 991px) {
     .front-logo {
         display: block;

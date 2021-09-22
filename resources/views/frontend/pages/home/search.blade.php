@@ -16,6 +16,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="manufacture" data-placeholder="すべて">
                                 <option></option>
+                                <option value=" すべて"> すべて</option>
                                 <option value=" いすゞ"> いすゞ</option>
                                 <option value=" 日野"> 日野</option>
                                 <option value=" 三菱ふそう">三菱ふそう</option>
@@ -34,6 +35,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="size" data-placeholder="大きさ">
                                 <option></option>
+                                <option value=" すべて"> すべて</option>
                                 @foreach($classes as $class)
                                     <option value="{{$class}}">{{$class}}</option>
                                 @endforeach
@@ -48,6 +50,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="location" data-placeholder="地域">
                                 <option></option>
+                                <option value=" すべて"> すべて</option>
                                 @foreach($areas as $area)
                                     <option value="{{$area}}">{{$area}}</option>
                                 @endforeach
@@ -74,7 +77,7 @@
                             <label for="" class="pt-2">年式</label>
                         </div>
                         <div class="select-box">
-                            <select class="select2 form-control" name="from_year" data-placeholder="選択してください">
+                            <select class="select2 form-control" name="from_year" data-placeholder="選択してください123">
                                 <option></option>
                                 @foreach($years as $year)
                                     <option value="{{$year}}">{{$year}}</option>
@@ -113,7 +116,7 @@
                                 <option value="600000">{{number_format(600000)}}</option>
                                 <option value="700000">{{number_format(700000)}}</option>
                                 <option value="800000">{{number_format(800000)}}</option>
-                                <option value="900000">{{number_format(900000)}}</option>
+                                <option value="900001">{{number_format(900001)}}</option>
                             </select>
                         </div>
                     </div>
@@ -134,7 +137,7 @@
                                 <option value="600000">{{number_format(600000)}}</option>
                                 <option value="700000">{{number_format(700000)}}</option>
                                 <option value="800000">{{number_format(800000)}}</option>
-                                <option value="900000">{{number_format(900000)}}</option>
+                                <option value="900001">{{number_format(900001)}}</option>
                             </select>
                         </div>
                     </div>
