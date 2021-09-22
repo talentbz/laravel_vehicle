@@ -19,4 +19,9 @@ class VehicleFee extends Model
         'created_at',
         'updated_at',
     ];
+    // protected $casts = [
+    //     'taxExc_price' => 'integer',
+    //     'fee' => 'integer',
+    //     'taxInc_price' => 'integer',
+    // ];
 }

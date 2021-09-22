@@ -29,10 +29,11 @@ $(function() {
     })
     $('#table-filter').on("select2:select", function(e) { 
         value = $(this).val();
+        console.log(value);
         $.ajax({
             url : home_url,
             data : {bulletin_filter: value},
-        }).done(function (data) {
+        }).done(function (data, response) {
             $('.table-responsive').html(data);
         }).fail(function () {
             alert('記事を読み込めませんでした。');

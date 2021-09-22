@@ -44,6 +44,7 @@
                             <div class="sort-filter">
                                 <select class="select2 form-control" id="table-filter"   data-placeholder="最新情報">
                                     <option></option>
+                                    <option value="すべて"> すべて</option>
                                     <option value="求人"> 求人</option>
                                     <option value="仕事求む"> 仕事求む</option>
                                     <option value="仕事依頼">仕事依頼</option>

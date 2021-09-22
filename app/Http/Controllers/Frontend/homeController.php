@@ -169,28 +169,32 @@ class homeController extends Controller
         ];
         //pagination section
         
-        //filter section
+        //filter section 
         $filter = $request->query('filter');
         $bulltin_filter = $request->bulletin_filter;
         if (!empty($filter)) {
             if($filter == 'row_price') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle_fee.taxInc_price', 'asc'); 
             } elseif ($filter == 'high_price'){
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle_fee.taxInc_price', 'desc');
             } elseif ($filter == 'old_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.start_year', 'asc');
             } elseif ($filter == 'new_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.start_year', 'desc');
             } elseif ($filter == 'short_mileage') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.mileage', 'asc');
             } else {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.mileage', 'desc');
             }
             $vehicle_infos = $vehicle_infos->paginate(8);
             
             if ($request->ajax()) {
                 if(!empty($bulltin_filter)){
-                    $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    if($bulltin_filter == 'すべて'){
+                        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();      
+                    } else {
+                        $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    }
                     return view('frontend.pages.home.bulletin', [
                         'bulletin_infos' => $bulletin_infos,
                     ]);  
@@ -201,10 +205,14 @@ class homeController extends Controller
                 } 
             }
         } else {
-            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            $vehicle_infos  = $vehicle_infos->orderBy('vehicle.id', 'desc')->paginate(8);
             if ($request->ajax()) {
                 if(!empty($bulltin_filter)){
-                    $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    if($bulltin_filter == 'すべて'){
+                        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();      
+                    } else {
+                        $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
+                    }
                     return view('frontend.pages.home.bulletin', [
                         'bulletin_infos' => $bulletin_infos,
                     ]);  
@@ -365,17 +373,17 @@ class homeController extends Controller
         $filter = $request->query('filter');
         if (!empty($filter)) {
             if($filter == 'row_price') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'asc'); 
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle_fee.taxInc_price', 'asc'); 
             } elseif ($filter == 'high_price'){
-                $vehicle_infos = $vehicle_infos->orderby('vehicle_fee.taxExc_price', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle_fee.taxInc_price', 'desc');
             } elseif ($filter == 'old_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'asc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.start_year', 'asc');
             } elseif ($filter == 'new_model_date') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.start_year', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.start_year', 'desc');
             } elseif ($filter == 'short_mileage') {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'asc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.mileage', 'asc');
             } else {
-                $vehicle_infos = $vehicle_infos->orderby('vehicle.mileage', 'desc');
+                $vehicle_infos = $vehicle_infos->orderBy('vehicle.mileage', 'desc');
             }
             $vehicle_infos = $vehicle_infos->paginate(8);
             
@@ -385,13 +393,14 @@ class homeController extends Controller
                 ]); 
             }
         } else {
-            $vehicle_infos  = $vehicle_infos->orderby('vehicle.id', 'desc')->paginate(8);
+            $vehicle_infos  = $vehicle_infos->orderBy('vehicle.id', 'desc')->paginate(8);
             if ($request->ajax()) {
                 return view('frontend.pages.category.carlist', [
                     'vehicle_infos' => $vehicle_infos,
                 ]); 
             }
         }
+        
         return view('frontend.pages.category.body', [
             'years' => $years,
             'shapes' => $shapes,
