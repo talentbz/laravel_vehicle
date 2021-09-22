@@ -322,33 +322,33 @@ class saleController extends Controller
         $to_millege = (int)($request->to_millege);
         $from_millege = (int)($request->from_millege);
         $location = $request->location;
-        
+        //dd($location);
     
         $manufacture = $request->manufacture;
         if ($body_shape){
-            $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.shape', 'LIKE', "%{$body_shape}%");
         }
         if ($from_year){
-            $vehicle_infos = $vehicle_infos->where('start_year', '<=', "%{$from_year}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.start_year', '<=', "%{$from_year}%");
         }
         if ($to_year){
-            $vehicle_infos = $vehicle_infos->where('start_year', '>=', "%{$to_year}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.start_year', '>=', "%{$to_year}%");
         }           
         if ($from_millege){
-            $vehicle_infos = $vehicle_infos->where('mileage', '<=', "%{$from_millege}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.mileage', '<=', "%{$from_millege}%");
         }
         if ($to_millege){
-            $vehicle_infos = $vehicle_infos->where('mileage', '>=', "%{$to_millege}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.mileage', '>=', "%{$to_millege}%");
         }       
         if ($size){
-            $vehicle_infos = $vehicle_infos->where('class', 'LIKE', "%{$size}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.class', 'LIKE', "%{$size}%");
         }   
         if($manufacture){
-            $vehicle_infos = $vehicle_infos->where('car_category', 'LIKE', "%{$manufacture}%");
+            $vehicle_infos = $vehicle_infos->where('vehicle.car_category', 'LIKE', "%{$manufacture}%");
         }
-        // if ($location){
-        //     $vehicle_infos = $vehicle_infos->where('area', 'LIKE', "%{$location}%");
-        // } 
+        if ($location){
+            $vehicle_infos = $vehicle_infos->where('vehicle.area', 'LIKE', "%{$location}%");
+        } 
         // if($isuze || $hino || $fuso || $ud || $toyoda || $mazda || $others){
         //     $vehicle_infos = $vehicle_infos->where(function($query) use($isuze, $hino, $fuso, $ud, $toyoda, $mazda, $others){
         //                                             if($isuze){

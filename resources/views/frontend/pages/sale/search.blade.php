@@ -196,7 +196,7 @@
                             <h3>最新情報！</h3>
                         </div>
                         <div class="carlist-page row">
-                            @include('frontend.pages.home.carlist')
+                            @include('frontend.pages.sale.carlist')
                         </div>
                         <!-- <div class="read-more">
                             <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
