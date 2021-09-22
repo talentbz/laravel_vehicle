@@ -33,7 +33,7 @@ $(function() {
         $.ajax({
             url : home_url,
             data : {bulletin_filter: value},
-        }).done(function (data, response) {
+        }).done(function (data) {
             $('.table-responsive').html(data);
         }).fail(function () {
             alert('記事を読み込めませんでした。');

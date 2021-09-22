@@ -35,7 +35,7 @@ class homeController extends Controller
                                 ->groupBy('vehicle.id');
                                 
         $vehicle_count =Vehicle::select('id')->count();
-        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();                                  
+        $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();                                   
         $bulletin_categories = [
             '全て',
             '求人',

@@ -18,7 +18,7 @@ class bulletinController extends Controller
             } else {
                 $bulletin_infos = Bulletin::where('category', $bulltin_filter)->orderBy('created_at', 'DESC')->get();  
             }
-            return view('frontend.pages.bulletin.list', [
+            return view('frontend.pages.bulletin.list', [ 
                 'bulletin_infos' => $bulletin_infos,
             ]);  
         }

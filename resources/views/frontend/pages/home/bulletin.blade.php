@@ -1,5 +1,5 @@
 
-    <div class="table-responsive">
+    <div class="table-responsive"> 
         <table id="datatable" class="table align-middle table-nowrap">
             <thead>
                 <tr>
