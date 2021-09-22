@@ -65,6 +65,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="shape" data-placeholder="形状">
                                 <option></option>
+                                <option value=" すべて"> すべて</option>
                                 @foreach($shapes as $shape)
                                     <option value="{{$shape}}">{{$shape}}</option>
                                 @endforeach
@@ -77,7 +78,7 @@
                             <label for="" class="pt-2">年式</label>
                         </div>
                         <div class="select-box">
-                            <select class="select2 form-control" name="from_year" data-placeholder="選択してください123">
+                            <select class="select2 form-control" name="from_year" data-placeholder="選択してください">
                                 <option></option>
                                 @foreach($years as $year)
                                     <option value="{{$year}}">{{$year}}</option>
@@ -107,6 +108,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
                                 <option></option>
+                                <option value="0">{{number_format(0)}}</option>
                                 <option value="50000">{{number_format(50000)}}</option>
                                 <option value="100000">{{number_format(100000)}}</option>
                                 <option value="200000">{{number_format(200000)}}</option>
@@ -128,6 +130,7 @@
                         <div class="select-box">
                             <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
                                 <option></option>
+                                <option value="0">{{number_format(0)}}</option>
                                 <option value="50000">{{number_format(50000)}}</option>
                                 <option value="100000">{{number_format(100000)}}</option>
                                 <option value="200000">{{number_format(200000)}}</option>

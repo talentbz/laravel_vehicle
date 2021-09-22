@@ -354,6 +354,7 @@ class saleController extends Controller
         if($manufacture == 'すべて') $manufacture ='';
         if($size == 'すべて') $size ='';
         if($location == 'すべて') $location ='';
+        if($body_shape == 'すべて') $body_shape ='';
 
         if ($body_shape){
             $vehicle_infos = $vehicle_infos->where('shape', 'LIKE', "%{$body_shape}%");
@@ -371,7 +372,7 @@ class saleController extends Controller
         if($from_millege){
             $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege);
         }
-        if($to_millege) {
+        if(isset($to_millege)) {
             $vehicle_infos = $vehicle_infos->where('mileage', '<=', $to_millege);
         }
         if ($size){
