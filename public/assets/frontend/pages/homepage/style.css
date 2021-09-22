@@ -295,6 +295,10 @@
     }
 }
 @media only screen and (max-width: 414px) {
+    .pagination-wrapper .pagination {
+        float: inherit !important;
+        justify-content: center;
+    }
     .home-content {
         width: 100% !important;
     }

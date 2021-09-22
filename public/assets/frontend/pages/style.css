@@ -191,6 +191,14 @@ body[data-layout=horizontal] .page-content {
         display: none;
     }
 }
+@media only screen and (max-width: 441px) {
+    .front-logo span {
+        font-size: 17px;
+    }
+    .logo-title {
+        font-size: 9px !important;
+    }
+}
 @media only screen and (max-width: 414px) {
     .front-logo span {
         color: #fff;
@@ -213,6 +221,14 @@ body[data-layout=horizontal] .page-content {
         font-size: 8px !important;
     }
 }
+@media only screen and (max-width: 405px) {
+    .front-logo span {
+        font-size:  15px;
+    }
+    .logo-title {
+        font-size: 8px !important;
+    }
+}
 @media only screen and (max-width: 375px) {
     .front-logo span {
         font-size: 15px;
@@ -221,13 +237,18 @@ body[data-layout=horizontal] .page-content {
         font-size: 7px !important;
     }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 361px) {
     .logo-title {
         font-size: 6px !important;
     }
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 323px) {
     .logo-title {
         font-size: 5px !important;
+    }
+}
+@media only screen and (max-width: 307px) {
+    .logo-title {
+        display: none;
     }
 }

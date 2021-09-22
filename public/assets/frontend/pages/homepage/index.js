@@ -35,6 +35,9 @@ $(function() {
             data : {bulletin_filter: value},
         }).done(function (data) {
             $('.table-responsive').html(data);
+            $('#datatable').dataTable({
+                ordering:false,
+            });
         }).fail(function () {
             alert('記事を読み込めませんでした。');
         });

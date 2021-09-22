@@ -1,4 +1,4 @@
-
+<link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
     <div class="table-responsive"> 
         <table id="datatable" class="table align-middle table-nowrap">
             <thead>
@@ -27,5 +27,6 @@
         <a href="#" class="btn btn-primary" type="submit">もっと見る</a>
     </div> -->
 <script>
-    home_url = "{{route('home')}}";
+        home_url = "{{route('home')}}";
 </script>
+

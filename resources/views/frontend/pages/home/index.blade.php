@@ -139,5 +139,6 @@
     <!-- Datatable init js -->
     <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/frontend/pages/homepage/index.js') }}"></script>
+
     @endsection
 @endsection
