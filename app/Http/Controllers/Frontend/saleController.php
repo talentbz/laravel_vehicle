@@ -362,6 +362,18 @@ class saleController extends Controller
             // $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year)
             //                                ->where('mileage', '>=', $from_year)
             //                                ->orWhere('year', '<=', $to_year);
+        if($from_year){
+            $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year);
+        }
+        if($to_year) {
+            $vehicle_infos = $vehicle_infos->where('year', '<=', $to_year);
+        }
+        if($from_millege){
+            $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege);
+        }
+        if($to_millege) {
+            $vehicle_infos = $vehicle_infos->where('mileage', '<=', $to_millege);
+        }
         if ($size){
             $vehicle_infos = $vehicle_infos->where('class', 'LIKE', "%{$size}%");
         }   
@@ -419,6 +431,8 @@ class saleController extends Controller
         }
         
         $vehicle_infos = $vehicle_infos->paginate(8);
+        $from_year = $request->from_year;
+        $to_year = $request->to_year;
         return view('frontend.pages.sale.search', [
             'years'=>$years,
             'shapes'=>$shapes,

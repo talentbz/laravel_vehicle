@@ -56,6 +56,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="manufacture" data-placeholder="すべて">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     <option value=" いすゞ"> いすゞ</option>
                                                     <option value=" 日野"> 日野</option>
                                                     <option value=" 三菱ふそう">三菱ふそう</option>
@@ -74,6 +75,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="size" data-placeholder="大きさ">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($classes as $class)
                                                         <option value="{{$class}}">{{$class}}</option>
                                                     @endforeach
@@ -88,6 +90,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="location" data-placeholder="地域">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($areas as $area)
                                                         <option value="{{$area}}">{{$area}}</option>
                                                     @endforeach
@@ -144,6 +147,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
                                                     <option></option>
+                                                    <option value="0">{{number_format(0)}}</option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
                                                     <option value="200000">{{number_format(200000)}}</option>
@@ -153,7 +157,7 @@
                                                     <option value="600000">{{number_format(600000)}}</option>
                                                     <option value="700000">{{number_format(700000)}}</option>
                                                     <option value="800000">{{number_format(800000)}}</option>
-                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                    <option value="900001">{{number_format(900001)}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -165,6 +169,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
                                                     <option></option>
+                                                    <option value="0">{{number_format(0)}}</option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
                                                     <option value="200000">{{number_format(200000)}}</option>
@@ -174,7 +179,7 @@
                                                     <option value="600000">{{number_format(600000)}}</option>
                                                     <option value="700000">{{number_format(700000)}}</option>
                                                     <option value="800000">{{number_format(800000)}}</option>
-                                                    <option value="900000">{{number_format(900000)}}</option>
+                                                    <option value="900001">{{number_format(900001)}}</option>
                                                 </select>
                                             </div>
                                         </div>

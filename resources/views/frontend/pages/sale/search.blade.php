@@ -85,6 +85,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="location" data-placeholder="地域">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($areas as $area)
                                                         <option value="{{$area}}" {{$location == $area ? 'selected':''}}>{{$area}}</option>
                                                     @endforeach
@@ -99,6 +100,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="shape" data-placeholder="形状">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($shapes as $shape)
                                                         <option value="{{$shape}}" {{$shape == $body_shape ? 'selected':''}}>{{$shape}}</option>
                                                     @endforeach
