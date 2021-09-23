@@ -42,5 +42,5 @@
     <h6 class="empty-text">検索結果はありません。</h6>
 @endforelse
 <div class="pagination-wrapper">
-    {!! $vehicle_infos->links() !!}
+    {!! $vehicle_infos->appends(request()->input())->links() !!}
 </div>

@@ -1,4 +1,11 @@
-@import url(//db.onlinewebfonts.com/c/a9aca7e1ecdbdf39d9a97fe080562d20?family=Meiryo+UI);
+@font-face {font-family: "Meiryo UI";
+    src: url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.eot"); /* IE9*/
+    src: url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.woff2") format("woff2"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.woff") format("woff"), /* chrome firefox */
+    url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("https://db.onlinewebfonts.com/t/a9aca7e1ecdbdf39d9a97fe080562d20.svg#Meiryo UI") format("svg"); /* iOS 4.1- */
+}
 body, h1,h2,h3,h4,h5,h6,p,span, label, a, button, input, optgroup, select, textarea{
     font-family: "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", "MS PGothic", sans-serif !important;
 }

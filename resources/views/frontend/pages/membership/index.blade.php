@@ -66,18 +66,18 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="membership-wrapper">
-                                        <h1>販売店様</h1>
+                                        <h1>運送会社様</h1>
                                         <a href="{{route('membership.dealer')}}">
                                             <h3>詳細はこちら</h3>
-                                            <span>中古車販売店、ディーラーの方のご利用には月会費が必要となります(11,000円/月)</span>
+                                            <span>運送会社の方のは無料でご利用いただけます。</span>
                                         </a>
                                         
                                     </div>
                                     <div class="membership-wrapper">
-                                        <h1>運送会社様</h1>
+                                        <h1>販売店様</h1>
                                         <a href="{{route('membership.shipping')}}">
                                             <h3>詳細はこちら</h3>
-                                            <span>運送会社の方のは無料でご利用いただけます。</span>
+                                            <span>中古車販売店、ディーラーの方のご利用には月会費が必要となります(11,000円/月)</span>
                                         </a>
                                     </div>
                                 </div>

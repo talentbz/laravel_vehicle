@@ -22,7 +22,7 @@ Route::group(['middleware' => 'guest'], function(){
     // car category
     Route::get('/category/{name}', [App\Http\Controllers\Frontend\homeController::class, 'bodyCategory'])->name('bodycategory'); 
     Route::get('/sale', [App\Http\Controllers\Frontend\saleController::class, 'index'])->name('sale');
-    Route::post('/sale', [App\Http\Controllers\Frontend\saleController::class, 'searchResult'])->name('sale.search');
+    Route::any('/salesearch', [App\Http\Controllers\Frontend\saleController::class, 'searchResult'])->name('sale.search');
 
     //forklift
     Route::get('/forklift', [App\Http\Controllers\Frontend\forkLiftController::class, 'index'])->name('forklift');
