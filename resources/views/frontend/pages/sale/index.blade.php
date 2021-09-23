@@ -105,6 +105,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="shape" data-placeholder="形状">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($shapes as $shape)
                                                         <option value="{{$shape}}">{{$shape}}</option>
                                                     @endforeach

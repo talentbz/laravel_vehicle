@@ -56,6 +56,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="manufacture" data-placeholder="すべて">
                                                     <option></option>
+                                                    <option value=" すべて"> すべて</option>
                                                     @foreach($categories as $category)
                                                         <option value="{{$category}}" {{$manufacture == $category ? 'selected':''}}>{{$category}}</option>
                                                     @endforeach

@@ -258,7 +258,6 @@ class saleController extends Controller
             900001,
         ];
         $shapes = [
-            'すべて',
             'ウィング',
             'バン',
             '冷凍・冷蔵',
@@ -273,7 +272,6 @@ class saleController extends Controller
             'その他',
         ];
         $areas = [
-            'すべて',
             '北海道',
             '青森県',
             '岩手県',
@@ -331,7 +329,6 @@ class saleController extends Controller
             'その他',
         ];
         $categories = [
-            'すべて',
             'いすゞ',
             '日野',
             '三菱ふそう',
