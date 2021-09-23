@@ -245,7 +245,6 @@ class saleController extends Controller
 
         ];
         $distants = [
-            '',
             0,
             50000,
             100000,
@@ -369,7 +368,7 @@ class saleController extends Controller
         if($to_year) {
             $vehicle_infos = $vehicle_infos->where('year', '<=', $to_year);
         }
-        if($from_millege){
+        if(isset($from_millege)){
             $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege);
         }
         if(isset($to_millege)) {
