@@ -653,7 +653,7 @@ class vehicleController extends Controller
            'vehicle_equipment' => $vehicle_equipment,
         ]);
     }
-    public function create_store(Request $request){
+    public function create_store(Request $request, $id){
         
         //save vehicle details data in vehicel table
         $vehicle = new Vehicle;
@@ -745,15 +745,12 @@ class vehicleController extends Controller
     }
 
     public function edit_store(Request $request){
-        $userId = Auth::user()->id;
-        $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-        //save vehicle info
-        $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
-        if($vehicle_exist>0){
+        $vehicleId = $request->vehicle_id;
+        $companyId = Vehicle::select('company_id')->where('id', $vehicleId)->first()->company_id;
+        
+            //edit vehicle info
+            $vehicle = Vehicle::where('id', $vehicleId)->first();
             
-            //save vehicle details data in vehicel table
-            $vehicle = Vehicle::where('company_id', $companyId)->first();
-            $vehicleId = $request->vehicle_id;
             $vehicle->company_id = $companyId;
             $vehicle->car_category = $request->category_name;
             $vehicle->car_name = $request->vehicle_type;
@@ -823,92 +820,6 @@ class vehicleController extends Controller
             $vehicle_equip->owner_set = $request->has('owner');
             $vehicle_equip->unused_set = $request->has('unused_car');
             $vehicle_equip->save();
-        } else {
-            //save vehicle details data in vehicel table
-            $vehicle = new Vehicle;
-            //upload image
-            $userId = Auth::user()->id;
-            $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
-            $vehicle_exist = Vehicle::where('company_id', $companyId)->count();
-            
-            if($vehicle_exist>0){
-                $vehicleId = Vehicle::select('id')->where('company_id', $companyId)->first();
-            } else {
-                $vehicleId = Vehicle::latest('id')->first();
-                $vehicleId ++;
-            }
-            if ($request->has('file')) { 
-                $extension = $request->file->extension();
-                $imageName = round(microtime(true) * 1000) . '.' . $extension;
-                $request->file->move(public_path('uploads/vehicle/require'), $imageName);
-            }
-            $filePath = URL::asset('uploads/vehicle/require/'.$imageName);
-            $vehicle->require_path = $filePath; //end upload image
-
-            $vehicle->company_id = $companyId;
-            $vehicle->car_category = $request->category_name;
-            $vehicle->car_name = $request->vehicle_type;
-            $vehicle->area = $request->area;
-            $vehicle->model = $request->model;
-            $vehicle->mission = $request->mission;
-            $vehicle->loading_capacity = $request->loading_capacity;
-            $vehicle->mileage = $request->mileage;
-            $vehicle->body_number = $request->body_number;
-            $vehicle->engine_model = $request->engine_model;
-            $vehicle->displacement = $request->displacement;
-            $vehicle->fule = $request->fule_list;
-            $vehicle->shape = $request->shape;
-            $vehicle->class = $request->class;
-            $vehicle->max_capacity = $request->quota;
-            $vehicle->start_year = $request->start_year;
-            $vehicle->start_month = $request->start_month;
-            $vehicle->end_year = $request->end_year;
-            $vehicle->end_month = $request->end_month;
-            $vehicle->save();
-            
-            //save vehicle fee data in vehicel_fee table
-            $vehicleId =  Vehicle::select('id')->where('company_id', $companyId)->first()->id;
-            $vehicle_fee = new VehicleFee;
-            $vehicle_fee->vehicle_id = $vehicleId;
-            $vehicle_fee->fee = $request->recycling_fee;
-            $vehicle_fee->taxExc_price = $request->excluding_tax;
-            $vehicle_fee->taxInc_price = $request->including_tax;
-            $vehicle_fee->note = $request->specail_note;
-            $vehicle_fee->save();
-
-            //save vehicle equipment data in vehicel_equipment table
-            $vehicle_equip = new VehicleEquipment;
-            $vehicle_equip->vehicle_id = $vehicleId;
-            $vehicle_equip->power_set = $request->has('power_steering');
-            $vehicle_equip->power_window = $request->has('power_window');
-            $vehicle_equip->air_set = $request->has('air_condition');
-            $vehicle_equip->door_set = $request->has('door_lock');
-            $vehicle_equip->etc_set = $request->has('etc');
-            $vehicle_equip->tacograph_set = $request->has('tacho_graph');
-            $vehicle_equip->adblue_set = $request->has('ad_blue');
-            $vehicle_equip->air_sus_set = $request->has('air_suspension');
-            $vehicle_equip->leaf_sus_set = $request->has('leaf_suspension');
-            $vehicle_equip->cruise_set = $request->has('cruise_control');
-            $vehicle_equip->hill_set = $request->has('hill_start');
-            $vehicle_equip->redtarder_set = $request->has('retarder');
-            $vehicle_equip->disc_set = $request->has('disc_brake');
-            $vehicle_equip->air_bag_set = $request->has('air_bag');
-            $vehicle_equip->abs_set = $request->has('abs');
-            $vehicle_equip->asr_set = $request->has('asr');
-            $vehicle_equip->camera_set = $request->has('back_camera');
-            $vehicle_equip->immobilizer_set = $request->has('immobilizer');
-            $vehicle_equip->dvd_set = $request->has('dvd');
-            $vehicle_equip->cd_set = $request->has('cd');
-            $vehicle_equip->md_set = $request->has('md');
-            $vehicle_equip->radio_set = $request->has('radio');
-            $vehicle_equip->navigation_set = $request->has('navigation');
-            $vehicle_equip->tv_set = $request->has('tv');
-            $vehicle_equip->repaire_set = $request->has('repair_history');
-            $vehicle_equip->owner_set = $request->has('owner');
-            $vehicle_equip->unused_set = $request->has('unused_car');
-            $vehicle_equip->save();
-        }
-        
     }
     public function photoDestroy(Request $request){
         $userId = Auth::user()->id;
@@ -953,6 +864,7 @@ class vehicleController extends Controller
         return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName]);
     }
 
+    //delete vehicle information and media
     public function destroy(Request $request){
         $vehicleId = $request->id;
         
@@ -971,4 +883,3 @@ class vehicleController extends Controller
         return response()->json(['result' => true]);
     }
 }
-//

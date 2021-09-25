@@ -47,4 +47,9 @@ $(function() {
             alert('記事を読み込めませんでした。');
         });
     });
+
+    // hide select2 search box
+    $('select').select2({
+        minimumResultsForSearch: -1
+    });
 });

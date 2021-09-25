@@ -193,6 +193,7 @@ class saleController extends Controller
                                 ->orderBy('vehicle.created_at', 'desc'); 
                    
         //static variable array
+
         $years = [
             '昭和50年(1975年)',
             '昭和51年(1976年)',
@@ -245,7 +246,6 @@ class saleController extends Controller
 
         ];
         $distants = [
-            0,
             50000,
             100000,
             200000,
@@ -257,6 +257,8 @@ class saleController extends Controller
             800000,
             900001,
         ];
+        
+        
         $shapes = [
             'ウィング',
             'バン',
@@ -359,17 +361,25 @@ class saleController extends Controller
             // $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year)
             //                                ->where('mileage', '>=', $from_year)
             //                                ->orWhere('year', '<=', $to_year);
+        
+            
         if($from_year){
             $vehicle_infos = $vehicle_infos->where('year', '>=', $from_year);
         }
         if($to_year) {
             $vehicle_infos = $vehicle_infos->where('year', '<=', $to_year);
         }
+        
         if(isset($from_millege)){
-            $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege);
+            
+            if($from_millege !== "下限なし"){
+                $vehicle_infos = $vehicle_infos->where('mileage', '>=', $from_millege); // this is start value = min value >=
+            }
         }
         if(isset($to_millege)) {
-            $vehicle_infos = $vehicle_infos->where('mileage', '<=', $to_millege);
+            if($to_millege !=="上限なし"){
+                $vehicle_infos = $vehicle_infos->where('mileage', '<=', $to_millege);  // this is end value = max value <= 
+            }
         }
         if ($size){
             $vehicle_infos = $vehicle_infos->where('class', 'LIKE', "%{$size}%");

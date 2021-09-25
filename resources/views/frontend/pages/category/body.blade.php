@@ -146,7 +146,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
                                                     <option></option>
-                                                    <option value="0">{{number_format(0)}}</option>
+                                                    <option value="下限なし">下限なし</option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
                                                     <option value="200000">{{number_format(200000)}}</option>
@@ -168,7 +168,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
                                                     <option></option>
-                                                    <option value="0">{{number_format(0)}}</option>
+                                                    <option value="上限なし">上限なし</option>
                                                     <option value="50000">{{number_format(50000)}}</option>
                                                     <option value="100000">{{number_format(100000)}}</option>
                                                     <option value="200000">{{number_format(200000)}}</option>

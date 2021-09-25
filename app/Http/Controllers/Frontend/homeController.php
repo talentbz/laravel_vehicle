@@ -33,7 +33,7 @@ class homeController extends Controller
                                 ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id');
-                                
+                  
         $vehicle_count =Vehicle::select('id')->count();
         $bulletin_infos = Bulletin::orderBy('created_at', 'DESC')->get();                                   
         $bulletin_categories = [
@@ -246,7 +246,7 @@ class homeController extends Controller
                                 ->leftJoin('vehicle_fee', 'vehicle.id', '=', 'vehicle_fee.vehicle_id')
                                 ->groupBy('vehicle.id')
                                 ->where('vehicle.shape', '=', $name);
-    
+                                
         $years = [
             '昭和50年(1975年)',
             '昭和51年(1976年)',

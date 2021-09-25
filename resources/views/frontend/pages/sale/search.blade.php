@@ -144,6 +144,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="from_millege" data-placeholder="下限なし">
                                                     <option></option>
+                                                    <option value="下限なし">下限なし</option>
                                                     @foreach($distants as $distant)
                                                         <option value="{{$distant}}" {{!is_null($from_millege)?( $from_millege == $distant ? 'selected':''): ''}}>{{number_format($distant)}}</option>
                                                     @endforeach
@@ -158,6 +159,7 @@
                                             <div class="select-box">
                                                 <select class="select2 form-control" name="to_millege" data-placeholder="上限なし">
                                                     <option></option>
+                                                    <option value="上限なし">上限なし</option>
                                                     @foreach($distants as $distant)
                                                         <option value="{{$distant}}" {{!is_null($to_millege)?($to_millege == $distant ? 'selected':''):''}}>{{number_format($distant)}}</option>
                                                     @endforeach
