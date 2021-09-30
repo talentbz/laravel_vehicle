@@ -44,7 +44,7 @@ $(document).ready(function () {
     });
 
     /*  ==========================================
-        SHOW UPLOADED IMAGE NAME
+        SHOW UPLOADED IMAGE NAME 
     * ========================================== */
     var input = document.getElementById( 'upload' );
     var infoArea = document.getElementById( 'upload-label' );
@@ -53,10 +53,10 @@ $(document).ready(function () {
     function showFileName( event ) {
         var input = event.srcElement;
         var fileName = input.files[0].name;
-        infoArea.textContent = 'File name: ' + fileName;
+        infoArea.textContent = '画像名: ' + fileName;
     }
     
-    //manufacture select2 category and sub category
+    //manufacture select2 category and sub category 
     $('.select-category').on("select2:select", function (e) { 
         
         var select_val = $(e.currentTarget).val();

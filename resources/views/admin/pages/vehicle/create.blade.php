@@ -23,7 +23,7 @@
                 <form id="myForm" class="custom-validation" method="post" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <!-- vehicle details -->
-                    <h4 class="card-title">vehicle edit</h4>
+                    <h4 class="card-title">詳細情報</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-nowrap mb-0">
                             <thead>
@@ -37,7 +37,8 @@
                                     <td class="table-light" >地域(保管場所)</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select class="select2 form-control" name="area">
+                                            <select class="select2 form-control" name="area" data-placeholder="選択してください。" required>
+                                                <option></option>
                                                 <optgroup label="地域選択">
                                                     @foreach($areas as $area)
                                                     <option value="{{$area}}">{{$area}}</option>
@@ -51,7 +52,8 @@
                                     <td class="table-light" >メーカー</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select class="select2 form-control select-category" data-placeholder="Choose ..." name="category_name">    
+                                            <select class="select2 form-control select-category" data-placeholder="選択してください。" required name="category_name">   
+                                            <option ></option> 
                                             <optgroup label="メーカー選択">
                                                     @foreach($manufactures as $manufacture)
                                                         <option value="{{$manufacture['category_name']}}">{{$manufacture['category_name']}}</option>
@@ -63,7 +65,8 @@
                                     <td class="table-light" >車名</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select id="subcategory" class="select2 form-control" name="vehicle_type">
+                                            <select id="subcategory" class="select2 form-control" name="vehicle_type" data-placeholder="選択してください。" required>
+                                                <option></option>
                                                
                                             </select>
                                         </div>
@@ -94,7 +97,8 @@
                                     <td class="table-light" >乗車定員</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select class="select2 form-control" name="quota">
+                                            <select class="select2 form-control" name="quota" data-placeholder="選択してください。" required>
+                                                <option></option>
                                                 @foreach($quotas as $quota)
                                                     <option value='{{$quota}}'>{{$quota}}</option>
                                                 @endforeach
@@ -104,21 +108,22 @@
                                 </tr>
                                 <tr>
                                     <td class="table-light" >型式</td>
-                                    <td ><input parsley-type="model" type="text" name="model" class="form-control" required placeholder="モデルを入力してください" id="model"></td>
+                                    <td ><input parsley-type="model" type="text" name="model" class="form-control" required placeholder="型式を入力してください" id="model"></td>
                                     <td class="table-light" >車体番号</td>
-                                    <td ><input parsley-type="body-number" type="text" name="body_number" class="form-control" required placeholder="体番号を入力してください" id="body_number"></td>
+                                    <td ><input parsley-type="body-number" type="text" name="body_number" class="form-control" required placeholder="車体番号を入力してください" id="body_number"></td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >エンジン型式</td>
-                                    <td ><input parsley-type="engine-model" type="text" name="engine_model" class="form-control" required placeholder="エンジンモデルを入力してください" id="engine-model"></td>
+                                    <td ><input parsley-type="engine-model" type="text" name="engine_model" class="form-control" required placeholder="エンジン型式を入力してください" id="engine-model"></td>
                                     <td class="table-light" >排気量</td>
-                                    <td ><input parsley-type="displacement" type="text" name="displacement" class="form-control" required placeholder="変位を入力してください " id="displacement"></td>
+                                    <td ><input parsley-type="displacement" type="text" name="displacement" class="form-control" required placeholder="排気量を入力してください" id="displacement"></td>
                                 </tr>
                                 <tr>
                                     <td class="table-light" >燃料</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select class="select2 form-control" name="fule_list">
+                                            <select class="select2 form-control" name="fule_list" data-placeholder="選択してください。" required>
+                                                <option></option>
                                                 @foreach($fule_lists as $fule_list)
                                                     <option value='{{$fule_list}}'>{{$fule_list}}</option>
                                                 @endforeach
@@ -127,7 +132,8 @@
                                     </td>
                                     <td class="table-light" >ミッション</td>
                                     <td >
-                                        <select class="select2 form-control" name="mission">
+                                        <select class="select2 form-control" name="mission" data-placeholder="選択してください。" required>
+                                            <option></option>
                                             @foreach($missions as $mission)
                                                 <option value='{{$mission}}'>{{$mission}}</option>
                                             @endforeach
@@ -138,7 +144,8 @@
                                     <td class="table-light" >形状</td>
                                     <td >
                                         <div class="templating-select">
-                                            <select class="select2 form-control" name="shape">
+                                            <select class="select2 form-control" name="shape" data-placeholder="選択してください。" required>
+                                                <option></option>
                                                 @foreach($shapes as $shape)
                                                     <option value='{{$shape}}'>{{$shape}}</option>
                                                 @endforeach
@@ -147,7 +154,8 @@
                                     </td>
                                     <td class="table-light" >クラス</td>
                                     <td >
-                                        <select class="select2 form-control" name="class">
+                                        <select class="select2 form-control" name="class" data-placeholder="選択してください。" required>
+                                            <option></option>
                                             @foreach($classes as $class)
                                                 <option value='{{$class}}'>{{$class}}</option>
                                             @endforeach
@@ -157,12 +165,12 @@
                                 <tr>
                                     <td class="table-light" >最大積載量</td>
                                     <td >
-                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" required placeholder="最大容量を入力してください" id="max-capacity">
+                                        <input parsley-type="max-capacity" type="number" name="loading_capacity" class="form-control" required placeholder="最大積載量を入力してください" id="max-capacity">
                                         <p class="details-list">kg</p>
                                     </td>
                                     <td class="table-light" >走行距離</td>
                                     <td >
-                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" required placeholder="マイレージを入力してください " id="mileage">
+                                        <input parsley-type="mileage" type="number" name="mileage" class="form-control" required placeholder="走行距離を入力してください" id="mileage">
                                         <p class="details-list">km</p>
                                     </td>
                                 </tr>
@@ -179,6 +187,7 @@
                                         <div class="select-date-year">
                                             <div class="templating-select">
                                                 <select class="select2 form-control end_year" name="end_year">
+                                                    <option></option>
                                                     @foreach($expiration_years as $expiration_year)
                                                         <option value='{{$expiration_year}}'>{{$expiration_year}}</option>
                                                     @endforeach
@@ -188,6 +197,7 @@
                                         <div class="select-date-month">
                                             <div class="templating-select">
                                                 <select class="select2 form-control end_month" name="end_month">
+                                                    <option></option>
                                                     @foreach($months as $month)
                                                         <option value='{{$month}}'>{{$month}}</option>
                                                     @endforeach
@@ -426,6 +436,9 @@
                         </div>
                     </div>
                 </form>
+                <div class="vehicle_save">
+                    <a href="{{route('vehicle.index')}}" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-long-arrow-alt-left"></i> 戻る</a>
+                </div>
             </div>
         </div>
     </div> <!-- end col -->
@@ -447,6 +460,8 @@
     <script src="{{ URL::asset('/assets/libs/datepicker/datepicker.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/pages/file-input.js') }}"></script>
 
+    <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/form-validation.init.js') }}"></script>
     <!-- form advanced init -->
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js') }}"></script>
     <!-- init js -->

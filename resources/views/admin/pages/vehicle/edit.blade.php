@@ -438,6 +438,9 @@
                         </div>
                     </div>
                 </form>
+                <div class="vehicle_save">
+                    <a href="{{route('vehicle.index')}}" class="btn btn-outline-primary waves-effect waves-light"><i class="fas fa-long-arrow-alt-left"></i> 戻る</a>
+                </div>
             </div>
         </div>
     </div> <!-- end col -->

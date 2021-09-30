@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                             <div class="read-more detail-search">
-                                <input class="btn btn-warning" type="submit" value="もっと見る" />
+                                <input class="btn btn-warning" type="submit" value="検索" />
                             </div>
                         </form>
                     </div>
@@ -196,7 +196,7 @@
                     <div class="category">
                         <div class="category-title">
                             <i class="fa fa-search"></i>
-                            <h3>最新情報！</h3>
+                            <h3>車両情報</h3>
                             <div class="sort-filter">
                                 <select class="select2 form-control" id="filter-select" name="filter" value="{{$filter}}" data-placeholder="すべて">
                                     <option></option>

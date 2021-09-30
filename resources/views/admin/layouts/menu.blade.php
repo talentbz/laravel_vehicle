@@ -31,7 +31,7 @@
         <div class="d-flex">
 
             <div class="admin-info">
-                <p>サポートディスク：0120-932-982</p>
+                <p>サポートディスク：0120-984-165</p>
                 <p>対応時間：10:00-19:00 (年末年始、長期休暇を除く)</p>
             </div>
 
@@ -104,7 +104,7 @@
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{ route('userlists') }}" role="button"
                             >
-                            <i class="fas fa-user me-2"></i><span key="t-dashboards">ユーザーリスト</span>
+                            <i class="fas fa-user me-2"></i><span key="t-dashboards">会員リスト</span>
                         </a>
                     </li>
                     @endif
@@ -117,12 +117,12 @@
                     </li>
                     @endif
                     @if(Auth::user()->role == 1)
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link dropdown-toggle arrow-none" href="{{route('company.index')}}" role="button"
                                 >
                                 <i class="fas fa-building me-2"></i><span key="t-dashboards">会社情報</span>
                             </a>
-                        </li>
+                        </li> -->
                     @else
                         @if(is_null(App\Http\Controllers\Admin\companyController::userCheck(Auth::user()->id))) <!-- check exist companyId -->
                         <li class="nav-item">

@@ -174,8 +174,11 @@
     }
 }
 @media only screen and (max-width: 414px) { 
+    .membership{
+      margin-bottom: 30px;
+    }
     .membership-wrapper {
-        width: 164px !important;
+        width: 150px !important;
         height: 150px;
     }
     .membership-wrapper h1 {

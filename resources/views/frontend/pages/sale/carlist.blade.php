@@ -1,6 +1,6 @@
 @forelse ($vehicle_infos as $key=>$vehicle_info)
     <div class="col-md-3 col-sm-3 col-xs-12 car-details">
-        <div class="card p-1 border shadow-none">
+        <div class="card p-1 border shadow-none car-details-list">
             <div class="position-relative car-list-image">
                 <a href="{!! route('carDetails', ['id' => $vehicle_info->vehicle_id ? $vehicle_info->vehicle_id:'#']) !!}">
                     @if($vehicle_info->car_path)

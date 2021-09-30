@@ -1,6 +1,7 @@
    $(document).ready(function () {
     $("#input-711").fileinput({
         theme: 'fa',
+        maxFileCount: 1,
         initialPreview: image_paths,
         initialPreviewAsData: true,
         deleteUrl: remove_photo,
@@ -18,7 +19,7 @@
         
         uploadUrl: add_photo_url,
         overwriteInitial: false,
-        maxFileCount: 5,
+        maxFileCount: 1,
         showBrowse: false,
         browseOnZoneClick: true
     });

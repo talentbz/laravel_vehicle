@@ -30,7 +30,7 @@ $(document).ready(function () {
     function showFileName( event ) {
         var input = event.srcElement;
         var fileName = input.files[0].name;
-        infoArea.textContent = 'File name: ' + fileName;
+        infoArea.textContent = '画像名: ' + fileName;
     }
     
     //manufacture select2 category and sub category
@@ -49,13 +49,12 @@ $(document).ready(function () {
     })
     
     //select2 placeholder
-    $('select').select2({
-        placeholder: {
-          id: '-1', // the value of the option
-          text: 'Select an option'
-        }
-    });
-
+    // $('select').select2({
+    //     placeholder: {
+    //       id: '-1', // the value of the option
+    //       text: '選択してください。'
+    //     }
+    // });
     //single checkbox
     $("input:checkbox").on('click', function() {
         // in the handler, 'this' refers to the box clicked on

@@ -62,7 +62,7 @@
                             <h3>まずは会員登録から</h3>
                         </div>
 
-                        <div class="">
+                        <div class="membership">
                             <div class="container">
                                 <div class="row">
                                     <div class="membership-wrapper">

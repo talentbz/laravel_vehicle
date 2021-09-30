@@ -56,7 +56,7 @@
                                         <img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" width="100">
                                     @endif
                                 </a></td>
-                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">ID: {{prefix_word($vehicle_info->id, 3)}}</a></td>
+                                <td><a href="{!! route('vehicle.details', ['id' => $vehicle_info->id]) !!}">{{prefix_word($vehicle_info->id, 3)}}</a></td>
                                 <td>{{$vehicle_info->car_category}}</td>
                                 <td>{{$vehicle_info->car_name}}</td>
                                 <td>{{$vehicle_info->model}}</td>

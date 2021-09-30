@@ -400,7 +400,6 @@ class homeController extends Controller
                 ]); 
             }
         }
-        
         return view('frontend.pages.category.body', [
             'years' => $years,
             'shapes' => $shapes,

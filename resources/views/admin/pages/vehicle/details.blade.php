@@ -109,7 +109,7 @@
                             </tr>
                             <tr>
                                 <td class="table-light" scope="row">販売価格(税抜)</th>
-                                <td >{{$vehilce_fee->taxExc_price.' 万円'}}</td>
+                                <td >{{number_format($vehilce_fee->taxExc_price).' 万円'}}</td>
                                 <td class="table-light" scope="row">販売価格(税込)</th>
                                 <td >{{number_format($vehilce_fee->taxInc_price).' 万円'}}</td>
                                 <!-- <td class="table-light" scope="row">特記</th>

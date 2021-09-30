@@ -225,6 +225,8 @@
     color: rgb(237, 125, 49);
     border-color: rgb(237, 125, 49);
     width: 100px;
+    border-radius: 18px;
+    background: linear-gradient(#eee, #ccc);
 }
 .category-read-more a:hover{
     background: rgb(237, 125, 49);
@@ -293,6 +295,19 @@
     .search input{
         font-size: 15px;
     }
+    .nav-item a {
+        transition: none !important;
+    }
+    .nav-item a:hover {
+        color: #fff !important;
+    }
+    .nav-item .active {
+        background: transparent !important;
+    }
+    .nav-item:hover {
+        background: transparent !important;
+        transition:none !important;
+    }
 }
 @media only screen and (max-width: 414px) {
     .pagination-wrapper .pagination {
@@ -304,11 +319,14 @@
     }
     .category {
         /* padding: 0; */
-        margin-top: 20px !important;
+        margin-top: 10px !important;
         margin-right: 0px !important;
         margin-left: 0px !important;
         padding: 5px;
     }
+    .category-title:firs-child i, .category-title :firs-child h3 {
+        padding: 0;
+    } 
     .banner-image .home-search{
         width: 60%;
         top: 20%;
@@ -339,6 +357,9 @@
         font-size: 11px;
         padding-top: 4px;
         top: 4px;
+    }
+    .car-info {
+        margin: 0;
     }
     .car-list-info {
         width: 33% !important;
@@ -376,6 +397,8 @@
     }
     .car-details {
         width: 50% !important;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
     }
     .list-title h3 {
 
@@ -390,6 +413,15 @@
     } 
     #datatable_wrapper thead {
         display: none;
+    }
+    .car-details-list {
+        margin-bottom: 7px !important;
+    }
+    .car-details-list .p-3 {
+        padding-bottom: 0 !important;
+    }
+    .dataTables_paginate {
+        margin-bottom: 15px !important;
     }
 }
 @media only screen and (max-width: 375px) {
@@ -415,6 +447,18 @@
     .list-title p {
         font-size: 11px;
         padding-top: 7px;
+    }
+    .select-label label {
+        font-size: 10px;
+    }
+    .select-wrapper {
+        margin-bottom: 7px;
+    }
+    .detail-search {
+        margin-top: 5px !important;
+    }
+    .accordion {
+        margin-bottom: 30px;
     }
 }
 @media only screen and (max-width: 375px) {

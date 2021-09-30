@@ -48,8 +48,33 @@ $(function() {
         });
     });
 
-    // hide select2 search box
+    // hide select2 search box 
     $('select').select2({
         minimumResultsForSearch: -1
     });
+    //change border width 
+    if($(window).width() >= 768){
+        for(i=0; i<=5; i++){
+            $('.car-list-info').eq(i).css('border-bottom', 'transparent')
+        }
+        for(i=0; i<=4; i++){
+            $('.car-list-info').eq(i).css('border-right', 'transparent')
+        }
+        for(i=6; i<=10; i++){
+            $('.car-list-info').eq(i).css('border-right', 'transparent')
+        }
+    } else{
+        for(i=0; i<=8; i++){
+            $('.car-list-info').eq(i).css('border-bottom', 'transparent')
+        }
+        $('.car-list-info').eq(0).css('border-right', 'transparent')
+        $('.car-list-info').eq(1).css('border-right', 'transparent')
+        $('.car-list-info').eq(3).css('border-right', 'transparent')
+        $('.car-list-info').eq(4).css('border-right', 'transparent')
+        $('.car-list-info').eq(6).css('border-right', 'transparent')
+        $('.car-list-info').eq(7).css('border-right', 'transparent')
+        $('.car-list-info').eq(9).css('border-right', 'transparent')
+        $('.car-list-info').eq(10).css('border-right', 'transparent')
+
+    }
 });

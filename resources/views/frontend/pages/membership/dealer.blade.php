@@ -39,7 +39,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="de-fee">
-                                <p><span>初期設定費用</span>16,500円(税込) (初期設定時のみ)</p>
+                                <p><span>初期設定費用</span><p> 16,500円(税込) (初期設定時のみ)</p></p>
                                 <p><span>月額利用料金</span>11,000円(税込) (40台まで掲載可能)</p>
                                 <p><span>掲載台数追加</span>5,5000円(税込）(40台を追加掲載可能）</p>
                             </div>

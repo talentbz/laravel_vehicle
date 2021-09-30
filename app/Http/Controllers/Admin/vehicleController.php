@@ -653,7 +653,7 @@ class vehicleController extends Controller
            'vehicle_equipment' => $vehicle_equipment,
         ]);
     }
-    public function create_store(Request $request, $id){
+    public function create_store(Request $request){
         
         //save vehicle details data in vehicel table
         $vehicle = new Vehicle;
@@ -846,7 +846,7 @@ class vehicleController extends Controller
             $fileName = request()->file->getClientOriginalName();
             $fileName = prefix_word($fileName, 8);
             $imgx = Image::make($request->file->getRealPath());
-            //image resize and crop
+            //image resize and crop 
             $imgx->resize(640, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
@@ -859,7 +859,6 @@ class vehicleController extends Controller
         $result->vehicle_id = $vehicleId;
         $result->car_path = $filePath;
         $result->file_name = $vehicleId.'_'.$fileName;
-        
         $result->save();
         return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName]);
     }
