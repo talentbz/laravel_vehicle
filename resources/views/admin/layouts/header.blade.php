@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<meta http-equiv="content-language" content="ja">
+<html lang="ja">
+
 
 <head>
     <meta charset="utf-8" />

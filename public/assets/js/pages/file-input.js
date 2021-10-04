@@ -846,7 +846,7 @@
                     uploadIcon: '<i class="fas fa-upload"></i>',
                     uploadClass: 'btn btn-kv btn-default btn-outline-secondary',
                     uploadTitle: 'Upload file',
-                    uploadRetryIcon: '<i class="glyphicon glyphicon-repeat"></i>',
+                    uploadRetryIcon: '<i class="fas fa-upload"></i>',
                     uploadRetryTitle: 'Retry upload',
                     downloadIcon: '<i class="glyphicon glyphicon-download"></i>',
                     downloadClass: 'btn btn-kv btn-default btn-outline-secondary',

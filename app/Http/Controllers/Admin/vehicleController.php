@@ -16,7 +16,7 @@ use App\Models\VehicleMedia;
 use App\Models\VehicleEquipment;
 use Illuminate\Support\Facades\Storage;
 
-class vehicleController extends Controller
+class vehicleController extends Controller 
 {
     public function index(Request $request){
         $user_id = Auth::user()->id;

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 use App\Models\User;
 use App\Models\Company;
+use App\Models\Vehicle;
+use App\Models\VehicleFee;
+use App\Models\VehicleMedia;
+use App\Models\VehicleEquipment;
+use App\Models\Bulletin;
 class userListController extends Controller
 {
     public function index(Request $request)
@@ -55,7 +60,7 @@ class userListController extends Controller
         if ($request->hasFile('file')) { 
             $extension = $request->file->extension();
             $fileName = round(microtime(true) * 1000) . '.' . $extension;
-            $request->avatar->move(public_path('uploads/avatar'), $fileName);
+            $request->file->move(public_path('uploads/avatar'), $fileName);
             $result->avatar =  URL::asset('uploads/avatar/'.$fileName);
         } 
         
@@ -72,8 +77,34 @@ class userListController extends Controller
     public function userDelete(Request $request)
     {
         $id = $request->id;
+        $company = Company::where('user_id', $id)->first();
+        if($company){ // if company is exist
+            $vehicles = Vehicle::leftJoin('company_details', 'vehicle.company_id', '=', 'company_details.id')->where('company_details.id', '=', $company->id)->get();
+                if($vehicles){
+                    foreach($vehicles as $vehicle) {
+                        $fileNames = VehicleMedia::where('vehicle_id', $vehicle->id)->get();
+                        foreach($fileNames as $fileName){
+                            $filePath = 'uploads/vehicle/'.$vehicle->id.'/'.$fileName->file_name;
+                            //dd(File::exists(public_path($fileName)));
+                            if(File::exists(public_path($filePath))){
+                                File::delete(public_path($filePath));   
+                            }
+                        }
+                        VehicleMedia::where('vehicle_id', $vehicle->id)->delete();
+                        Vehicle::where('id', $vehicle->id)->delete();
+                        VehicleEquipment::where('vehicle_id', $vehicle->id)->delete();
+                        VehicleFee::where('vehicle_id', $vehicle->id)->delete();
+                    }
+                }
+            $bulletins = Bulletin::where('company_id', $company->id)->get();
+            if($bulletins){
+                foreach($bulletins as $bulletin){
+                    Bulletin::where('id', $bulletin->id)->delete();
+                }
+            }
+            Company::where('user_id', $id)->delete();
+        }
         User::where('id', $id)->delete();
-        Company::where('user_id', $id)->delete();
         return response()->json('success');
     }
 }

@@ -50,9 +50,9 @@
                                             <tr>
                                                 <td>
                                                     @if($company_info->path)
-                                                        <a href="{!! route('companyIntroduce.details', ['id' => $company_info->cd_id ? $company_info->cd_id:'#']) !!}"><img class="img-thumbnail" src="{{$company_info->path}}" alt="" width="100"></a>
+                                                        <a href="{!! route('companyIntroduce.details', ['id' => $company_info->cd_id ? $company_info->cd_id:'#']) !!}"><img class="" src="{{$company_info->path}}" alt="" width="100"></a>
                                                     @else
-                                                        <a href="{!! route('companyIntroduce.details', ['id' => $company_info->cd_id ? $company_info->cd_id:'#']) !!}"><img class="img-thumbnail" src="{{URL::asset('images/photo.png')}}" alt="" width="100"></a>
+                                                        <a href="{!! route('companyIntroduce.details', ['id' => $company_info->cd_id ? $company_info->cd_id:'#']) !!}"><img class="" src="{{URL::asset('images/photo.png')}}" alt="" width="100"></a>
                                                     @endif
                                                 </td>
                                                 <td>
