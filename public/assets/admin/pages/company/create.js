@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#input-711").fileinput({
         theme: 'fa',
+        maxFileCount: 1,
         uploadExtraData: function() {
             return {
                 _token: $("input[name='_token']").val(),
@@ -14,7 +15,7 @@ $(document).ready(function () {
         
         uploadUrl: add_photo_url,
         overwriteInitial: false,
-        maxFileCount: 5,
+        maxFileCount: 1,
         showBrowse: false,
         browseOnZoneClick: true
     });

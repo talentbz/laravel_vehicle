@@ -194,3 +194,8 @@
         color: #000;
     }
 }
+@media only screen and (max-width: 375px) {
+  .de-application {
+    margin-bottom: 20px;
+  }
+}

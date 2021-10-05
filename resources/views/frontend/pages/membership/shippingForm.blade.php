@@ -25,7 +25,7 @@
             <h3>掲載申込みフォーム　販売店様用</h3>
         </div>
         <!-- contact form -->
-        <div class="container pt-5" >
+        <div class="container" >
 
             <!-- Alert User -->
             @if(Session::has('success'))
@@ -156,7 +156,7 @@
                                         </tr>
                                         <!-- fax -->
                                         <tr>
-                                            <td class="table-light" scope="row">FAX番号<span>※</span></td>
+                                            <td class="table-light" scope="row">FAX番号</td>
                                             <td >
                                                 <input data-parsley-type="number" type="text" class="form-control" name="fax"/>
                                             </td>

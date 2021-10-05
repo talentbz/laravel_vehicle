@@ -25,7 +25,7 @@
             <h3>掲載申込みフォーム　運送会社様用<span>※掲載は無料です</span></h3>
         </div>
         <!-- contact form -->
-        <div class="container pt-5" >
+        <div class="container" >
         
             <!-- Static Backdrop modal Button -->
             <!-- <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
