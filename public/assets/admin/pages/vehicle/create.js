@@ -133,9 +133,9 @@ $(document).ready(function () {
         maxFileCount: 50,
         showBrowse: false,
         browseOnZoneClick: true,
-        slugCallback: function (filename) {
-            return filename.replace('(', '_').replace(']', '_').replace(' ', '_');
-        },
+        // slugCallback: function (filename) {
+        //     return filename.replace('(', '_').replace(']', '_').replace(' ', '_');
+        // },
     });
 
     // slick slider

@@ -77,7 +77,8 @@
                                     <td >
                                         <div class="select-date-year">
                                             <div class="templating-select">
-                                                <select class="select2 form-control" name="start_year">
+                                                <select class="select2 form-control" name="start_year" data-placeholder="選択してください。" required>
+                                                    <option></option>
                                                     @foreach($years as $year)
                                                         <option value='{{$year}}'>{{$year}}</option>
                                                     @endforeach
@@ -86,7 +87,8 @@
                                         </div>
                                         <div class="select-date-month">
                                             <div class="templating-select">
-                                                <select class="select2 form-control" name="start_month">
+                                                <select class="select2 form-control" name="start_month" data-placeholder="選択してください。" required>
+                                                    <option></option>
                                                     @foreach($months as $month)
                                                         <option value='{{$month}}'>{{$month}}</option>
                                                     @endforeach
@@ -220,7 +222,7 @@
                             <tr>
                                 <td class="table-light" >リサイクル料金</td>
                                 <td >
-                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" required placeholder="リサイクル料金を入力してください" id="recycling-fee">
+                                    <input parsley-type="recycling-fee" type="number" name="recycling_fee" class="form-control" placeholder="リサイクル料金を入力してください" id="recycling-fee" required>
                                     <p class="details-list">円</p>
                                     </td>
                                 <td class="table-light" ></td>
@@ -231,12 +233,12 @@
                             <tr>
                                 <td class="table-light" >販売価格(税抜)</td>
                                 <td >
-                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" required  placeholder="税抜きで入力" id="excluding-tax">
+                                    <input parsley-type="excluding-tax" type="number" name="excluding_tax" class="form-control" placeholder="税抜きで入力" id="excluding-tax" required>
                                     <p class="details-list">万円</p>
                                     </td>
                                 <td class="table-light" >販売価格(税込)</td>
                                 <td >
-                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" required placeholder="税込入力" id="including-tax">
+                                    <input parsley-type="including-tax" type="number" name="including_tax" class="form-control" placeholder="税込入力" id="including-tax">
                                     <p class="details-list">万円</p>
                                 </td>
                             </tr>
@@ -244,12 +246,12 @@
                                 <td class="table-light" >特記</td>
                                 <td colspan="3">
                                     <textarea id="textarea" class="form-control" maxlength="1000" rows="3"
-                                    placeholder="1000文字以内" name="specail_note"></textarea>
+                                        placeholder="1000文字以内" name="specail_note"></textarea>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <!-- requirement image -->
+                    <!-- requirement image  -->
                     <h4 class="card-title vehicle-list">必須画像</h4>
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"><!-- Upload image input-->
                         <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" name="file" required>

@@ -25,6 +25,12 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <th class="text-nowrap" scope="row">会社名</th>
+                                    <td colspan="6">
+                                        <input parsley-type="company_name" type="text" name="company_name" class="form-control" required placeholder="Enter company" id="comapany-name"/>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th class="text-nowrap" scope="row">担当者</th>
                                     <td colspan="6">
                                         <input parsley-type="member" type="text" name="member" class="form-control" required placeholder="Enter member" id="member"/>
@@ -51,7 +57,7 @@
                                 <tr>
                                     <th class="text-nowrap" scope="row">会社説明</th>
                                     <td colspan="6">
-                                         <textarea id="elm1" name="description"></textarea>
+                                         <textarea id="textarea" name="description" class="form-control" maxlength="1000" rows="3"></textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -95,8 +101,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
     <script src="{{ URL::asset('/assets/libs/dropzone/dropzone.min.js') }}"></script>
     <!--tinymce js-->
-    <script src="{{ URL::asset('assets/libs/tinymce/tinymce.init.js') }}"></script>
-    <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
+    <!-- <script src="{{ URL::asset('assets/libs/tinymce/tinymce.init.js') }}"></script>
+    <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js') }}"></script> -->
     <!-- init js -->
     <script src="{{ URL::asset('assets/js/pages/form-editor.init.js') }}"></script>
      <!-- toastr plugin -->

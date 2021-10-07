@@ -1,10 +1,9 @@
 <!doctype html>
-<meta http-equiv="content-language" content="ja">
+
 <html lang="ja">
-
-
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="content-language" content="ja">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> @yield('title') | vehicle admin</title>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->

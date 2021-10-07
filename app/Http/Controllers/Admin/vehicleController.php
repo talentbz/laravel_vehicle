@@ -788,7 +788,7 @@ class vehicleController extends Controller
             $vehicle_fee->taxInc_price = $request->including_tax;
             $vehicle_fee->note = $request->specail_note;
             $vehicle_fee->save();
-
+            
             //save vehicle equipment data in vehicel_equipment table
             $vehicle_equip = VehicleEquipment::where('vehicle_id', $vehicleId)->first();
             $vehicle_equip->vehicle_id = $vehicleId;
@@ -821,6 +821,7 @@ class vehicleController extends Controller
             $vehicle_equip->unused_set = $request->has('unused_car');
             $vehicle_equip->save();
     }
+
     public function photoDestroy(Request $request){
         $userId = Auth::user()->id;
         $id = $request->key;
@@ -834,6 +835,7 @@ class vehicleController extends Controller
         $result = vehicleMedia::where('id', $id)->delete();
         return response()->json(['result' => true, 'deleted' => $result]);
     }
+
     public function photoStore(Request $request, $vehicleId){
         $userId = Auth::user()->id;
         $companyId = Company::select('id')->where('user_id', $userId)->first()->id;
@@ -844,6 +846,7 @@ class vehicleController extends Controller
             }
             $extension = $request->file->extension();
             $fileName = request()->file->getClientOriginalName();
+            
             $fileName = prefix_word($fileName, 8);
             $imgx = Image::make($request->file->getRealPath());
             //image resize and crop 
@@ -851,16 +854,16 @@ class vehicleController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     })->crop(640, 480)
-                    ->save($path.$vehicleId.'_' . $fileName);
+                    ->save($path.$fileName);
         }
         
-        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName);
+        $filePath = URL::asset('uploads/vehicle/'.$vehicleId.'/'.$fileName);
         $result = new VehicleMedia;
         $result->vehicle_id = $vehicleId;
         $result->car_path = $filePath;
-        $result->file_name = $vehicleId.'_'.$fileName;
+        $result->file_name = $fileName;
         $result->save();
-        return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$vehicleId.'_'.$fileName]);
+        return response()->json(['uploaded' => 'uploads/vehicle/'.$vehicleId.'/'.$fileName]);
     }
 
     //delete vehicle information and media

@@ -25,6 +25,12 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <th class="text-nowrap" scope="row">会社名</th>
+                                    <td colspan="6">
+                                        <input parsley-type="company_name" type="text" name="company_name" class="form-control" required value="{{$company->name}}" placeholder="Enter company" id="comapany-name"/>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th class="text-nowrap" scope="row">担当者</th>
                                     <td colspan="6">
                                         <input parsley-type="member" type="text" name="member" class="form-control" required value="{{$company->member}}" placeholder="Enter member name" id="member"/>
@@ -52,7 +58,7 @@
                                     <th class="text-nowrap" scope="row">会社説明</th>
                                     <td colspan="6">
                                          <textarea id="textarea" name="description" class="form-control" maxlength="1000" rows="3"
-                                        placeholder="This textarea has a limit of 1000 chars.">{{$company->description}}</textarea>
+                                        placeholder="1000文字以内">{{$company->description}}</textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -69,7 +75,7 @@
                 </form>
                 <table class="table table-bordered table-striped table-nowrap mb-0">
                     <tr>
-                        <th class="text-nowrap" scope="row">会社写真</th>
+                        <th class="text-nowrap" scope="row">会社写真<p style="color:red; font-size:12px">※1枚だけ画像を選択してください</p></th>
                         <td colspan="6">
                             <form id="imageForm" class="custom-validation" method="post" enctype="multipart/form-data">
                                 {!! csrf_field() !!}

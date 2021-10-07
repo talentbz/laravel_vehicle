@@ -38,7 +38,7 @@
                                 <th width="10%">ID(Email)</th>
                                 <th width="10%">電話番号</th>
                                 <th width="20%">所在地</th>
-                                <th width="10%">状態</th>
+                                <!-- <th width="10%">状態</th> -->
                                 <th width="10%">更新日</th>
                                 <th width="10%">action</th>
                             </tr>
@@ -52,7 +52,7 @@
                                         <label class="form-check-label" for="orderidcheck01"></label>
                                     </div>
                                 </td> -->
-                                <td align="center">{{$key+=1}}</td>
+                                <td align="center">{{prefix_word($user->id, 3)}}</td>
                                 <td align="center">
                                     @if($user->company_id)
                                     <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">
@@ -82,7 +82,7 @@
                                 <td class="email">{{$user->email}}</td>
                                 <td class="phone">{{$user->phone}}</td>
                                 <td class="location">{{$user->location}}</td>
-                                <td>{{$user->status}}</td>
+                                <!-- <td>{{$user->status}}</td> -->
                                 <td>{{$user->updated_at}}</td>
                                 <td align="center">
                                         <a href="javascript:void(0);" class="text-success edit" data-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#editModal"><i

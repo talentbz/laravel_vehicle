@@ -88,6 +88,7 @@ class companyController extends Controller
         $user = User::find($userId);
         $user->phone = $phone;
         $user->location = $location;
+        $user->company_name = $request->company_name;
         $user->save();
 
         //save company info
@@ -97,7 +98,7 @@ class companyController extends Controller
             $company = Company::where('id', $company_id)->first();
             $company->user_id = $userId;
             $company->site_url = $site_url;
-            //$company->name = $request->name;
+            $company->name = $request->company_name;
             $company->member = $request->member;
             $company->description = $description;
             $company->save();    
@@ -105,7 +106,7 @@ class companyController extends Controller
             $company = new Company;
             $company->user_id = $userId;
             $company->site_url = $site_url;
-            //$company->name = $request->name;
+            $company->name = $request->company_name;
             $company->member = $request->member;
             $company->description = $description;
             $company->save();

@@ -39,7 +39,7 @@
                                                     class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
+                                    <!-- <div class="mb-3">
                                         <label class="form-label">会社名</label>
                                         <div>
                                             <input parsley-type="company_name" name="company_name" type="text" class="form-control" required placeholder="会社名" id="company_name"/>
@@ -62,7 +62,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="customFile">ユーザー画像</label>
                                         <input type="file" class="form-control" name="file" id="avatarImage" />  
-                                    </div>
+                                    </div> -->
                                     <div class="modal-footer">
                                         <div class="d-flex flex-wrap gap-2">
                                             <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">閉じる</button>

@@ -66,8 +66,9 @@
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if(Auth::user()->role == 2)
-                    <img class="header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/images/default.jpg') }}"
-                        alt="Header Avatar">
+                    <span>{{prefix_word(Auth::user()->id, 3)}}</span>
+                    <!-- <img class="header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/images/default.jpg') }}"
+                        alt="Header Avatar"> -->
                     @endif
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->company_name)}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
