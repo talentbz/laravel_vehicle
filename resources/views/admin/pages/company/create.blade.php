@@ -88,6 +88,7 @@
 <script>
     var add_url = "{{ route('company.store') }}";
     var add_photo_url = "{{ route('company.photo_store') }}";
+    var redirect_vehicle = "{{ route('vehicle.index') }}";
 </script>
 </div> <!-- end row -->
     @section('script')

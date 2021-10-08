@@ -95,6 +95,7 @@
     var add_url = "{{ route('company.store') }}";
     var add_photo_url = "{{ route('company.photo_store') }}";
     var remove_photo = "{{ route('company.photo_destroy') }}";
+    var redirect_company = "{{ route('company.details', ['id' =>$company->id]) }}";
     var image_paths = @json($image_paths);
     var id_array = @json($id_array);
 </script>

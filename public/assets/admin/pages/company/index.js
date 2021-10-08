@@ -43,6 +43,7 @@
                 success: function (res) {
                     toastr["success"]("保存完了");
                     $('.back').show();
+                    window.location = redirect_company;
                 },
                 error: function (res){
                     console.log(res)

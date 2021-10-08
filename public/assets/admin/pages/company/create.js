@@ -39,6 +39,7 @@ $(document).ready(function () {
                 success: function (res) {
                     toastr["success"]("保存完了");
                     $('.back').show();
+                    window.location = redirect_vehicle;
                 },
                 error: function (res){
                     console.log(res)
