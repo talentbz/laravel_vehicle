@@ -47,3 +47,6 @@ table.dataTable.nowrap th, table.dataTable.nowrap td {
     top: 40%;
     left: 50%;
 }
+.custom-navbar-nav {
+    flex-direction: row !important;
+}

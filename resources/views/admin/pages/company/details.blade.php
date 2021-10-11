@@ -15,7 +15,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h4 class="card-title">会社情報 <span>{{prefix_word($company->id, 3)}}</span></h4>
+                <h4 class="card-title">会社情報 <span>{{prefix_word($users->id, 3)}}</span></h4>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-nowrap mb-0">
                         <thead>

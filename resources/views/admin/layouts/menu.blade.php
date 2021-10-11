@@ -22,9 +22,9 @@
                 </a> -->
             </div>
 
-            <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+            <!-- <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
                 <i class="fa fa-fw fa-bars"></i>
-            </button>
+            </button> -->
 
         </div>
 
@@ -71,7 +71,7 @@
                         alt="Header Avatar"> -->
                     @endif
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->company_name)}}</span>
-                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    <i class="mdi mdi-chevron-down d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
@@ -95,8 +95,8 @@
     <div class="container-fluid">
         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
 
-            <div class="collapse navbar-collapse" id="topnav-menu-content">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse show">
+                <ul class="navbar-nav custom-navbar-nav">
                     @if(Auth::user()->role == 1)
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{ route('dashboard') }}" role="button"
