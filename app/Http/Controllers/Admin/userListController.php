@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB, Validator, Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\File; 
 use App\Models\User;
 use App\Models\Company;
 use App\Models\Vehicle;
@@ -81,12 +82,14 @@ class userListController extends Controller
         if($company){ // if company is exist
             $vehicles = Vehicle::leftJoin('company_details', 'vehicle.company_id', '=', 'company_details.id')
                                ->where('company_details.id', '=', $company->id)
+                               ->select('vehicle.*')
                                ->get();
                 if($vehicles){
                     foreach($vehicles as $vehicle) {
                         $fileNames = VehicleMedia::where('vehicle_id', $vehicle->id)->get();
                         foreach($fileNames as $fileName){
                             $filePath = 'uploads/vehicle/'.$vehicle->id.'/'.$fileName->file_name;
+                            
                             //dd(File::exists(public_path($fileName)));
                             if(File::exists(public_path($filePath))){
                                 File::delete(public_path($filePath));   
@@ -98,7 +101,7 @@ class userListController extends Controller
                         VehicleFee::where('vehicle_id', $vehicle->id)->delete();
                     }
                 }
-            $bulletins = Bulletin::where('company_id', $company->id)->get();
+            $bulletins = Bulletin::where('company_id', $company->id)->select('bulletin.*')->get();
             if($bulletins){
                 foreach($bulletins as $bulletin){
                     Bulletin::where('id', $bulletin->id)->delete();

@@ -12,6 +12,7 @@ $(document).ready(function(){
         var location = row.children(".location").text();
         $('#company_name').val(company_name);
         $('#email').val(email);
+        $('#userpassword').removeAttr('value');
         $('#phone').val(phone);
         $('#location').val(location);
         $('#user_id').val(id);

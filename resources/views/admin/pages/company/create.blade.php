@@ -27,25 +27,25 @@
                                 <tr>
                                     <th class="text-nowrap" scope="row">会社名</th>
                                     <td colspan="6">
-                                        <input parsley-type="company_name" type="text" name="company_name" class="form-control" required placeholder="Enter company" id="comapany-name"/>
+                                        <input parsley-type="company_name" type="text" name="company_name" class="form-control" required placeholder="会社名を入力" id="comapany-name"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-nowrap" scope="row">担当者</th>
                                     <td colspan="6">
-                                        <input parsley-type="member" type="text" name="member" class="form-control" required placeholder="Enter member" id="member"/>
+                                        <input parsley-type="member" type="text" name="member" class="form-control" required placeholder="担当者を入力" id="member"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-nowrap" scope="row">所在地</th>
                                     <td colspan="6">
-                                        <input parsley-type="location" type="text" name="location" class="form-control" required placeholder="Enter location" id="location"/>
+                                        <input parsley-type="location" type="text" name="location" class="form-control" required placeholder="所在地を入力" id="location"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-nowrap" scope="row">電話番号</th>
                                     <td colspan="6">
-                                        <input parsley-type="phone" type="text" name="phone" class="form-control" required placeholder="Enter phone number" id="phone"/>
+                                        <input parsley-type="phone" type="text" name="phone" class="form-control" required placeholder="電話番号を入力" id="phone"/>
                                     </td>
                                 </tr>
                                 <tr>

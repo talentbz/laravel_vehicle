@@ -1,3 +1,6 @@
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
  <!-- add new modal content -->
  <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel"
         aria-hidden="true">

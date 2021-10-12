@@ -28,6 +28,7 @@ class vehicleController extends Controller
                                         ->leftJoin('vehicle_media', 'vehicle.id', '=', 'vehicle_media.vehicle_id')
                                         ->groupBy('vehicle.id')
                                         ->select('vehicle.*', 'vehicle_media.car_path', 'vehicle_fee.taxExc_price', 'vehicle_fee.taxInc_price')
+                                        ->where('vehicle.company_id', '=', $company->id)
                                         ->orderBy('vehicle.created_at', 'desc')
                                         ->get();                    
             } else {
@@ -344,7 +345,7 @@ class vehicleController extends Controller
         $vehilce_fee = VehicleFee::where('vehicle_id', $vehicel_id)->first();
         $vehicle_equipment = VehicleEquipment::where('vehicle_id', $vehicel_id)->first();
         $vehicle_medias = VehicleMedia::where('vehicle_id', $vehicel_id)->orderBy('car_path', 'ASC')->get();
-        //dd($vehilce_details);
+        //dd($vehilce_details); 
         return view('admin.pages.vehicle.details', [
            'vehilce_details'   => $vehilce_details,
            'vehilce_fee'       => $vehilce_fee,

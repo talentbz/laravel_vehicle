@@ -33,7 +33,7 @@
                                     </div>
                                 </th> -->
                                 <th width="5%">会員NO</th>
-                                <th width="5%">写真</th>
+                                <!-- <th width="5%">写真</th> -->
                                 <th width="20%">会社名</th>
                                 <th width="10%">ID(Email)</th>
                                 <th width="10%">電話番号</th>
@@ -53,7 +53,7 @@
                                     </div>
                                 </td> -->
                                 <td align="center">{{prefix_word($user->id, 3)}}</td>
-                                <td align="center">
+                                <!-- <td align="center">
                                     @if($user->company_id)
                                     <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">
                                         @if($user->avatar)
@@ -71,7 +71,7 @@
                                         @endif
                                     </a>
                                     @endif
-                                </td>
+                                </td> -->
                                 <td class="company_name">
                                     @if($user->company_id)
                                         <a href="{!! route('company.details', ['id' => $user->company_id]) !!}">{{$user->company_name}}</a>
