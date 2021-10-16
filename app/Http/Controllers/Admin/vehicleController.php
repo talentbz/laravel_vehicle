@@ -670,7 +670,7 @@ class vehicleController extends Controller
         //         $vehicleId = Vehicle::latest('id')->first()->id;
         //         $vehicleId ++;
         //     } else {
-        //         $vehicleId = 1;
+        //         $vehicleId = 1; 
         //     }
         // }
         if ($request->has('file')) { 
