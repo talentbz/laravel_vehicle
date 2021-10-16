@@ -34,7 +34,7 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/companyintro', [App\Http\Controllers\Frontend\companyIntro::class, 'index'])->name('companyIntroduce');
     Route::get('/companyintro/{id}', [App\Http\Controllers\Frontend\companyIntro::class, 'details'])->name('companyIntroduce.details');
 
-    //Recruitment of listed stores
+    //Recruitment of listed stores  
     Route::group(['prefix' => 'membership'], function(){
         Route::get('/', [App\Http\Controllers\Frontend\membership::class, 'index'])->name('membership');
         Route::get('/dealer', [App\Http\Controllers\Frontend\membership::class, 'dealer'])->name('membership.dealer');
@@ -56,7 +56,7 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
-//admin
+//admin 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', [App\Http\Controllers\HomeController::class, 'root'])->name('root')->middleware('checkRole');
     Route::get('/dashboard', [App\Http\Controllers\Admin\dashboardController::class, 'index'])->name('dashboard')->middleware('checkRole');
@@ -98,6 +98,5 @@ Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class,
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
 //Language Translation test1
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);

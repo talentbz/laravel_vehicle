@@ -39,17 +39,21 @@ class companyController extends Controller
     public function details(Request $request, $id){
         
         $company = Company::where('id', $id)->first();
-        $userId = Company::select('users.id')
+        if($company){
+            $userId = Company::select('users.id')
                          ->join('users', 'company_details.user_id', '=', 'users.id')
                          ->where('company_details.user_id', '=', $company->user_id)
                          ->first()->id;
-        $users = User::where('id', $userId)->first();
-        $companyPhotos = CompanyMedia::where('company_id', $id)->get();
-        return view('admin.pages.company.details', [
-            'users' => $users,
-            'company' => $company,
-            'companyPhotos' => $companyPhotos,
-        ]);
+            $users = User::where('id', $userId)->first();
+            $companyPhotos = CompanyMedia::where('company_id', $id)->get();
+            return view('admin.pages.company.details', [
+                'users' => $users,
+                'company' => $company,
+                'companyPhotos' => $companyPhotos,
+            ]);
+        } else {
+            return abort(404);
+        }
     }
 
     public function edit(Request $request, $id){
@@ -84,6 +88,7 @@ class companyController extends Controller
         $location = $request->location;
         $site_url = $request->site_url;
         $description = $request->description;
+        $special = $request->special;
         //save user info
         $user = User::find($userId);
         $user->phone = $phone;
@@ -101,6 +106,7 @@ class companyController extends Controller
             $company->name = $request->company_name;
             $company->member = $request->member;
             $company->description = $description;
+            $company->special = $special;
             $company->save();    
         } else {
             $company = new Company;
@@ -109,6 +115,7 @@ class companyController extends Controller
             $company->name = $request->company_name;
             $company->member = $request->member;
             $company->description = $description;
+            $company->special = $special;
             $company->save();
         }
         return response()->json('saved');

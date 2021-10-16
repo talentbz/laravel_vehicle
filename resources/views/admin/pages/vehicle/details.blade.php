@@ -10,6 +10,9 @@
 @endsection
 
 @section('content')
+@if(empty($vehilce_details))
+    <script>window.location = "{{route('dashboard')}}";</script>
+@else
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -324,4 +327,5 @@
         
     </script>
     @endsection
+@endif    
 @endsection

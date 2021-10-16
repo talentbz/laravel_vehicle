@@ -84,6 +84,7 @@
                                 <td class="location">{{$user->location}}</td>
                                 <!-- <td>{{$user->status}}</td> -->
                                 <td>{{$user->updated_at}}</td>
+                                <td class="real_password" style="display:none">{{$user->real_password}}</td>
                                 <td align="center">
                                         <a href="javascript:void(0);" class="text-success edit" data-id="{{ $user->id }}" data-bs-toggle="modal" data-bs-target="#editModal"><i
                                                 class="mdi mdi-pencil font-size-18"></i></a>

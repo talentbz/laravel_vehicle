@@ -829,7 +829,7 @@ class vehicleController extends Controller
         $fileName = vehicleMedia::where('id', $id)->first()->file_name;
         $vehicleId = vehicleMedia::where('id', $id)->first()->vehicle_id;
         $fileName = ('uploads/vehicle/'.$vehicleId.'/'.$fileName);
-        //dd(File::exists(public_path($fileName)));
+        //dd(File::exists(public_path($fileName))); 
         if(File::exists(public_path($fileName))){
             File::delete(public_path($fileName));   
         }
@@ -843,7 +843,7 @@ class vehicleController extends Controller
         if ($request->has('file')) { 
             $path = public_path('uploads/vehicle/'.$vehicleId.'/');
             if (!file_exists($path)) {
-                File::makeDirectory($path); //create new folder   
+                File::makeDirectory($path); //create new folder
             }
             $extension = $request->file->extension();
             $fileName = request()->file->getClientOriginalName();

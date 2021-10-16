@@ -54,10 +54,7 @@
                             @empty
                             <tr>
                                 @if(empty($bulletins))
-                                    <td align="center" colspan="6">
-                                        <a href="{{route('company.create')}}" class="btn btn-outline-primary waves-effect waves-light">
-                                        会社を作る</a>
-                                    </td>
+                                    <td align="center" colspan="6">まずは、会社を登録してください。</td>
                                 @else
                                     <td align="center" colspan="6">データが存在しません</p>
                                 @endif

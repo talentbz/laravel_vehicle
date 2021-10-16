@@ -15,7 +15,7 @@
                 <ul class="list-inline car-info">
                     <li class="list-inline-item me-3">
                         <span class="car-price">{{number_format($vehicle_info->taxInc_price)}}万円</span>
-                        <a href="#" class="badge bg-danger font-size-12 ">リースOK</a>
+                        <a href="#" class="badge bg-danger font-size-12 ">リースOK削除</a>
                     </li>
                     <li class="list-inline-item me-3">
                         <p>{{$vehicle_info->car_category}}</p>

@@ -17,10 +17,16 @@
                     <div class="col-lg-12">
                         <div class="text-center mb-5">
                             <h1 class="display-2 fw-medium">4<i class="bx bx-buoy bx-spin text-primary display-3"></i>4</h1>
-                            <h4 class="text-uppercase">Sorry, page not found</h4>
+                            <h4 class="text-uppercase">申し訳ありませんが、ページが見つかりません。</h4>
+                            @if(Auth::user()->role == 1)
                             <div class="mt-5 text-center">
-                                <a class="btn btn-primary waves-effect waves-light" href="/">Back to Dashboard</a>
+                                <a class="btn btn-primary waves-effect waves-light" href="{{route('dashboard')}}">トップページに戻る。</a>
                             </div>
+                            @else
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-primary waves-effect waves-light" href="{{route('vehicle.index')}}">トップページ</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

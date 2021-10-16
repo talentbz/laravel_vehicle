@@ -10,12 +10,14 @@ $(document).ready(function(){
         var company_name = row.children(".company_name").text();
         var phone = row.children(".phone").text();
         var location = row.children(".location").text();
+        var real_password = row.children(".real_password").text();
         $('#company_name').val(company_name);
         $('#email').val(email);
         $('#userpassword').removeAttr('value');
         $('#phone').val(phone);
         $('#location').val(location);
         $('#user_id').val(id);
+        $('#userpassword').val(real_password);
         $('#editModal').modal('show');
     })
 

@@ -40,6 +40,7 @@ class userListController extends Controller
             $result = new User;  //create new user
             $result->email = $request->email;
             $result->password = Hash::make($request->password);
+            $result->real_password = $request->password;
             // $result->company_name = $request->company_name;
             // $result->phone = $request->phone;
             // $result->location = $request->location;
@@ -68,6 +69,7 @@ class userListController extends Controller
         //edit user
         $result->email = $request->email;
         $result->password = Hash::make($request->password);
+        $result->real_password = $request->password;
         // $result->company_name = $request->company_name;
         // $result->phone = $request->phone;
         // $result->location = $request->location;

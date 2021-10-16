@@ -64,6 +64,10 @@
                                 <th class="text-nowrap" scope="row">会社説明</th>
                                 <td colspan="6">{!! $company->description !!}</td>
                             </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">特記</th>
+                                <td colspan="6">{!! $company->special !!}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

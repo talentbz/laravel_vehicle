@@ -61,6 +61,13 @@
                                         placeholder="1000文字以内">{{$company->description}}</textarea>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th class="text-nowrap" scope="row">特記</th>
+                                    <td colspan="6">
+                                         <textarea id="textarea1" name="special" class="form-control" maxlength="1000" rows="3"
+                                        placeholder="1000文字以内">{{$company->special}}</textarea>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

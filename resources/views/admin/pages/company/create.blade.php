@@ -60,6 +60,12 @@
                                          <textarea id="textarea" name="description" class="form-control" maxlength="1000" rows="3"></textarea>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th class="text-nowrap" scope="row">特記</th>
+                                    <td colspan="6">
+                                         <textarea id="textarea" name="special" class="form-control" maxlength="1000" rows="3"></textarea>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

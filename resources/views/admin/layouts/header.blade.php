@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="content-language" content="ja">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title> @yield('title') | vehicle admin</title>
+    <title> @yield('title')|admin</title>
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
