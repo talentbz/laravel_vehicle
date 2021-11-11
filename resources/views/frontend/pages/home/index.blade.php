@@ -85,8 +85,8 @@
                                         <option></option>
                                         <option value="row_price"> 価格が安い</option>
                                         <option value="high_price"> 価格が高い</option>
-                                        <option value="old_model_date">年式が古い</option>
                                         <option value="new_model_date">年式が新しい</option>
+                                        <option value="old_model_date">年式が古い</option>
                                         <option value="short_mileage">走行距離が短い</option>
                                         <option value="long_mileage">走行距離が長い</option>
                                     </select>
